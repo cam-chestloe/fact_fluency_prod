@@ -1,0 +1,3 @@
+<h3 name="question"><span>Question <%= @index %>: <%= @question.question %></h3>
+<input name="answer" value="<%= @answer %>">
+<button drab-click="answer_question">Answer!</button>

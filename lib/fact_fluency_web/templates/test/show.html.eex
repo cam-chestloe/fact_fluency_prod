@@ -1,0 +1,32 @@
+<h2>Show Test</h2>
+
+<ul>
+
+  <li>
+    <strong>Start time:</strong>
+    <%= @test.start_time %>
+  </li>
+
+  <li>
+    <strong>End time:</strong>
+    <%= @test.end_time %>
+  </li>
+
+  <li>
+    <strong>Review start time:</strong>
+    <%= @test.review_start_time %>
+  </li>
+
+  <li>
+    <strong>Timestamps:</strong>
+    <%= @test.timestamps %>
+  </li>
+
+  <%= for question <- @test.questions do %>
+    <p><%= question.question %></p>
+  <% end %>
+
+</ul>
+
+<span><%= link "Edit", to: test_path(@conn, :edit, @test) %></span>
+<span><%= link "Back", to: test_path(@conn, :index) %></span>

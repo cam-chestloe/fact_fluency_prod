@@ -1,0 +1,28 @@
+<h2>Listing School parameters</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Teachers can edit test parameters</th>
+      <th>Teachers can edit warmup parameters</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for school_parameters <- @school_parameters do %>
+    <tr>
+      <td><%= school_parameters.teachers_can_edit_test_parameters %></td>
+      <td><%= school_parameters.teachers_can_edit_warmup_parameters %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: school_parameters_path(@conn, :show, school_parameters), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: school_parameters_path(@conn, :edit, school_parameters), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: school_parameters_path(@conn, :delete, school_parameters), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New School parameters", to: school_parameters_path(@conn, :new) %></span>

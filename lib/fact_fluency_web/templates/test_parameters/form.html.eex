@@ -1,0 +1,72 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :test_type, class: "control-label" %>
+    <%= text_input f, :test_type, class: "form-control" %>
+    <%= error_tag f, :test_type %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :total_questions, class: "control-label" %>
+    <%= number_input f, :total_questions, class: "form-control" %>
+    <%= error_tag f, :total_questions %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :number_of_random_questions, class: "control-label" %>
+    <%= number_input f, :number_of_random_questions, class: "form-control" %>
+    <%= error_tag f, :number_of_random_questions %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :include_random_questions_in_score, class: "control-label" %>
+    <%= checkbox f, :include_random_questions_in_score, class: "checkbox" %>
+    <%= error_tag f, :include_random_questions_in_score %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :time_limit, class: "control-label" %>
+    <%= number_input f, :time_limit, class: "form-control" %>
+    <%= error_tag f, :time_limit %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :warm_up, class: "control-label" %>
+    <%= checkbox f, :warm_up, class: "checkbox" %>
+    <%= error_tag f, :warm_up %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :school_id, class: "control-label" %>
+    <%= number_input f, :school_id, class: "checkbox" %>
+    <%= error_tag f, :school_id %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :teacher_id, class: "control-label" %>
+    <%= number_input f, :teacher_id, class: "checkbox" %>
+    <%= error_tag f, :teacher_id %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :class_id, class: "control-label" %>
+    <%= number_input f, :class_id, class: "checkbox" %>
+    <%= error_tag f, :class_id%>
+  </div>
+  
+  <div class="form-group">
+    <%= label f, :student_id, class: "control-label" %>
+    <%= number_input f, :student_id, class: "checkbox" %>
+    <%= error_tag f, :student_id %>
+  </div>
+
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

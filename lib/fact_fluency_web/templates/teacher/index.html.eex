@@ -1,0 +1,30 @@
+<h2>Listing Teachers</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Timestamps</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for teacher <- @teachers do %>
+    <tr>
+      <td><%= teacher.first_name %></td>
+      <td><%= teacher.last_name %></td>
+      <td><%= teacher.timestamps %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: teacher_path(@conn, :show, teacher), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: teacher_path(@conn, :edit, teacher), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: teacher_path(@conn, :delete, teacher), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Teacher", to: teacher_path(@conn, :new) %></span>

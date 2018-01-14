@@ -1,0 +1,32 @@
+<h2>Listing Tests</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Review start time</th>
+      <th>Timestamps</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for test <- @tests do %>
+    <tr>
+      <td><%= test.start_time %></td>
+      <td><%= test.end_time %></td>
+      <td><%= test.review_start_time %></td>
+      <td><%= test.timestamps %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: test_path(@conn, :show, test), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: test_path(@conn, :edit, test), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: test_path(@conn, :delete, test), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Test", to: test_path(@conn, :new) %></span>

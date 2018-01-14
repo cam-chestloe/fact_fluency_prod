@@ -1,0 +1,18 @@
+<h2>Show School parameters</h2>
+
+<ul>
+
+  <li>
+    <strong>Teachers can edit test parameters:</strong>
+    <%= @school_parameters.teachers_can_edit_test_parameters %>
+  </li>
+
+  <li>
+    <strong>Teachers can edit warmup parameters:</strong>
+    <%= @school_parameters.teachers_can_edit_warmup_parameters %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: school_parameters_path(@conn, :edit, @school_parameters) %></span>
+<span><%= link "Back", to: school_parameters_path(@conn, :index) %></span>

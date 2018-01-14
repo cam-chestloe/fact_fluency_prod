@@ -1,0 +1,5 @@
+<h2>New Test parameters</h2>
+
+<%= render "form.html", Map.put(assigns, :action, test_parameters_path(@conn, :create)) %>
+
+<span><%= link "Back", to: test_parameters_path(@conn, :index) %></span>

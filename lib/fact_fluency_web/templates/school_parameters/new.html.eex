@@ -1,0 +1,5 @@
+<h2>New School parameters</h2>
+
+<%= render "form.html", Map.put(assigns, :action, school_parameters_path(@conn, :create)) %>
+
+<span><%= link "Back", to: school_parameters_path(@conn, :index) %></span>

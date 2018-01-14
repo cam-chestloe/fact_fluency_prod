@@ -1,0 +1,23 @@
+<h2>Show Teacher</h2>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @teacher.first_name %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @teacher.last_name %>
+  </li>
+
+  <li>
+    <strong>Timestamps:</strong>
+    <%= @teacher.timestamps %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: teacher_path(@conn, :edit, @teacher) %></span>
+<span><%= link "Back", to: teacher_path(@conn, :index) %></span>

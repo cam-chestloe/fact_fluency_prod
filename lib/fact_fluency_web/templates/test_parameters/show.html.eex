@@ -1,0 +1,48 @@
+<h2>Show Test parameters</h2>
+
+<ul>
+
+  <li>
+    <strong>Test type:</strong>
+    <%= @test_parameters.test_type %>
+  </li>
+
+  <li>
+    <strong>Arguments:</strong>
+    <%= @test_parameters.arguments %>
+  </li>
+
+  <li>
+    <strong>Total questions:</strong>
+    <%= @test_parameters.total_questions %>
+  </li>
+
+  <li>
+    <strong>Number of random questions:</strong>
+    <%= @test_parameters.number_of_random_questions %>
+  </li>
+
+  <li>
+    <strong>Include random questions in score:</strong>
+    <%= @test_parameters.include_random_questions_in_score %>
+  </li>
+
+  <li>
+    <strong>Time limit:</strong>
+    <%= @test_parameters.time_limit %>
+  </li>
+
+  <li>
+    <strong>Warm up:</strong>
+    <%= @test_parameters.warm_up %>
+  </li>
+
+  <li>
+    <strong>Timestamps:</strong>
+    <%= @test_parameters.timestamps %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: test_parameters_path(@conn, :edit, @test_parameters) %></span>
+<span><%= link "Back", to: test_parameters_path(@conn, :index) %></span>

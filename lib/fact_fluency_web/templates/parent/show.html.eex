@@ -1,0 +1,18 @@
+<h2>Show Parent</h2>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @parent.first_name %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @parent.email %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: parent_path(@conn, :edit, @parent) %></span>
+<span><%= link "Back", to: parent_path(@conn, :index) %></span>

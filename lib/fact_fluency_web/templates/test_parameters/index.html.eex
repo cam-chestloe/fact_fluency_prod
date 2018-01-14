@@ -1,0 +1,40 @@
+<h2>Listing Test parameters</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Test type</th>
+      <th>Arguments</th>
+      <th>Total questions</th>
+      <th>Number of random questions</th>
+      <th>Include random questions in score</th>
+      <th>Time limit</th>
+      <th>Warm up</th>
+      <th>Timestamps</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for test_parameters <- @test_parameters do %>
+    <tr>
+      <td><%= test_parameters.test_type %></td>
+      <td><%= test_parameters.arguments %></td>
+      <td><%= test_parameters.total_questions %></td>
+      <td><%= test_parameters.number_of_random_questions %></td>
+      <td><%= test_parameters.include_random_questions_in_score %></td>
+      <td><%= test_parameters.time_limit %></td>
+      <td><%= test_parameters.warm_up %></td>
+      <td><%= test_parameters.timestamps %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: test_parameters_path(@conn, :show, test_parameters), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: test_parameters_path(@conn, :edit, test_parameters), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: test_parameters_path(@conn, :delete, test_parameters), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Test parameters", to: test_parameters_path(@conn, :new) %></span>
