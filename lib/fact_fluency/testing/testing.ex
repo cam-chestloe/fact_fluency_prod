@@ -146,17 +146,13 @@ defmodule FactFluency.Testing do
 
   """
   def create_test(%{"test_type" => test_type, "number" => number, "operator" => operator, "student_id" => student_id})  do
-    {:ok, test} = Test.new_test(test_type, %{operator: operator, number: String.to_integer(number)}, String.to_integer(student_id))
-    %{test | start_time: DateTime.utc_now()}
-    Repo.insert(test)
-  end
+    {:ok, test} = Test.new_test(
+                    test_type, 
+                    %{operator: operator, number: String.to_integer(number)}, 
+                    String.to_integer(student_id))
 
-  def update_test(%Test{} = test, %{questions: questions, end_time: end_time}) do
-    # use ecto transaction  
-    test
-      |> Ecto.Changeset.put_embed(:questions, questions)
-      |> Ecto.Changeset.put_change(:end_time, end_time)
-      |> Repo.update()
+    %{test | start_time: DateTime.utc_now()}
+    |> Repo.insert()
   end
 
   @doc """
@@ -207,14 +203,19 @@ defmodule FactFluency.Testing do
   end
 
   @doc """
-  Returns an `%Ecto.Changeset{}` for tracking question changes.
+  Returns a `%Test{}` with an updated list of `%Question{}`s.
 
-  ## Examples
+  ## Example
 
-      iex> change_questions(question)
-      %Ecto.Changeset{source: %Question{}
+      iex> answer_question(test, index, answer)
+      %Test{questions: [%Question{}]}
   """
-  def change_question(%Question{} = question) do
-      Question.changeset(question, %{})
+  def answer_question(test, index, answer) do
+    test
+    |> Map.update!(:questions, fn questions ->
+        List.update_at(questions, index, fn q ->
+          %{q | student_answer: answer}
+        end)
+      end)
   end
 end
