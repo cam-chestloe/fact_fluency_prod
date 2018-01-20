@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+/*  Universal Styles    */
+
+body {
+    display: grid;
+    grid-template-columns: 12fr;
+    grid-template-rows: auto;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contactlink {
+    text-decoration: none;
+    font-family: Roboto, sans-serif;
+    font-size: 1.1rem;
+    opacity: 20%;
+}
+
+.contactlink:hover {
+    text-decoration: underline;
+}
+
+/*  Modal Background    */
+.modal {
+    display: none; /* Hidden By Default */
+    position: fixed; /* Stay In Place */
+    z-index: 1; /* Sit On Top */
+    left: 0;
+    top: 0; 
+    width: 100%; /* Full Width */
+    height: 100%; /* Full Height */
+    background-color: rgb(0,0,0); /* Fallback Color */
+    background-color: rgba(1, 0, 0, 0.75); /* Black w/ Opacity */
+}
+
+/*  Modal Card Signup  */
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 16px;
+    width: 80% 
+}
+
+/*  Close Button    */
+.close {
+    color: gray;
+    float: right;
+    font-family: Roboto, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: black;
+}
+
+/* Input Styles */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 4px;
+    margin: 8px 0;
+    border: none;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.425);
+}
+
+input[type=text]:focus, input[type=text]:focus {
+    border: 3px solid gray;
+}
+
+/*  Mobile  */
+/*  Tablet  */
+/*  Desktop */
