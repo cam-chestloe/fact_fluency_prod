@@ -31,12 +31,78 @@
         <div class="student-list">
             <h2>Student List</h2>
             <ul class="listnames">
-                <li><span>Child 1 Place Holder</span><button class="settings-button" alt="Settings Logo">Image Place Holder</button></li>
+                <li>
+                    <span>Child 1 Place Holder</span>
+                    <button class="settings-button" alt="Settings Logo" onclick="Open Modal Settings For Parent #childsettings">Image Place Holder</button>
+                </li>
                 <li><span>Child 2 Place Holder</span><button class="settings-button" alt="Settings Logo">Image Place Holder</button></li>
             </ul>
 
             <!-- Example Settings Modal -->
+             <!-- The Modal -->
+             <div id="child-settings" class="modal">
+                    <span onclick="Open Modal Settings For Parent #child-settings" class="close" title="Close Modal">&times;</span>
+        
+                    <!-- Modal Content -->
+                    <form class="modal-content animate" action="#">
+                        <div class="modal-content">
 
+                            <!--    Modal Header  -->
+                            <h1>Settings</h1>
+                            <h3>Control how your child practices their math facts at home.</h3>
+
+                            <!--    Operation Choices   -->    
+                            <div class="operation-type">
+                                <h3>Operation Types</h3>
+                                <input type="checkbox" name="plus" id="addition" value="plussign"/><label>+</label>
+                                <input type="checkbox" name="minus" id="subtraction" value="minussign"/><label>-</label>
+                                <input type="checkbox" name="times" id="multiplication" value="timessign"/><label>x</label>
+                                <input type="checkbox" name="divide" id="division" value="dividesign"/><label>÷</label>
+                            </div>
+
+                            <!--   Basic Settings -->
+                            <div class="basic-settings">
+                                <!--    Time Limit  -->
+                                <div class="time-limit">
+                                    <label>Time Limit</label>
+                                    <label>Minutes</label>
+                                    <select name="nnumber-minutes">
+                                            <option value="minute-00"></option>
+                                            <option value="minute-01">1 minute</option>
+                                            <option value="minute-02">2 minute</option>
+                                            <option value="minute-04">4 minute</option>
+                                            <option value="minute-05">5 minute</option>
+                                        </select> 
+
+                                    <label>Seconds</label>
+                                    <select name="number-seconds">
+                                        <option value="seconds-00"></option>
+                                        <option value="seconds-15">15 seconds</option>
+                                        <option value="seconds-30">30 seconds</option>
+                                        <option value="seconds-45">45 seconds</option>
+                                    </select>
+                                </div>
+
+                                <!--    Number Of Questions -->
+                                <div class="number-questions">
+                                    <labe>Number of Questions</labe>
+                                    <input type="text" name="number-value">
+                                </div>
+                            </div>
+                            
+                            <!--    Cancel Button   -->
+                            <div class="clearfix">
+                                <button type="button" onclick="document.getElementById('signupform').style.display='none'" class="cancelbtn">Cancel</button>
+                            </div>
+                            
+                            <!--    Cancel Button   -->
+                            <div class="delete-child">
+                                <button type="button" onclick="Delete Child and Prompt With 'Are You Sure Method'" class="delete-btn">Delete Child Profile</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            
             <!-- Example Results    -->
         </div>    
 
