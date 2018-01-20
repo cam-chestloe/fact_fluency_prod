@@ -21,15 +21,6 @@
 
     <!--    Body Content    -->
     <div class="container">
-
-        <!--    Add Student -->
-        <div class="add-student">
-            <form class="add student">
-                <p>Add your child using their secret code.</p>
-                <label>Secret Code</label>
-                <input type="text" name="student-code">
-                <button class="submit-button">Submit</button>
-            </form>
         
         <!--    Student List    -->
         <div class="student-list">
@@ -39,13 +30,82 @@
                     <span>Child 1 Place Holder</span>
                     <button class="settings-button" alt="Settings Logo" onclick="Open Modal Settings For Parent #childsettings">Image Place Holder</button>
                 </li>
-                <li><span>Child 2 Place Holder</span><button class="settings-button" alt="Settings Logo">Image Place Holder</button></li>
+                <li>
+                    <span>Child 2 Place Holder</span>
+                    <button class="settings-button" alt="Settings Logo" onclick="Open Modal Settings For Parent #childsettings">Image Place Holder</button>
+                </li>
             </ul>
+
+            <div class="container add-new-student">
+                <!--    Add Student Modal   -->
+                <div id="add-student" class="modal">
+                    <button onclick="Open Modal To Add New Student" class="add-student">Place Holder Button</button>
+
+                    <!--    Modal Content   -->
+                    <form class="modal-content animate" action="#">
+                        <span onclick="Close Add Student Modal" class="close" title="Close Modal">&times;</span>
+                        <div class="modal-content">
+
+                            <!--    Add New Student -->
+                            <h1>Add Student</h1>
+                            <h3>Add a new student</h3>
+                            <div class="add-student">
+                                    <form class="add-new-student">
+                                        <p>Add your child</p>
+                                        <label>Student First Name</label>
+                                        <input type="text" name="student-first-name">
+
+                                        <label>Grade</label>
+                                        <select name="grade-level">
+                                            <option value="grade-prek">Pre K</option>
+                                            <option value="grade-k">K</option>
+                                            <option value="grade-01">1st</option>
+                                            <option value="grade-02">2nd</option>
+                                            <option value="grade-03">3rd</option>
+                                            <option value="grade-04">4th</option>
+                                            <option value="grade-05">5th</option>
+                                            <option value="grade-06">6th</option>
+                                            <option value="grade-07">7th</option>
+                                            <option value="grade-08">8th</option>
+                                            <option value="grade-09">9th</option>
+                                            <option value="grade-10">10th</option>
+                                            <option value="grade-11">11th</option>
+                                            <option value="grade-12">12th</option>
+                                        </select>
+
+                                        <label>Pin</label>
+                                        <input type="text" name="student-pin" placeholder="Enter 4 Number Pin" maxlength="4">
+                                    </form>
+                                </div>
+
+                            <!--    Add Existing Student -->    
+                            <h3>Add existing student</h3>
+                            <p>(If your student is already in a class)</p>
+                            <div class="add-student">
+                                <form class="add-existing-student">
+                                    <p>Add your child using their secret code.</p>
+                                    <label>Secret Code</label>
+                                    <input type="text" name="student-code">
+                                </form>
+                            </div> 
+                        </div>
+                        
+                        <!--    Submit Button   -->
+                        <button class="submit-button">Submit</button>
+
+                         <!--    Cancel Button   -->
+                         <div class="clearfix">
+                                <button type="button" onclick="document.getElementById('signupform').style.display='none'" class="cancelbtn">Cancel</button>
+                         </div>
+
+                    </form>
+                </div>
+            </div>
 
             <!-- Example Settings Modal -->
              <!-- The Modal -->
              <div id="child-settings" class="modal">
-                    <span onclick="Open Modal Settings For Parent #child-settings" class="close" title="Close Modal">&times;</span>
+                    <span onclick="Close Modal Settings For Parent #child-settings" class="close" title="Close Modal">&times;</span>
         
                     <!-- Modal Content -->
                     <form class="modal-content animate" action="#">
@@ -70,7 +130,7 @@
                                 <div class="time-limit">
                                     <label>Time Limit</label>
                                     <label>Minutes</label>
-                                    <select name="nnumber-minutes">
+                                    <select name="number-minutes">
                                             <option value="minute-00"></option>
                                             <option value="minute-01">1 minute</option>
                                             <option value="minute-02">2 minute</option>
@@ -99,7 +159,7 @@
                                 <button type="button" onclick="document.getElementById('signupform').style.display='none'" class="cancelbtn">Cancel</button>
                             </div>
                             
-                            <!--    Cancel Button   -->
+                            <!--    Delete Button   -->
                             <div class="delete-child">
                                 <button type="button" onclick="Delete Child and Prompt With 'Are You Sure Method'" class="delete-btn">Delete Child Profile</button>
                             </div>
