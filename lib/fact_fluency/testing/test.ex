@@ -22,7 +22,6 @@ defmodule FactFluency.Testing.Test do
   def changeset(%Test{} = test, attrs) do
     test
     |> cast(attrs, [:start_time, :end_time, :review_start_time, :timestamps])
-    |> cast_embed(:questions)
     |> validate_required([:start_time, :end_time, :review_start_time, :timestamps])
   end
 
