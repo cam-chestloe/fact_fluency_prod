@@ -1,3 +1,7 @@
-<h3 name="question"><span>Question <%= @index %>: <%= @question.question %></h3>
-<input name="answer" value="<%= @answer %>">
-<button drab-click="answer_question">Answer!</button>
+<div id="answer_div" style="display:none">
+    <h3 id="question"><span>Question <%= @index %>: <%= @question.question %></h3>
+    <input id="answer_input">
+    <button id="answer_button" drab-click="answer_question">Answer!</button>
+</div>
+
+<button id="start_button" drab-click="start_test">Start Test!</button>

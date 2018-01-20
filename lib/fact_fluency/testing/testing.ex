@@ -167,10 +167,10 @@ defmodule FactFluency.Testing do
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_test(%Test{} = test, attrs) do
-    test
-    |> Test.changeset(attrs)
-    |> Repo.update()
+  def update_test(%Test{} = test, %{questions: questions} = attrs) do
+      Ecto.Changeset.change(test, attrs)
+      |> Ecto.Changeset.put_embed(:questions, questions)
+      |> Repo.update()
   end
 
   @doc """
@@ -207,14 +207,31 @@ defmodule FactFluency.Testing do
 
   ## Example
 
+      iex> start_question(test, index)
+      %Test{questions: [%Question{start_time: now}]}
+  """
+  def start_question(test, index) do
+      test
+      |> Map.update!(:questions, fn questions ->
+        List.update_at(questions, index, fn q ->
+          %{q | start_time: DateTime.utc_now()}
+        end)
+      end)
+  end
+
+  @doc """
+  Returns a `%Test{}` with an updated list of `%Question{}`s.
+
+  ## Example
+
       iex> answer_question(test, index, answer)
-      %Test{questions: [%Question{}]}
+      %Test{questions: [%Question{student_answer: answer, start_time: now}]}
   """
   def answer_question(test, index, answer) do
     test
     |> Map.update!(:questions, fn questions ->
         List.update_at(questions, index, fn q ->
-          %{q | student_answer: answer}
+          %{q | student_answer: answer, end_time: DateTime.utc_now()}
         end)
       end)
   end

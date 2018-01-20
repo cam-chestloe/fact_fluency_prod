@@ -22,10 +22,24 @@
     <%= @test.timestamps %>
   </li>
 
-  <%= for question <- @test.questions do %>
-    <p><%= question.question %></p>
-  <% end %>
-
+  <table>
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>Correct Answer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for question <- @test.questions do %>
+        <tr>
+          <td><%= question.question %></td>
+          <td><%= question.student_answer %></td>
+          <td><%= question.correct_answer %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </ul>
 
 <span><%= link "Edit", to: test_path(@conn, :edit, @test) %></span>
