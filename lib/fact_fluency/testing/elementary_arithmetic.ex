@@ -27,31 +27,24 @@ defmodule FactFluency.Testing.ElementaryArithmetic do
     def create_questions(test_parameters) do
   
       %{operator: operator, number: number} = test_parameters.arguments
-      
-      standard_questions =
-        0..number
-        |> Enum.map(&("#{&1} #{operator} #{number}"))
-  
-      backwards_questions = 
-        0..number
-        |> Enum.map(&("#{number} #{operator} #{&1}"))
-        |> Enum.take_random(test_parameters.total_questions - (test_parameters.number_of_random_questions + number))
-  
-        standard_questions ++ backwards_questions
-        |> add_random_questions(test_parameters)
-        |> Enum.map(fn(q) ->
-          {:ok, answer} = Abacus.eval(q)
-          %Question{question: q, correct_answer: Integer.to_string(answer)}
-        end)
+      %{number_of_random_questions: rand, total_questions: total} = test_parameters
+      numbers = Enum.to_list(0..number)
+
+      numbers ++ Enum.take_random(numbers, total - number - rand - 1)
+      |> Enum.map(&("#{&1} #{operator} #{number}"))
+      |> add_random_questions(operator, total, number)
+      |> Enum.map(fn(q) ->
+        {:ok, answer} = Abacus.eval(q)
+        %Question{question: q, correct_answer: Integer.to_string(answer)}
+      end)
     end
   
-    @spec add_random_questions([String.t()], %TestParameters{}) :: [String.t()]
-    defp add_random_questions(questions, test_parameters) do
-      %{total_questions: total_questions, arguments: %{operator: operator, number: number}} = test_parameters
+    @spec add_random_questions([String.t()], String.t(), integer(), integer()) :: [String.t()]
+    defp add_random_questions(questions, operator, total, number) do
   
-      if length(questions) < total_questions do
+      if length(questions) < total do
         List.insert_at(questions, 0, "#{:rand.uniform(number)} #{operator} #{number}")
-        |> add_random_questions(test_parameters)
+        |> add_random_questions(operator, total, number)
         
       else questions end
     end
