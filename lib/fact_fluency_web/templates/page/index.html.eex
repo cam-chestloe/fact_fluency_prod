@@ -1,36 +1,104 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
+<!-- Sign Up Form -->
+<div id="signupform" class="modal">
+  <form class="modal-content" action="#">
+    <div class="container">
+      <div class="modal-header">
+        <span onclick="document.getElementById('signupform').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <h1>Sign Up</h1>
+      </div>
+
+      <p>Please fill out the form to create an account.</p>
+
+      <div class="option-row">
+        <input type="radio" name="usertype" value="teacher"/>Teacher
+        <input type="radio" name="usertype" value="student"/>Student
+        <input type="radio" name="usertype" value="parent"/>Parent
+      </div>
+
+      <label><b>Email</b></label>
+      <input type="text" name="email" required>
+
+      <label><b>Password</b></label>
+      <input type="password" name="psw" required>
+
+      <label>
+        <input type="checkbox" checked="checked" style="margin-bottom:15px"> Remember me
+      </label>
+
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+          <button type="button" onclick="document.getElementById('signupform').style.display='none'" class="cancelbtn">Cancel</button>
+          <button type="submit" class="signup">Sign Up</button>
+        </div>
+    </div>
+  </form>
 </div>
 
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
+<!--	Banner Text		-->
+<div class="header">
+  <h1><strong>Come On In</strong></h1>
+  <h3>Practice and Test Your Fact Fluency</h3>
+</div>
 
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
+<%= render FactFluencyWeb.PageView, "modal.html", type: "Teacher" %>
+<%= render FactFluencyWeb.PageView, "modal.html", type: "Student" %>
+<%= render FactFluencyWeb.PageView, "modal.html", type: "Parent" %>
+
+<!--	Side Illustrations		-->
+<div class="sidepics"></div>
+
+<!--	About Text		-->
+<div class="about">
+  <h3><strong>About Us</strong></h3>
+  <p>For many of us, our most precious comodity is time. Teachers are no different. Which is why a third grade teacher approached a friend to solve a problem. Fact Fluency plays a large part in your child’s success in math. The Common Core requires that students are fluent in the different operations by the end of each year. To practice, assess, and monitor a student’s progress takes time. Time that could be better spent. We’ve built this app to get your time back.</p>
+</div>
+<div class="aboutbreakdown">
+  <div class="noprofit">
+    <h3><strong>Not For Profit</strong></h3>
+    <p>Here at Fact Fluency we are a non-profit built to help teachers and parents. We practice, and assess student progress towards mastering their fact fluency. We will never take an extra dollar in prusuit of this. We just want to pay the bills.</p>
+    <img src="#" alt="No Profit Image">
   </div>
+  <div class="customize">
+    <h3><strong>Spice It Up</strong></h3>
+    <p>Everywhere is different. We get that. That is why we’ve made every bit fully customizable. Whether it’s practice tests or the real deal we give you all the ingredients you need to customize each test for student success.</p>
+    <img src="#" alt="Spice It Up Image">
+  </div>
+  <div class="bigdata">
+    <h3><strong>Spice It Up</strong></h3>
+    <p>Don’t worry, we can break it down too. Every student gets a custom report that can be used to help you calculate grades or send notifications to parents. All while being beautifully plain and simple.</p>
+    <img src="#" alt="Big Data Image">
+  </div>
+</div>
+
+<!--	Second Sign Up		-->
+<div class="secondheader">
+  <h1><strong>Plain and Simple</strong></h1>
+  <h3>A Teaching Tool You Won't Forget</h3>
+</div>
+
+<!--	Contact Card	-->
+<a name="contactform"></a>
+<div class="contactform">
+  <h2><strong>Questions? Comments? Concerns?</strong></h2>
+  <div class="card">
+    <div class="container">
+      <fieldset>
+        <p>Fill out the form and we can problem solve together.</p>
+            <input type="text" placeholder="Name" name="fullname" required>	
+        <input type="text" placeholder="Email" name="email" required>
+        <input type="text" placeholder="Phone Number" name="telephone" required>	
+        <textarea name="emailbody"></textarea>  
+      </fieldset>
+      <button class="submit-btn">Submit</button>
+    </div>
+  </div>
+</div>
+
+<!--	Social Media	-->
+<div class="social">
+	<h3><strong>Let's Get Social</strong></h3>
+	<img src="#" alt="Facebook">
+	<img src="#" alt="Twitter">
+	<img src="#" alt="Instagram">
 </div>

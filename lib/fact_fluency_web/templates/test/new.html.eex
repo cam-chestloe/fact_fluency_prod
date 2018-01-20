@@ -1,5 +1,14 @@
-<h2>New Test</h2>
+    <!-- School or Home modal -->
 
-<%= render "form.html", Map.put(assigns, :action, test_path(@conn, :create)) %>
+    <%= for number <- 0..12 do %>
+        <%= render FactFluencyWeb.TestView, "card.html", number: number %>
+    <% end %>
 
-<span><%= link "Back", to: test_path(@conn, :index) %></span>
+    <!--    Side Illustrations  -->
+    <div class="characterimg">
+        <img src="#" alt="Right Illustration">
+        <img src="#" alt="Left Illustration"> 
+    </div>
+
+</body>
+</html>
