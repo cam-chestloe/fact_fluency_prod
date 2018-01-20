@@ -30,7 +30,9 @@ defmodule FactFluencyWeb.TestController do
   def take(conn, %{"test" => test}) do
     conn
     |> put_session(:test_id, test.id)
-    |> render("take.html", [question: List.first(test.questions), answer: "", index: 0])
+    |> render("take.html", [question: List.first(test.questions), 
+                           answer: "", 
+                           index: 0])
   end
 
   def show(conn, %{"id" => id}) do
