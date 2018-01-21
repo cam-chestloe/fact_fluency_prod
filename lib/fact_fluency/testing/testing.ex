@@ -6,7 +6,7 @@ defmodule FactFluency.Testing do
   import Ecto.Query, warn: false
   alias FactFluency.Repo
 
-  alias FactFluency.Testing.{TestParameters, Test, Question }
+  alias FactFluency.Testing.{TestParameters, Test}
 
   @doc """
   Returns the list of test_parameters.

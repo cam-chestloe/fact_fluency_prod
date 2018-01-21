@@ -41,7 +41,7 @@ defmodule FactFluencyWeb.Router do
     resources "/tests", TestController
     get "/logout", SessionController, :logout
 
-    scope "take" do
+    scope "/take" do
       pipe_through :authenticate
 
       get "/", TestController, :new
