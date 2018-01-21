@@ -23,6 +23,7 @@ defmodule FactFluency.Teachers.Teacher do
   def changeset(%Teacher{} = teacher, attrs) do
     teacher
     |> cast(attrs, [:first_name, :last_name, :user_id, :school_id])
-    |> validate_required([:first_name, :last_name, :user_id, :school_id])
+    |> cast_assoc(:user, [])
+    |> validate_required([:first_name, :last_name, :user])
   end
 end
