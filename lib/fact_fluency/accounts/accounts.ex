@@ -206,34 +206,70 @@ defmodule FactFluency.Accounts do
   end
 
   @doc """
-  Authenticates a user using email.
+  Authenticates a user using ``email`` and ``password``.
 
   ## Examples
-        iex> authenticate_by_email_password(email, _password)
+        iex> authenticate_by_email_password(email, password)
         {:ok, %User{}}
 
-        iex> authenticate_by_email_password(email, _password)
+        iex> authenticate_by_email_password(email, password)
         {:error, :unauthorized}
   """
   @spec authenticate_by_email_password(String.t(), String.t()) :: {:ok, %User{}} | {:error, :unauthorized}
   def authenticate_by_email_password(email, password) do
-      query =
+    query =
         from u in User,
         inner_join: c in assoc(u, :credential),
         where: c.email == ^email,
         preload: :credential
 
-      case Repo.one(query) do
-          %User{} = user -> 
-            if Comeonin.Bcrypt.checkpw(password, user.credential.password_hash) do
-                {:ok, user}
-            else
-                {:error, :unauthorized}
-            end
-
-          {:error, message} -> 
-            IO.puts(message)
+    case Repo.one(query) do
+        %User{} = user -> 
+        if Comeonin.Bcrypt.checkpw(password, user.credential.password_hash) do
+            {:ok, user}
+        else
             {:error, :unauthorized}
-      end
+        end
+
+        {:error, message} -> 
+        IO.puts(message)
+        {:error, :unauthorized}
+    end
+  end
+
+  @doc """
+  Authenticates a user using ``email``, ``password``, and ``user type``
+
+  ## Examples
+        iex> authentication_by_email_password_type(email, password, type)
+        {:ok, %User{}}
+
+        iex> authentication_by_email_password_type(email, bad_pass, wrong_type)
+        {:error, :unauthorized}
+  """
+  def authenticate_by_email_password(email, password, type) do
+    case authenticate_by_email_password(email, password) do
+        {:ok, user} ->
+           query =
+                case type do
+                    :student -> 
+                        from u in User, 
+                        inner_join: s in FactFluency.Students.Student, 
+                        on: s.user_id == u.id
+                    :teacher ->
+                        from u in User,
+                        inner_join: t in FactFluency.Teachers.Teacher,
+                        on: t.user_id == u.id
+                    :parent ->
+                        from u in User,
+                        inner_join: p in FactFluency.Parents.Parent,
+                        on: p.user_id == u.id
+                end
+
+            case Repo.one(query) do
+                {:ok, student} -> 
+            end
+                
+    end
   end
 end
