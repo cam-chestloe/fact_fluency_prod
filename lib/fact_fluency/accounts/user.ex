@@ -7,6 +7,7 @@ defmodule FactFluency.Accounts.User do
   schema "users" do
     field :name, :string
     field :username, :string
+    field :admin, :boolean
     has_one :credential, Credential
 
     timestamps()
