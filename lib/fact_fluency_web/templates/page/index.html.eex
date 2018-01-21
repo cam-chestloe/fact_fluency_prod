@@ -41,9 +41,9 @@
   <h3>Practice and Test Your Fact Fluency</h3>
 </div>
 
-<%= render FactFluencyWeb.PageView, "modal.html", type: "Teacher" %>
-<%= render FactFluencyWeb.PageView, "modal.html", type: "Student" %>
-<%= render FactFluencyWeb.PageView, "modal.html", type: "Parent" %>
+<%= render FactFluencyWeb.PageView, "modal.html", Map.put(assigns, :user_type, "Teacher") %>
+<%= render FactFluencyWeb.PageView, "modal.html", Map.put(assigns, :user_type, "Student") %>
+<%= render FactFluencyWeb.PageView, "modal.html", Map.put(assigns, :user_type, "Parent") %>
 
 <!--	Side Illustrations		-->
 <div class="sidepics"></div>

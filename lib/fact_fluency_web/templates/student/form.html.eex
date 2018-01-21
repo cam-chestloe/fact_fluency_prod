@@ -35,6 +35,34 @@
     <%= error_tag f, :class_id %>
   </div>
 
+  <!-- User and Credential forms -->
+  <%= inputs_for f, :user, fn uf -> %>
+    <div class="form-group">
+    <%= label uf, :name, class: "control-label" %>
+    <%= text_input uf, :name, class: "form-control" %>
+    <%= error_tag uf, :name %>
+
+    <div class="form-group">
+      <%= label uf, :username, class: "control-label" %>
+      <%= text_input uf, :username, class: "form-control" %>
+      <%= error_tag uf, :username %>
+    </div>
+
+    <%= inputs_for uf, :credential, fn cf -> %>
+      <div class="form-group">
+          <%= label cf, :email, class: "control-label" %>
+          <%= text_input cf, :email, class: "form-control" %>
+          <%= error_tag cf, :email %>
+      </div>
+
+      <div class="form-group">
+        <%= label cf, :password, class: "control-label" %>
+        <%= password_input cf, :password, class: "form-control" %>
+        <%= error_tag cf, :password %>
+      </div>
+    <% end %>
+  <% end %>
+
   <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
