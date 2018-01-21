@@ -16,8 +16,9 @@ defmodule FactFluencyWeb.Router do
   pipeline :authenticate do
     plug Guardian.Plug.Pipeline, module: FactFluency.Guardian,
                                  error_handler: FactFluency.AuthErrorHandler
-    plug Guardian.Plug.VerifySession, claims: @claims
-    plug Guardian.Plug.VerifyHeader, claims: @claims, realm: "Bearer"
+
+    plug Guardian.Plug.VerifySession, claims: %{"typ" => "access"}
+    plug Guardian.Plug.VerifyHeader, claims: %{"typ" => "access"}, realm: "Bearer"
     plug Guardian.Plug.EnsureAuthenticated
     plug Guardian.Plug.LoadResource, ensure: true
   end
@@ -38,11 +39,12 @@ defmodule FactFluencyWeb.Router do
     resources "/school_parameters", SchoolParametersController
     resources "/test_parameters", TestParametersController
     resources "/tests", TestController
+    get "/logout", SessionController, :logout
 
-    scope "take", FactFluency do
+    scope "take" do
       pipe_through :authenticate
 
-      get "/", TestController, :take
+      get "/", TestController, :new
     end
   end
 
@@ -50,16 +52,4 @@ defmodule FactFluencyWeb.Router do
   # scope "/api", FactFluencyWeb do
   #   pipe_through :api
   # end
-
-  defp authenticate_user(conn, _) do
-    case get_session(conn, :user_id) do
-      nil ->
-        conn
-        |> Phoenix.Controller.put_flash(:error, "Login required")
-        |> Phoenix.Controller.redirect(to: "/")
-        |> halt()
-      user_id ->
-        assign(conn, :current_user, FactFluency.Accounts.get_user!(user_id))
-    end
-  end
 end
