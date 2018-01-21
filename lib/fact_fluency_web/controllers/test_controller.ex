@@ -11,8 +11,10 @@ defmodule FactFluencyWeb.TestController do
   end
 
   def new(conn, _params) do
+    user = Guardian.Plug.current_resource(conn)
+
     changeset = Testing.change_test(%Test{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", [user: user, changeset: changeset])
   end
 
   def create(conn, %{"test" => test_params}) do
@@ -67,4 +69,6 @@ defmodule FactFluencyWeb.TestController do
     |> put_flash(:info, "Test deleted successfully.")
     |> redirect(to: test_path(conn, :index))
   end
+
+  
 end

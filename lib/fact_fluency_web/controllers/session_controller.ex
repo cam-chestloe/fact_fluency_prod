@@ -12,8 +12,7 @@ defmodule FactFluencyWeb.SessionController do
             {:ok, user} ->
                 conn
                 |> put_flash(:info, "Welcome back!")
-                |> put_session(:user_id, user.id)
-                |> configure_session(renew: true)
+                |> Guardian.Plug.sign_in(user)
                 |> redirect(to: "/")
             {:error, :unauthorized} ->
                 conn
@@ -25,6 +24,13 @@ defmodule FactFluencyWeb.SessionController do
     def delete(conn, _) do
         conn
         |> configure_session(drop: true)
+        |> redirect(to: "/")
+    end
+
+    def logout(conn, _params) do
+        conn
+        |> Guardian.Plug.sign_out
+        |> put_flash(:info, "Logged out")
         |> redirect(to: "/")
     end
 end

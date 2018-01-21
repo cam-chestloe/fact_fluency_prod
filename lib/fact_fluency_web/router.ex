@@ -13,6 +13,15 @@ defmodule FactFluencyWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :authenticate do
+    plug Guardian.Plug.Pipeline, module: FactFluency.Guardian,
+                                 error_handler: FactFluency.AuthErrorHandler
+    plug Guardian.Plug.VerifySession, claims: @claims
+    plug Guardian.Plug.VerifyHeader, claims: @claims, realm: "Bearer"
+    plug Guardian.Plug.EnsureAuthenticated
+    plug Guardian.Plug.LoadResource, ensure: true
+  end
+
   scope "/", FactFluencyWeb do
     pipe_through :browser # Use the default browser stack
 
@@ -29,7 +38,12 @@ defmodule FactFluencyWeb.Router do
     resources "/school_parameters", SchoolParametersController
     resources "/test_parameters", TestParametersController
     resources "/tests", TestController
-    get "/take", TestController, :take
+
+    scope "take", FactFluency do
+      pipe_through :authenticate
+
+      get "/", TestController, :take
+    end
   end
 
   # Other scopes may use custom stacks.
