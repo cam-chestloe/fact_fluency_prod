@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <p>User Name Place Holder</p>
+            <a href="#"><img id="logo" src="#"></a>
+            <div class="user-interaction">
+                <button class="settings-btn" href="#"><span>Settings</span></button>
+                <button class="Notification-btn" href="#">Notifications</button>
+                <button class="logout-btn" href=>Logout</button>
+            </div>
+        </nav>
+        <!--    Side Menu   -->
+        <div class="page-navigation">
+            <ul class="side-menu">
+                <li id="dashboard-dashboard">
+                    <a href="#">
+                        <img src="#" alt="Dashboard Icon">
+                        <span>Students</span>
+                    </a>
+                </li>
+                <li id="students-dashboard">
+                    <a href="#">
+                        <img src="#" alt="Student Icon">
+                        <span>Students</span>
+                    </a>
+                </li>
+                <li id="reports-dashboard">
+                    <a href="#">
+                        <img src="#" alt="Report Icon">
+                        <span>Reports</span>
+                    </a>
+                </li>
+            </ul>
+        </div>            
+    </header>
+
+    <!--    Body Content    -->
+    <div class="container">
+
+        <!--    Students    -->
+        <div class="class">
+            <div class="class-name">
+                <h1>Class Name Place Holder</h1>
+                <h1>Class Grade Place Holder</h1>
+                <button type="button" onclick="Open Edit Modal For Class Name and Grade">Edit Icon Place Holder</button>
+            </div>
+
+            <div class="class-code">
+                <p>Class Code:<span>Generated Class Code</span></p>
+            </div>
+
+            <div class="student-parent-buttons">
+                <button type="button" onclick="Open New Page For Student Login and Pin List Print Version">View Login Info</button>
+                <button type="button" onclick="Download Parent Letters With Secret Codes">Get Parent Letters</button>
+            </div>
+
+            <div class="class-buttons">
+                <button type="button" onclick="Add Student To List">Add Students</button>
+                <button type="button" onclick="Remove Students From List">Remove Students </button>
+                <button type="button" onclick="Select All Students In List">Select All</button>
+            </div>
+
+            <hr>
+
+            <div class="student-cards">
+                <div class="class-list-cards">
+                    <div class="student-card-template">
+                        <input type="checkbox" value="select-student"></input>
+                        <p><strong>Student Name</strong></p>
+                        <p>Student Pin</p>
+                        <p>Parent Connected or Not Connected</p>
+                        <button type="button" onclick="Open Edit Card Modal">Edit</button>
+                    </div>
+                    
+                    <!--    Edit Modal  -->
+                    <div id="child-settings" class="modal">
+                            <span onclick="Close Modal Edit Student For Teacher #child-edit-settings" class="close" title="Close Modal">&times;</span>
+                
+                            <!-- Modal Content -->
+                            <form class="modal-content animate" action="#">
+                                <div class="modal-content">
+        
+                                    <!--    Modal Header  -->
+                                    <h1>Edit Student</h1>
+                                    <label>Student's Name</label>
+                                    <input type="text" name="students-name" />
+                                    
+                                    <label>Grade</label>
+                                        <select name="grade-level">
+                                            <option value="grade-prek">Pre K</option>
+                                            <option value="grade-k">K</option>
+                                            <option value="grade-01">1st</option>
+                                            <option value="grade-02">2nd</option>
+                                            <option value="grade-03">3rd</option>
+                                            <option value="grade-04">4th</option>
+                                            <option value="grade-05">5th</option>
+                                            <option value="grade-06">6th</option>
+                                            <option value="grade-07">7th</option>
+                                            <option value="grade-08">8th</option>
+                                            <option value="grade-09">9th</option>
+                                            <option value="grade-10">10th</option>
+                                            <option value="grade-11">11th</option>
+                                            <option value="grade-12">12th</option>
+                                        </select>
+                                    
+                                    <label>Pin</label>
+                                    <input type="text" name="student-pin" placeholder="Enter 4 Number Pin" maxlength="4">
+
+
+                                    <!--    Operation Choices   -->    
+                                    <div class="operation-type">
+                                        <h3>Operation Types</h3>
+                                        <input type="checkbox" name="plus" id="addition" value="plussign"/><label>+</label>
+                                        <input type="checkbox" name="minus" id="subtraction" value="minussign"/><label>-</label>
+                                        <input type="checkbox" name="times" id="multiplication" value="timessign"/><label>x</label>
+                                        <input type="checkbox" name="divide" id="division" value="dividesign"/><label>÷</label>
+                                    </div>
+        
+                                    <!--   Basic Settings -->
+                                    <div class="basic-settings">
+                                        <div class="heading">
+                                            <h3>Set Test Parameters</h3>
+                                        </div>
+                                        <!--    Time Limit  -->
+                                        <div class="time-limit">
+                                            <label>Time Limit</label>
+                                            <label>Minutes</label>
+                                            <select name="number-minutes">
+                                                    <option value="minute-00"></option>
+                                                    <option value="minute-01">1 minute</option>
+                                                    <option value="minute-02">2 minute</option>
+                                                    <option value="minute-04">4 minute</option>
+                                                    <option value="minute-05">5 minute</option>
+                                                </select> 
+        
+                                            <label>Seconds</label>
+                                            <select name="number-seconds">
+                                                <option value="seconds-00"></option>
+                                                <option value="seconds-15">15 seconds</option>
+                                                <option value="seconds-30">30 seconds</option>
+                                                <option value="seconds-45">45 seconds</option>
+                                            </select>
+                                        </div>
+        
+                                        <!--    Number Of Questions -->
+                                        <div class="number-questions">
+                                            <labe>Number of Questions</labe>
+                                            <input type="text" name="number-value">
+                                        </div>
+                                    </div>
+                                    
+                                    <!--    Cancel Button   -->
+                                    <div class="clearfix">
+                                        <button type="button" onclick="document.getElementById('signupform').style.display='none'" class="cancelbtn">Cancel</button>
+                                    </div>
+                                    
+                                    <!--    Delete Button   -->
+                                    <div class="delete-child">
+                                        <button type="button" onclick="Delete Child and Prompt With 'Are You Sure Method'" class="delete-btn">Delete Student Profile</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                </div>    
+                </div>
+            </div>
+        </div>
+
+        <!--    Results    -->
+        <div class="student-results">
+            <div class="container">
+                <div class="card-current-standings">
+                    <h1>Current Standings</h1>
+                    <p>An overview of tests students have passed.</p>
+                    <img src="#" alt="Illustration">
+                    <button class="standings-report">View Report</button>
+                </div>
+                <div class="card-previous-tests">
+                    <h1>Previous Tests</h1>
+                    <p>View students individual tests.</p>
+                    <img src="#" alt="Illustration">
+                    <button class="previous-report">View Report</button>
+                </div>
+                <div class="card-student-usage">
+                    <h1>Student Usage</h1>
+                    <p>An overview of your students' usage at home and in school.</p>
+                    <img src="#" alt="Illustration">
+                    <button class="usage-report">View Report</button>
+                </div>
+                <div class="card-weekly-activity">
+                    <h1>Weekly Activity</h1>
+                    <p>Skills your child is working on and how they did week by week.</p>
+                    <img src="#" alt="Illustration">
+                    <button class="weekly-report">View Report</button>
+                </div>
+                <div class="card-student-comprehension">
+                    <h1>Student Comprehension</h1>
+                    <p>An in depth look at your child's progress towards concept mastery and struggles in the app.</p>
+                    <img src="#" alt="Illustration">
+                    <button class="comprehension-report">View Report</button>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <!--    Contact Us Button -->
+    <div class="container contact-us">
+            <button onclick="Open Contact Form Modal">Contact Us</button>
+    
+            <!-- The Modal -->
+            <div id="contact-modal" class="modal">
+                    <span onclick="Close Modal Contact Us #contact-modal" class="close" title="Close Modal">&times;</span>
+        
+                    <!-- Modal Content -->
+                    <form class="modal-content animate" action="#">
+                        <div class="modal-content">
+                            <h2><strong>Questions? Comments? Concerns?</strong></h2>
+                            <div class="card">
+                                <div class="container">
+                                    <fieldset>
+                                        <p>Fill out the form and we can problem solve together.</p>
+                                            <input type="text" placeholder="Name" name="fullname" required>	
+                                        <input type="text" placeholder="Email" name="email" required>
+                                        <input type="text" placeholder="Phone Number" name="telephone" required>	
+                                        <textarea name="emailbody"></textarea>  
+                                    </fieldset>
+                                    <button class="submit-btn">Submit</button>
+    
+                                    <!--    Cancel Button   -->
+                                    <div class="clearfix">
+                                        <button type="button" onclick="document.getElementById('signupform').style.display='none'" class="cancelbtn">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>    
+
+    <!--	Footer		-->
+    <footer>
+        <p id="copyright">&copy SayYeahYeah</p>
+        <p id="hometown">Seattle, WA</p>
+        <p id="creation">2018</p>
+    </footer>
+</body>
+</html>
