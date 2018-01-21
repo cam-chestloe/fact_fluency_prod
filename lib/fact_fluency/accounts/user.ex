@@ -16,7 +16,8 @@ defmodule FactFluency.Accounts.User do
   def changeset(%User{} = user, attrs) do
     user
     |> cast(attrs, [:name, :username])
-    |> validate_required([:name, :username])
+    |> cast_assoc(:credential, [])
+    |> validate_required([:name, :username, :credential])
     |> unique_constraint(:username)
   end
 end

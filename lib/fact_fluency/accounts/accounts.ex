@@ -57,7 +57,7 @@ defmodule FactFluency.Accounts do
   def create_user(attrs \\ %{}) do
     %User{}
     |> User.changeset(attrs)
-    |> Ecto.Changeset.cast_assoc(:credential, with: &Credential.changeset/2)
+    |> Ecto.Changeset.cast_assoc(:credential, with: &Credential.registration_changeset/2)
     |> Repo.insert()
   end
 
@@ -76,7 +76,7 @@ defmodule FactFluency.Accounts do
   def update_user(%User{} = user, attrs) do
     user
     |> User.changeset(attrs)
-    |> Ecto.Changeset.cast_assoc(:credential, with: &Credential.changeset/2)
+    |> Ecto.Changeset.cast_assoc(:credential, with: &Credential.registration_changeset/2)
     |> Repo.update()
   end
 
@@ -107,6 +107,7 @@ defmodule FactFluency.Accounts do
   """
   def change_user(%User{} = user) do
     User.changeset(user, %{})
+    |> Ecto.Changeset.cast_assoc(:credential, with: &Credential.registration_changeset/2)
   end
 
 
@@ -153,7 +154,7 @@ defmodule FactFluency.Accounts do
   """
   def create_credential(attrs \\ %{}) do
     %Credential{}
-    |> Credential.changeset(attrs)
+    |> Credential.registration_changeset(attrs)
     |> Repo.insert()
   end
 
@@ -171,7 +172,7 @@ defmodule FactFluency.Accounts do
   """
   def update_credential(%Credential{} = credential, attrs) do
     credential
-    |> Credential.changeset(attrs)
+    |> Credential.registration_changeset(attrs)
     |> Repo.update()
   end
 
@@ -201,7 +202,7 @@ defmodule FactFluency.Accounts do
 
   """
   def change_credential(%Credential{} = credential) do
-    Credential.changeset(credential, %{})
+    Credential.registration_changeset(credential, %{})
   end
 
   @doc """
