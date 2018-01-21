@@ -74,7 +74,7 @@
             <div class="student-cards">
                 <div class="class-list-cards">
                     <div class="student-card-template">
-                        <button type="checkbox" value="select-student"></button>
+                        <input type="checkbox" value="select-student"></input>
                         <p><strong>Student Name</strong></p>
                         <p>Student Pin</p>
                         <p>Parent Connected or Not Connected</p>
@@ -111,14 +111,14 @@
                                             <option value="grade-11">11th</option>
                                             <option value="grade-12">12th</option>
                                         </select>
-
-                                        <label>Pin</label>
-                                        <input type="text" name="student-pin" placeholder="Enter 4 Number Pin" maxlength="4">
                                     
-        
+                                    <label>Pin</label>
+                                    <input type="text" name="student-pin" placeholder="Enter 4 Number Pin" maxlength="4">
+
+
                                     <!--    Operation Choices   -->    
                                     <div class="operation-type">
-                                        <p>Operation Types</p>
+                                        <h3>Operation Types</h3>
                                         <input type="checkbox" name="plus" id="addition" value="plussign"/><label>+</label>
                                         <input type="checkbox" name="minus" id="subtraction" value="minussign"/><label>-</label>
                                         <input type="checkbox" name="times" id="multiplication" value="timessign"/><label>x</label>
@@ -128,7 +128,7 @@
                                     <!--   Basic Settings -->
                                     <div class="basic-settings">
                                         <div class="heading">
-                                            <h1>Set Test Parameters</h1>
+                                            <h3>Set Test Parameters</h3>
                                         </div>
                                         <!--    Time Limit  -->
                                         <div class="time-limit">
@@ -165,7 +165,7 @@
                                     
                                     <!--    Delete Button   -->
                                     <div class="delete-child">
-                                        <button type="button" onclick="Delete Child and Prompt With 'Are You Sure Method'" class="delete-btn">Delete Child Profile</button>
+                                        <button type="button" onclick="Delete Child and Prompt With 'Are You Sure Method'" class="delete-btn">Delete Student Profile</button>
                                     </div>
                                 </div>
                             </form>
