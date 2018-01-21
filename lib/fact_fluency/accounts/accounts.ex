@@ -2,11 +2,13 @@ defmodule FactFluency.Accounts do
   @moduledoc """
   The Accounts context.
   """
-
   import Ecto.Query, warn: false
-  alias FactFluency.Repo
 
+  alias FactFluency.Repo
   alias FactFluency.Accounts.{User, Credential}
+  alias FactFluency.Teachers.Teacher
+  alias FactFluency.Students.Student
+  alias FactFluency.Parents.Parent
 
   @doc """
   Returns the list of users.
@@ -206,70 +208,41 @@ defmodule FactFluency.Accounts do
   end
 
   @doc """
-  Authenticates a user using ``email`` and ``password``.
+  Authenticates a user using ``email`` and ``password`` for the specified ``user_type``.
 
   ## Examples
-        iex> authenticate_by_email_password(email, password)
-        {:ok, %User{}}
+        iex> authenticate_by_email_password(email, password, "teacher")
+        {:ok, %Teacher{}}
 
-        iex> authenticate_by_email_password(email, password)
+        iex> authenticate_by_email_password(email, bad_password, bad_type)
         {:error, :unauthorized}
   """
-  @spec authenticate_by_email_password(String.t(), String.t()) :: {:ok, %User{}} | {:error, :unauthorized}
-  def authenticate_by_email_password(email, password) do
-    query =
-        from u in User,
-        inner_join: c in assoc(u, :credential),
-        where: c.email == ^email,
-        preload: :credential
-
-    case Repo.one(query) do
-        %User{} = user -> 
-        if Comeonin.Bcrypt.checkpw(password, user.credential.password_hash) do
-            {:ok, user}
-        else
-            {:error, :unauthorized}
+  @spec authenticate_by_email_password(String.t(), String.t(), String.t()) :: {:ok, %User{}} | {:error, :unauthorized}
+  def authenticate_by_email_password(email, password, user_type) do
+    type = 
+        case user_type do
+            "teacher" -> from t in Teacher, inner_join: u in assoc(t, :user)
+            "student" -> from s in Student, inner_join: u in assoc(s, :user)
+            "parent" -> from p in Parent, inner_join: u in assoc(p, :user)
+            "admin" -> from u in User, where: u.admin == true
         end
 
-        {:error, message} -> 
-        IO.puts(message)
-        {:error, :unauthorized}
-    end
-  end
+    query =
+        from t in type,
+        inner_join: c in assoc(t, :credential),
+        where: c.email == ^email,
+        preload: [:user, :credential]
 
-  @doc """
-  Authenticates a user using ``email``, ``password``, and ``user type``
-
-  ## Examples
-        iex> authentication_by_email_password_type(email, password, type)
-        {:ok, %User{}}
-
-        iex> authentication_by_email_password_type(email, bad_pass, wrong_type)
-        {:error, :unauthorized}
-  """
-  def authenticate_by_email_password(email, password, type) do
-    case authenticate_by_email_password(email, password) do
-        {:ok, user} ->
-           query =
-                case type do
-                    :student -> 
-                        from u in User, 
-                        inner_join: s in FactFluency.Students.Student, 
-                        on: s.user_id == u.id
-                    :teacher ->
-                        from u in User,
-                        inner_join: t in FactFluency.Teachers.Teacher,
-                        on: t.user_id == u.id
-                    :parent ->
-                        from u in User,
-                        inner_join: p in FactFluency.Parents.Parent,
-                        on: p.user_id == u.id
-                end
-
-            case Repo.one(query) do
-                {:ok, student} -> 
+    case Repo.one(query) do
+        %{} = user -> 
+            if Comeonin.Bcrypt.checkpw(password, user.user.credential.password_hash) do
+                {:ok, user}
+            else
+                {:error, :unauthorized}
             end
-                
+
+        _ -> 
+            {:error, :unauthorized}
     end
   end
 end
