@@ -7,12 +7,12 @@ defmodule FactFluencyWeb.SessionController do
         render(conn, "new.html")
     end
 
-    def create(conn, %{"user" => %{"email" => email, "password" => password}}) do
-        case Accounts.authenticate_by_email_password(email, password) do
+    def create(conn, %{"user" => %{"email" => email, "password" => password ,"user_type" => user_type}}) do
+        case Accounts.authenticate_by_email_password(email, password, user_type) do
             {:ok, user} ->
                 conn
                 |> put_flash(:info, "Welcome back!")
-                |> FactFluency.Guardian.Plug.sign_in(user)
+                |> FactFluency.Guardian.Plug.sign_in(user, %{"user_type" => user_type})
                 |> redirect(to: "/")
             {:error, :unauthorized} ->
                 conn
