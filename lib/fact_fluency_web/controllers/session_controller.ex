@@ -29,7 +29,6 @@ defmodule FactFluencyWeb.SessionController do
 
     def logout(conn, _params) do
         conn
-        |> delete(_params)
         |> FactFluency.Guardian.Plug.sign_out
         |> put_flash(:info, "Logged out")
         |> redirect(to: "/")
