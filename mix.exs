@@ -44,6 +44,7 @@ defmodule FactFluency.Mixfile do
       {:abacus, "~> 0.3.1 "},
       {:drab, "~> 0.6.3"},
       {:guardian, "~> 1.0"},
+      {:guardian_db, "~> 1.1"},
       {:comeonin, "~> 4.0.3"},
       {:bcrypt_elixir, "~> 0.12"}
     ]

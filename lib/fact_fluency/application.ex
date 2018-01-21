@@ -14,6 +14,7 @@ defmodule FactFluency.Application do
       supervisor(FactFluencyWeb.Endpoint, []),
       # Start your own worker by calling: FactFluency.Worker.start_link(arg1, arg2, arg3)
       # worker(FactFluency.Worker, [arg1, arg2, arg3]),
+      worker(Guardian.DB.Token.SweeperServer, []),
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

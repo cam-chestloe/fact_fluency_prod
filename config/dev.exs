@@ -61,3 +61,9 @@ config :fact_fluency, FactFluency.Repo,
 config :fact_fluency, FactFluency.Guardian,
         issuer: "fact_fluency",
         secret_key: "ARe6FkwpF7BaaObwfOScXpEKitIJ+vWvC0/90hq97TzsetESzcquRsABsUPVT4JY"    # Temp
+
+# Configure Guardian_DB
+config :guardian, Guardian.DB,
+        repo: FactFluency.Repo,
+        schema_name: "guardian tokens",
+        sweep_interval: 60
