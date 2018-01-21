@@ -56,3 +56,8 @@ config :fact_fluency, FactFluency.Repo,
   database: "fact_fluency_dev",
   hostname: "localhost",
   pool_size: 10
+
+# Configure Guardian
+config :fact_fluency, FactFluency.Guardian,
+        issuer: "fact_fluency",
+        secret_key: "ARe6FkwpF7BaaObwfOScXpEKitIJ+vWvC0/90hq97TzsetESzcquRsABsUPVT4JY"    # Temp
