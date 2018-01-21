@@ -216,15 +216,24 @@ defmodule FactFluency.Accounts do
         {:error, :unauthorized}
   """
   @spec authenticate_by_email_password(String.t(), String.t()) :: {:ok, %User{}} | {:error, :unauthorized}
-  def authenticate_by_email_password(email, _password) do
+  def authenticate_by_email_password(email, password) do
       query =
         from u in User,
         inner_join: c in assoc(u, :credential),
-        where: c.email == ^email
+        where: c.email == ^email,
+        preload: :credential
 
       case Repo.one(query) do
-          %User{} = user -> {:ok, user}
-          nil -> {:error, :unauthorized}
+          %User{} = user -> 
+            if Comeonin.Bcrypt.checkpw(password, user.credential.password_hash) do
+                {:ok, user}
+            else
+                {:error, :unauthorized}
+            end
+
+          {:error, message} -> 
+            IO.puts(message)
+            {:error, :unauthorized}
       end
   end
 end
