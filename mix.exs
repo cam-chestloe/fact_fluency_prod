@@ -42,7 +42,10 @@ defmodule FactFluency.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:abacus, "~> 0.3.1 "},
-      {:drab, "~> 0.6.3"}
+      {:drab, "~> 0.6.3"},
+      {:guardian, "~> 1.0"},
+      {:comeonin, "~> 4.0.3"},
+      {:bcrypt_elixir, "~> 0.12"}
     ]
   end
 
