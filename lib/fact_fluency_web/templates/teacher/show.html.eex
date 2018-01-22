@@ -3,11 +3,6 @@
 <ul>
 
   <li>
-    <strong>First name:</strong>
-    <%= @teacher.first_name %>
-  </li>
-
-  <li>
     <strong>Last name:</strong>
     <%= @teacher.last_name %>
   </li>
