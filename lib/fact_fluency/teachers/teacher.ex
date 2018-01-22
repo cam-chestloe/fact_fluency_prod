@@ -5,7 +5,6 @@ defmodule FactFluency.Teachers.Teacher do
 
 
   schema "teachers" do
-    field :first_name, :string
     field :last_name, :string
     field :timestamps, :string
 
@@ -22,8 +21,8 @@ defmodule FactFluency.Teachers.Teacher do
   @doc false
   def changeset(%Teacher{} = teacher, attrs) do
     teacher
-    |> cast(attrs, [:first_name, :last_name, :user_id, :school_id])
+    |> cast(attrs, [:last_name, :user_id, :school_id])
     |> cast_assoc(:user, [])
-    |> validate_required([:first_name, :last_name, :user])
+    |> validate_required([:last_name, :user])
   end
 end

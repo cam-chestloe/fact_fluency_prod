@@ -6,12 +6,11 @@ defmodule FactFluency.Students.Student do
 
   schema "students" do
     field :duplicate_id, :string
-    field :first_name, :string
     field :last_initial, :string
     field :timestamps, :string
 
     has_one :test_parameters, FactFluency.Testing.TestParameters
-    has_many :parents, FactFluency.Parents.Parent
+    many_to_many :parents, FactFluency.Parents.Parent, join_through: "parents_students", on_delete: :delete_all
     has_many :tests, FactFluency.Testing.Test
 
     belongs_to :class, FactFluency.Institution.Class
@@ -23,7 +22,8 @@ defmodule FactFluency.Students.Student do
   @doc false
   def changeset(%Student{} = student, attrs) do
     student
-    |> cast(attrs, [:first_name, :last_initial, :duplicate_id, :class_id, :user_id])
-    |> validate_required([:first_name, :last_initial, :duplicate_id, :class_id, :user_id])
+    |> cast(attrs, [:last_initial, :duplicate_id, :class_id])
+    |> cast_assoc(:user, [])
+    |> validate_required([:last_initial, :user])
   end
 end

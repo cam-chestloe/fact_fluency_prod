@@ -5,9 +5,9 @@ defmodule FactFluency.Accounts.User do
 
 
   schema "users" do
-    field :name, :string
+    field :first_name, :string
     field :username, :string
-    field :admin, :boolean
+    field :admin, :boolean, defaults: false
     has_one :credential, Credential
 
     timestamps()
@@ -16,9 +16,9 @@ defmodule FactFluency.Accounts.User do
   @doc false
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:name, :username])
+    |> cast(attrs, [:first_name, :username, :admin])
     |> cast_assoc(:credential, [])
-    |> validate_required([:name, :username, :credential])
+    |> validate_required([:first_name, :username, :credential])
     |> unique_constraint(:username)
   end
 end

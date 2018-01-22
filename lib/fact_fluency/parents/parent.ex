@@ -5,10 +5,8 @@ defmodule FactFluency.Parents.Parent do
 
 
   schema "parents" do
-    field :email, :string
-    field :first_name, :string
 
-    belongs_to :student, FactFluency.Students.Student
+    many_to_many :student, FactFluency.Students.Student, join_through: "parents_students", on_delete: :delete_all
     belongs_to :user, FactFluency.Accounts.User 
 
     timestamps()
@@ -17,7 +15,8 @@ defmodule FactFluency.Parents.Parent do
   @doc false
   def changeset(%Parent{} = parent, attrs) do
     parent
-    |> cast(attrs, [:first_name, :email])
-    |> validate_required([:first_name, :email])
+    |> Ecto.Changeset.change(attrs)
+    |> cast_assoc(:user, [])
+    |> validate_required([:user])
   end
 end
