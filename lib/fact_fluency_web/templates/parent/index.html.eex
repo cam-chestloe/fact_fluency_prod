@@ -3,7 +3,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>First name</th>
       <th>Email</th>
 
       <th></th>
@@ -12,7 +11,6 @@
   <tbody>
 <%= for parent <- @parents do %>
     <tr>
-      <td><%= parent.first_name %></td>
       <td><%= parent.email %></td>
 
       <td class="text-right">
