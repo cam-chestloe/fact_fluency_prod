@@ -3,8 +3,6 @@ defmodule FactFluencyWeb.TeacherController do
 
   alias FactFluency.Teachers
   alias FactFluency.Teachers.Teacher
-  alias FactFluency.Accounts
-  alias FactFluency.Accounts.{Credential, User}
 
   def index(conn, _params) do
     teachers = Teachers.list_teachers()
