@@ -1,39 +1,4 @@
-<!-- Sign Up Form -->
-<div id="signupform" class="modal">
-  <form class="modal-content" action="#">
-    <div class="container">
-      <div class="modal-header">
-        <span onclick="document.getElementById('signupform').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <h1>Sign Up</h1>
-      </div>
-
-      <p>Please fill out the form to create an account.</p>
-
-      <div class="option-row">
-        <input type="radio" name="usertype" value="teacher"/>Teacher
-        <input type="radio" name="usertype" value="student"/>Student
-        <input type="radio" name="usertype" value="parent"/>Parent
-      </div>
-
-      <label><b>Email</b></label>
-      <input type="text" name="email" required>
-
-      <label><b>Password</b></label>
-      <input type="password" name="psw" required>
-
-      <label>
-        <input type="checkbox" checked="checked" style="margin-bottom:15px"> Remember me
-      </label>
-
-      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-      <div class="clearfix">
-          <button type="button" onclick="document.getElementById('signupform').style.display='none'" class="cancelbtn">Cancel</button>
-          <button type="submit" class="signup">Sign Up</button>
-        </div>
-    </div>
-  </form>
-</div>
+<%= render "signup.html", assigns %>
 
 <!--	Banner Text		-->
 <div class="header">
@@ -41,9 +6,9 @@
   <h3>Practice and Test Your Fact Fluency</h3>
 </div>
 
-<%= render FactFluencyWeb.PageView, "modal.html", Map.put(assigns, :user_type, "Teacher") %>
-<%= render FactFluencyWeb.PageView, "modal.html", Map.put(assigns, :user_type, "Student") %>
-<%= render FactFluencyWeb.PageView, "modal.html", Map.put(assigns, :user_type, "Parent") %>
+<%= render "login.html", Map.put(assigns, :user_type, "Teacher") %>
+<%= render "login.html", Map.put(assigns, :user_type, "Student") %>
+<%= render "login.html", Map.put(assigns, :user_type, "Parent") %>
 
 <!--	Side Illustrations		-->
 <div class="sidepics"></div>
@@ -51,22 +16,40 @@
 <!--	About Text		-->
 <div class="about">
   <h3><strong>About Us</strong></h3>
-  <p>For many of us, our most precious comodity is time. Teachers are no different. Which is why a third grade teacher approached a friend to solve a problem. Fact Fluency plays a large part in your child’s success in math. The Common Core requires that students are fluent in the different operations by the end of each year. To practice, assess, and monitor a student’s progress takes time. Time that could be better spent. We’ve built this app to get your time back.</p>
+  <p>
+    For many of us, our most precious comodity is time. Teachers are no different. 
+    Which is why a third grade teacher approached a friend to solve a problem. 
+    Fact Fluency plays a large part in your child’s success in math. 
+    The Common Core requires that students are fluent in the different operations by the end of each year. 
+    To practice, assess, and monitor a student’s progress takes time. Time that could be better spent. 
+    We’ve built this app to get your time back.
+  </p>
 </div>
 <div class="aboutbreakdown">
   <div class="noprofit">
     <h3><strong>Not For Profit</strong></h3>
-    <p>Here at Fact Fluency we are a non-profit built to help teachers and parents. We practice, and assess student progress towards mastering their fact fluency. We will never take an extra dollar in prusuit of this. We just want to pay the bills.</p>
+    <p>
+      Here at Fact Fluency we are a non-profit built to help teachers and parents. 
+      We practice, and assess student progress towards mastering their fact fluency. 
+      We will never take an extra dollar in prusuit of this. We just want to pay the bills.
+    </p>
     <img src="#" alt="No Profit Image">
   </div>
   <div class="customize">
     <h3><strong>Spice It Up</strong></h3>
-    <p>Everywhere is different. We get that. That is why we’ve made every bit fully customizable. Whether it’s practice tests or the real deal we give you all the ingredients you need to customize each test for student success.</p>
+    <p>
+      Everywhere is different. We get that. That is why we’ve made every bit fully customizable. 
+      Whether it’s practice tests or the real deal we give you all the ingredients you need to customize each test for student success.
+    </p>
     <img src="#" alt="Spice It Up Image">
   </div>
   <div class="bigdata">
     <h3><strong>Spice It Up</strong></h3>
-    <p>Don’t worry, we can break it down too. Every student gets a custom report that can be used to help you calculate grades or send notifications to parents. All while being beautifully plain and simple.</p>
+    <p>
+      Don’t worry, we can break it down too. 
+      Every student gets a custom report that can be used to help you calculate grades or send notifications to parents. 
+      All while being beautifully plain and simple.
+    </p>
     <img src="#" alt="Big Data Image">
   </div>
 </div>
