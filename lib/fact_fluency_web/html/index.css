@@ -38,7 +38,24 @@ header {
     color: rgb(8, 162, 233);
 }
 
+/*  Sign Up Button  */
+.signup-btn {
+    color: rgb(8, 162, 233);
+    background-color: transparent;
+    -moz-border-radius: 32px;
+    -webkit-border-radius: 32px;
+    border-radius: 32px;
+    border: 3px solid rgb(8, 162, 233);
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    padding: 16px 32px;
+    text-decoration: none;
+}
 
+.signup-btn:hover {
+    color: white;
+    background-color: rgb(8, 162, 233);
+}
 
 /*  Modal Background    */
 .modal {
@@ -143,12 +160,14 @@ input[type=text]:focus, input[type=text]:focus {
         .contact {
             justify-self: flex-start;
             align-self: center; 
+            padding-left: 16px;
         }
 
         /*  Sign Up Button Navbar   */
         .signup {
             justify-self: flex-end;
             align-self: center;
+            padding-right: 16px;
         }
 }
 /*  Desktop */
