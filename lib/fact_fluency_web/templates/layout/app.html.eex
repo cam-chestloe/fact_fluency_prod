@@ -19,7 +19,7 @@
           <ul>
             <li><a href="#contactform" class="contactlink">Contact</a></li>
             <li><a href="#"><img id="logohome" src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.png?width=48&height=48&select=fnVZV3K0apage0"></a></li>
-            <li><button class="signup-btn" onclick="document.getElementById('signupform').style.display='block'">Sign Up</button></li>
+            <li><button data-btn-for="signup" drab-click="show_modal">Sign Up</button></li>
           </ul>
         </nav>
         <span class="logo"></span>
