@@ -1,17 +1,51 @@
-<div id="login-modal">
-    <div data-btn-for="login" drab-click="hide_modal" title="Close Modal">&times;</div>
+<div id="signup-modal" class="modal">
+    <div data-btn-for="signup" 
+        drab-click="hide_modal" 
+        title="Close Modal">
+        &times;
+    </div>
 
     <div class="option-row">
-        <input drab-click="change_signup_form" type="radio" name="usertype" value="Teacher" />Teacher
-        <input drab-click="change_signup_form" type="radio" name="usertype" value="Student" checked="checked" />Student
-        <input drab-click="change_signup_form" type="radio" name="usertype" value="Parent" />Parent
+
+        <input drab-click="change_signup_form" 
+            type="radio" 
+            name="usertype" 
+            value="teacher" 
+        />Teacher
+
+        <input drab-click="change_signup_form" 
+            type="radio" 
+            name="usertype" 
+            value="student" 
+            checked="checked" 
+        />Student
+
+        <input drab-click="change_signup_form" 
+            type="radio" 
+            name="usertype" 
+            value="parent" 
+        />Parent
+
     </div>
 
-    <div id="login-form">
-        <%= render_student_signup_form(@conn) %>
+    <div id="student-modal" style="display: block">
+        <%= render_signup_form("Student", @conn) %>
     </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-        <button data-btn-for="login" drab-click="hide_modal" class="cancelbtn">Cancel</button>
+    <div id="teacher-modal" style="display: none">
+        <%= render_signup_form("Teacher", @conn) %>
+    </div>
+
+    <div id="parent-modal" style="display: none">    
+        <%= render_signup_form("Parent", @conn) %>
+    </div>
+
+    <div class="container" 
+        style="background-color:#f1f1f1">
+        <button data-btn-for="signup" 
+                drab-click="hide_modal" 
+                class="cancelbtn">
+                Cancel
+        </button>
     </div>
 </div>
