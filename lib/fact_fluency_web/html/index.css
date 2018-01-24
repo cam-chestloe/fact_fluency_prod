@@ -23,27 +23,8 @@ header {
     margin: 0px 0px 16px 0px;
 }
 
-nav {
-    display: grid;
-    grid-template-rows: 1fr;
-    padding: 16px;  
-}
-
-/* Logo */ 
-.logo {
-   justify-self: center;
-   align-self: center; 
-   grid-row-start: 1;
-}
-
 
 /* Contact Link */
-.contact {
-    display: none;
-    justify-self: center;
-    align-self: center 
-}
-
 .contactlink {
     vertical-align: middle;
     text-decoration: none;
@@ -106,13 +87,69 @@ input[type=text]:focus, input[type=text]:focus {
     border: 3px solid gray;
 }
 
-/*  Sign Up Button Navbar   */
-.signup {
-    display: none;
-    justify-self: center;
-    align-self: center;
-}
+
 
 /*  Mobile  */
+@media only screen and (max-width: 599px) {
+
+    /*  Navbar  */
+    nav {
+        display: grid;
+        grid-template-rows: 1fr;
+        padding: 16px;  
+    }
+
+    /*  Navbar Content  */
+        /* Logo */ 
+        .logo {
+            justify-self: center;
+            align-self: center; 
+            grid-row-start: 1;
+        }
+        
+        /* Contact Link */
+        .contact {
+            display: none;
+            justify-self: center;
+            align-self: center 
+        }
+
+        /*  Sign Up Button Navbar   */
+        .signup {
+            display: none;
+            justify-self: center;
+            align-self: center;
+        }
+}
+
 /*  Tablet  */
+@media only screen and (min-width: 600px) {
+    
+    /*  Navbar  */
+    nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 16px;  
+    }
+
+    /*  Navbar Content  */
+        /* Logo */ 
+        .logo {
+            justify-self: center;
+            align-self: center; 
+        }
+        
+        /* Contact Link */
+        .contact {
+            justify-self: flex-start;
+            align-self: center; 
+        }
+
+        /*  Sign Up Button Navbar   */
+        .signup {
+            justify-self: flex-end;
+            align-self: center;
+        }
+}
 /*  Desktop */
+@media only screen and (min-width: 1200px) {}
