@@ -322,7 +322,7 @@ input[type=text]:focus, input[type=text]:focus {
             grid-row-start: 1;
             justify-self: center;
             color: #3a93e1;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-family: 'Oswald', sans-serif;
         }
 
@@ -404,18 +404,30 @@ input[type=text]:focus, input[type=text]:focus {
             grid-column-start: 2;
             justify-self: center;
             align-self: center;
+            max-width: 48px;
+            max-height: 48px;
+            margin: 16px;
+            opacity: 0.25;
         }
 
         .twitter {
             grid-column-start: 3;
             justify-self: center;
             align-self: center;
+            max-width: 48px;
+            max-height: 48px;
+            margin: 16px;
+            opacity: 0.25;
         }
 
         .instagram {
             grid-column-start: 4;
             justify-self: center;
             align-self: center;
+            max-width: 48px;
+            max-height: 48px;
+            margin: 16px;
+            opacity: 0.25;
         }
 
         /* Footer */
