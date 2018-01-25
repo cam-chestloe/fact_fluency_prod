@@ -28,8 +28,8 @@ header {
 .contactlink {
     vertical-align: middle;
     text-decoration: none;
-    font-family: Roboto, sans-serif;
-    font-size: 1.1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
     color: lightgray;
     
 }
@@ -40,12 +40,12 @@ header {
 
 /*  Sign Up Button  */
 .signup-btn {
-    color: rgb(8, 162, 233);
+    color: #3a93e1;
     background-color: transparent;
     -moz-border-radius: 32px;
     -webkit-border-radius: 32px;
     border-radius: 12px;
-    border: 3px solid rgb(8, 162, 233);
+    border: 3px solid #3a93e1;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
     font-size: 1.1em;
@@ -55,7 +55,7 @@ header {
 
 .signup-btn:hover {
     color: white;
-    background-color: rgb(8, 162, 233);
+    background-color: #3a93e1;
 }
 
 /*  Modal Background    */
@@ -105,7 +105,12 @@ input[type=text]:focus, input[type=text]:focus {
     border: 3px solid gray;
 }
 
-
+/*  Banner Text */
+.banner {
+    display: grid;
+    grid-template-rows: auto;
+    justify-items: center;
+}
 
 /*  Mobile  */
 @media only screen and (max-width: 599px) {
@@ -138,6 +143,309 @@ input[type=text]:focus, input[type=text]:focus {
             justify-self: center;
             align-self: center;
         }
+
+        /*  Banner Text */
+        .banner-title {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 2.5rem;
+            font-family: 'Oswald', sans-serif;
+            opacity: 0.5;
+        }
+        .banner-sub-title {
+            margin-top: 8px;
+            font-size: 1.15rem;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.5;
+        }
+
+         /*  About Text  */
+         .about-content {
+             display: grid;
+             grid-template-rows: auto;
+         }
+         
+         .about {
+             display: grid;
+             grid-template-rows: auto;         }
+
+         .about-border {
+            justify-self: center;
+            width: 80%;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.05); 
+        }
+
+         .about h3 {
+             margin-top: 32px;
+             margin-bottom: 0;
+             justify-self: center;
+             color: #3a93e1;
+             font-family: 'Oswald', sans-serif;
+             font-size: 1.5rem;
+         }
+
+        .about p {
+            margin-left: 16px;
+            margin-right: 16px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.5;
+        }
+
+        /* Non Profit Paragraph */
+        .nonprofit {
+            display: grid;
+            grid-template-rows: auto;
+        }
+
+        .nonprofit h3 {
+            margin-top: 32px;
+             margin-bottom: 0;
+             justify-self: center;
+             color: #ff0000;
+             font-family: 'Oswald', sans-serif;
+             font-size: 1.5rem;
+        }
+
+        .nonprofit p {
+            margin-left: 16px;
+            margin-right: 16px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.5;
+        }
+
+        .nonprofit img {
+            justify-self: center;
+            margin-top: 64px;
+            grid-row-start: 1;
+        }
+
+        /* Customize Paragraph */
+        .customize {
+            display: grid;
+            grid-template-rows: auto;
+        }
+
+        .customize h3 {
+            margin-top: 32px;
+             margin-bottom: 0;
+             justify-self: center;
+             color: #f7c940;
+             font-family: 'Oswald', sans-serif;
+             font-size: 1.5rem;
+        }
+
+        .customize p {
+            margin-left: 16px;
+            margin-right: 16px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.5;
+        }
+
+        .customize img {
+            justify-self: center;
+            margin-top: 64px;
+            grid-row-start: 1;
+        }
+
+        /* Big Data Paragraph */
+        .bigdata {
+            display: grid;
+            grid-template-rows: auto;
+        }
+
+        .bigdata h3 {
+            margin-top: 32px;
+             margin-bottom: 0;
+             justify-self: center;
+             color: #A8C75A;
+             font-family: 'Oswald', sans-serif;
+             font-size: 1.5rem;
+        }
+
+        .bigdata p {
+            margin-left: 16px;
+            margin-right: 16px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.5;
+        }
+
+        .bigdata img {
+            justify-self: center;
+            margin-top: 64px;
+            grid-row-start: 1;
+        }
+
+        /* Second Sign Up */
+        .secondheader {
+            display: grid;
+            grid-template-rows: auto;
+            margin-top: 64px;
+        }
+
+        .secondheader h1 {
+            justify-self: center;
+            font-family: 'Oswald', sans-serif;
+            opacity: 0.5;
+            margin-bottom: 0;
+        }
+
+        .secondheader p {
+            justify-self: center;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.5;
+
+        }
+
+        .second-btn {
+            justify-self: center;
+            margin-left: 16px;
+            margin-right: 16px;
+            margin-bottom: 64px;
+            max-width: 50%;
+        }
+
+        /* Contact Card */
+        .contactform {
+            display: grid;
+            grid-template-columns: 5% 90% 5%;
+            grid-template-rows: 2fr;
+            margin-top: 32px;
+            margin-bottom: 64px;
+        }
+
+        .contactform h3 {
+            grid-column: 2;
+            grid-row-start: 1;
+            justify-self: center;
+            color: #3a93e1;
+            font-size: 1.25rem;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .card {
+            grid-column-start: 2;
+            grid-row-start: 2;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        }
+
+        .container {
+            display: grid;
+            grid-template-rows: auto;
+            padding: 16px;
+        }
+
+        .container p {
+            font-family: 'Roboto', sans-serif;
+            justify-self: center;
+            opacity: 0.5;
+        }
+
+        .contact-input { 
+            font-family: 'Roboto', sans-serif;
+        }
+
+        textarea {
+            max-width: 100%;
+            resize: none;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            height: 10rem;
+            font-family: 'Roboto', sans-serif;
+            
+        }
+
+        .submit-btn {
+            color: #A8C75A;
+            background-color: transparent;
+            -moz-border-radius: 32px;
+            -webkit-border-radius: 32px;
+            border-radius: 12px;
+            border: 3px solid #A8C75A;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            padding: 12px 32px;
+            text-decoration: none;
+            max-width: 50%;
+            justify-self: center;
+        }
+
+        .submit-btn:hover {
+            color: white;
+            background-color: #A8C75A;
+        }
+
+        /* Social Links */
+        .social {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: 2fr;
+            margin-bottom: 32px;
+        }
+
+        .social h3 {
+            grid-column-start: 3;
+            grid-column: span 5;
+            text-align: center;
+            font-size: 2rem;
+            font-family: 'Oswald', sans-serif;
+            color: #3a93e1;
+        }
+
+        .social-logo {
+            grid-row-start: 2;
+        }
+
+        .facebook {
+            grid-column-start: 2;
+            justify-self: center;
+            align-self: center;
+        }
+
+        .twitter {
+            grid-column-start: 3;
+            justify-self: center;
+            align-self: center;
+        }
+
+        .instagram {
+            grid-column-start: 4;
+            justify-self: center;
+            align-self: center;
+        }
+
+        /* Footer */
+        .footer {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+
+        .footer p {
+            font-family: 'Roboto', sans-serif;
+            font-size: .75rem;
+            opacity: 0.5;
+            justify-self: center;
+        }
+
+        #copyright {
+            grid-column-start: 1;
+        }
+
+        #hometown {
+            grid-column-start: 2;   
+        }
+
+        #creation {
+            grid-column-start: 3;   
+        }
+
+
 }
 
 /*  Tablet  */
@@ -170,6 +478,23 @@ input[type=text]:focus, input[type=text]:focus {
             align-self: center;
             padding-right: 16px;
         }
+
+        /*  Banner Text */
+        .banner-title {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 3.5rem;
+            font-family: 'Oswald', sans-serif;
+            opacity: 0.5;
+        }
+
+        .banner-sub-title {
+            margin-top: 8px;
+            font-size: 2rem;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.5;
+        }
+
 }
 /*  Desktop */
 @media only screen and (min-width: 1200px) {}
