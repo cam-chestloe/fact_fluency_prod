@@ -159,6 +159,106 @@ input[type=text]:focus, input[type=text]:focus {
             opacity: 0.5;
         }
 
+        /* Login Cards */ 
+        .card-container {
+            display: grid;
+            grid-template-columns: auto;
+        }
+
+        /* Teacher Card */
+        .teachercard {
+            margin-right: 5%;
+            margin-left: 5%;
+            margin-bottom: 16px;
+            justify-self: center;
+        }
+        
+        .teachercard {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-auto-columns: auto;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            padding: 16px;
+            padding-bottom: 32px;
+            
+        }
+
+        .teacher-link {
+            text-decoration: none;
+        }
+        .teacher-avatar {
+            justify-self: center;
+            align-self: center;
+        }
+
+        .teacher-btn {
+            color: #3a93e1;
+            background-color: transparent;
+            -moz-border-radius: 32px;
+            -webkit-border-radius: 32px;
+            border-radius: 32px;
+            border: 3px solid #3a93e1;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            padding: 12px 48px;
+            text-decoration: none;
+            max-width: 50%;
+            justify-self: center;
+        }
+        
+        .teacher-btn:hover {
+            color: white;
+            background-color: #3a93e1;
+        }
+
+        /* Student Card */
+        .studentcard {
+            margin-right: 5%;
+            margin-left: 5%;
+            margin-top: 16px;
+            justify-self: center;
+        }
+        
+        .studentcard {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-auto-columns: auto;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            padding: 16px;
+            padding-bottom: 32px;
+            
+        }
+
+        .student-link {
+            text-decoration: none;
+        }
+        .student-avatar {
+            justify-self: center;
+            align-self: center;
+        }
+
+        .student-btn {
+            color: #ff0000;
+            background-color: transparent;
+            -moz-border-radius: 32px;
+            -webkit-border-radius: 32px;
+            border-radius: 32px;
+            border: 3px solid #ff0000;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            padding: 12px 48px;
+            text-decoration: none;
+            max-width: 50%;
+            justify-self: center;
+        }
+        
+        .student-btn:hover {
+            color: white;
+            background-color: #ff0000;
+        }
+
          /*  About Text  */
          .about-content {
              display: grid;
@@ -407,7 +507,7 @@ input[type=text]:focus, input[type=text]:focus {
             max-width: 48px;
             max-height: 48px;
             margin: 16px;
-            opacity: 0.25;
+            opacity: 0.15;
         }
 
         .twitter {
@@ -417,7 +517,7 @@ input[type=text]:focus, input[type=text]:focus {
             max-width: 48px;
             max-height: 48px;
             margin: 16px;
-            opacity: 0.25;
+            opacity: 0.15;
         }
 
         .instagram {
@@ -427,7 +527,7 @@ input[type=text]:focus, input[type=text]:focus {
             max-width: 48px;
             max-height: 48px;
             margin: 16px;
-            opacity: 0.25;
+            opacity: 0.15;
         }
 
         /* Footer */

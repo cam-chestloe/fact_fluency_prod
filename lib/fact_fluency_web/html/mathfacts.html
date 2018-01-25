@@ -79,12 +79,14 @@
 
 <!-- Teacher Cards -->
 <!-- Link to open the modal login form -->
-<a href="#" onclick="document.getElementById('id01').style.display='block'">
-		<div class="teachercard">
-			<img src="#" alt="Teacher Avatar">
-			<button class="teacher-btn">Teacher</button>
-		</div>
-	</a>
+<div class="card-container">
+	<a href="#" class="teacher-link" onclick="document.getElementById('id01').style.display='block'">
+			<div class="teachercard">
+				<img src="#" class="teacher-avatar" alt="Teacher Avatar">
+				<button class="teacher-btn"><strong>Teacher</strong></button>
+			</div>
+		</a>
+</div>
 
 <!-- The Modal -->
 <div id="id01" class="modal">
@@ -119,12 +121,14 @@ class="close" title="Close Modal">&times;</span>
 
 <!-- Student Cards -->
 <!-- Link to open the modal login form -->
-<a href="#" onclick="document.getElementById('id02').style.display='block'">
-		<div class="studentcard">
-			<img src="#" alt="Student Avatar">
-			<button class="student-btn">Student</button>
-		</div>
-	</a>
+<div class="card-container">
+	<a href="#" class="student-link" onclick="document.getElementById('id02').style.display='block'">
+			<div class="studentcard">
+				<img src="#" class="student-avatar" alt="Student Avatar">
+				<button class="student-btn">Student</button>
+			</div>
+		</a>
+	</div>
 
 <!-- The Modal -->
 <div id="id02" class="modal">
@@ -162,13 +166,14 @@ class="close" title="Close Modal">&times;</span>
 
 <!-- Parent Cards -->
 <!-- Link to open the modal login form -->
-<a href="#" onclick="document.getElementById('id03').style.display='block'">
-		<div class="parentcard">
-			<img src="#" alt="Parent Avatar">
-			<button class="parent-btn">Teacher</button>
-		</div>
-	</a>
-
+<div class="card-container">	
+	<a href="#" onclick="document.getElementById('id03').style.display='block'">
+			<div class="parentcard">
+				<img src="#" alt="Parent Avatar">
+				<button class="parent-btn">Teacher</button>
+			</div>
+		</a>
+</div>
 <!-- The Modal -->
 <div id="id03" class="modal">
   <span onclick="document.getElementById('id03').style.display='none'" 
