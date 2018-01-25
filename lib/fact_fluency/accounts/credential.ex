@@ -17,20 +17,12 @@ defmodule FactFluency.Accounts.Credential do
   @doc false
   def changeset(%Credential{} = credential, attrs) do
     credential
-    |> cast(attrs, [:email])
-    |> validate_required([:email])
+    |> cast(attrs, [:email, :password])
+    |> validate_required([:email, :password])
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
-  end
-
-  @doc false
-  def registration_changeset(credential, attrs) do
-    credential
-    |> changeset(attrs)
-    |> cast(attrs, [:password])
     |> validate_length(:password, min: 6)
     |> put_password_hash()
-    |> IO.inspect
   end
 
   defp put_password_hash(changeset) do

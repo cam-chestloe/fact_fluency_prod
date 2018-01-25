@@ -59,7 +59,7 @@ defmodule FactFluency.Accounts do
   def create_user(attrs \\ %{}) do
     %User{}
     |> User.changeset(attrs)
-    |> Ecto.Changeset.cast_assoc(:credential, with: &Credential.registration_changeset/2)
+    |> Ecto.Changeset.cast_assoc(:credential)
     |> Repo.insert()
   end
 
@@ -78,7 +78,7 @@ defmodule FactFluency.Accounts do
   def update_user(%User{} = user, attrs) do
     user
     |> User.changeset(attrs)
-    |> Ecto.Changeset.cast_assoc(:credential, with: &Credential.registration_changeset/2)
+    |> Ecto.Changeset.cast_assoc(:credential)
     |> Repo.update()
   end
 
@@ -109,7 +109,7 @@ defmodule FactFluency.Accounts do
   """
   def change_user(%User{} = user) do
     User.changeset(user, %{})
-    |> Ecto.Changeset.cast_assoc(:credential, with: &Credential.registration_changeset/2)
+    |> Ecto.Changeset.cast_assoc(:credential)
   end
 
 
@@ -156,7 +156,7 @@ defmodule FactFluency.Accounts do
   """
   def create_credential(attrs \\ %{}) do
     %Credential{}
-    |> Credential.registration_changeset(attrs)
+    |> Credential.changeset(attrs)
     |> Repo.insert()
   end
 
@@ -174,7 +174,7 @@ defmodule FactFluency.Accounts do
   """
   def update_credential(%Credential{} = credential, attrs) do
     credential
-    |> Credential.registration_changeset(attrs)
+    |> Credential.changeset(attrs)
     |> Repo.update()
   end
 
@@ -204,7 +204,7 @@ defmodule FactFluency.Accounts do
 
   """
   def change_credential(%Credential{} = credential) do
-    Credential.registration_changeset(credential, %{})
+    Credential.changeset(credential, %{})
   end
 
   @doc """
@@ -221,20 +221,21 @@ defmodule FactFluency.Accounts do
   def authenticate_by_email_password(email, password, user_type) do
     type = 
         case user_type do
-            "teacher" -> from t in Teacher, inner_join: u in assoc(t, :user)
-            "student" -> from s in Student, inner_join: u in assoc(s, :user)
-            "parent" -> from p in Parent, inner_join: u in assoc(p, :user)
-            "admin" -> from u in User, where: u.admin == true
+            "Teacher" -> from t in Teacher, inner_join: u in assoc(t, :user)
+            "Student" -> from s in Student, inner_join: u in assoc(s, :user)
+            "Parent" -> from p in Parent, inner_join: u in assoc(p, :user)
+            "Admin" -> from u in User, where: u.admin == true
         end
 
     query =
-        from t in type,
-        inner_join: c in assoc(t, :credential),
+        from [t, u] in type,
+        inner_join: c in assoc(u, :credential),
         where: c.email == ^email,
-        preload: [:user, :credential]
+        preload: [user: {u, :credential}]
 
     case Repo.one(query) do
         %{} = user -> 
+            IO.inspect(user)
             if Comeonin.Bcrypt.checkpw(password, user.user.credential.password_hash) do
                 {:ok, user}
             else
