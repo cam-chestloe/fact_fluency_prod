@@ -235,7 +235,6 @@ defmodule FactFluency.Accounts do
 
     case Repo.one(query) do
         %{} = user -> 
-            IO.inspect(user)
             if Comeonin.Bcrypt.checkpw(password, user.user.credential.password_hash) do
                 {:ok, user}
             else
