@@ -65,5 +65,5 @@ config :fact_fluency, FactFluency.Guardian,
 # Configure Guardian_DB
 config :guardian, Guardian.DB,
         repo: FactFluency.Repo,
-        schema_name: "guardian tokens",
+        schema_name: "guardian_tokens",
         sweep_interval: 60
