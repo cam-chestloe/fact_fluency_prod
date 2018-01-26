@@ -15,7 +15,7 @@
       <img src="#" alt="<%= @user_type %> Avatar" class="avatar">
     </div>
 
-    <%= render_login_form(@user_type, @conn) %>
+    <%= render FactFluencyWeb.SessionView, "new.html", [user_type: @user_type, conn: @conn] %>
 
   <button data-btn-for="<%= @user_type %>" drab-click="hide_modal" class="cancelbtn">Cancel</button>
   </div>

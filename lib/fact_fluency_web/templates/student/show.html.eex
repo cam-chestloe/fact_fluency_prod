@@ -1,12 +1,6 @@
 <h2>Show Student</h2>
 
 <ul>
-
-  <li>
-    <strong>First name:</strong>
-    <%= @student.first_name %>
-  </li>
-
   <li>
     <strong>Last initial:</strong>
     <%= @student.last_initial %>

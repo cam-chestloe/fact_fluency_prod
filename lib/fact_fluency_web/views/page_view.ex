@@ -22,8 +22,4 @@ defmodule FactFluencyWeb.PageView do
         render(FactFluencyWeb.ParentView, "form.html", assigns)
     end
   end
-
-  def render_login_form(_user_type, conn) do
-    render(FactFluencyWeb.SessionView, "new.html", [conn: conn])
-  end
 end

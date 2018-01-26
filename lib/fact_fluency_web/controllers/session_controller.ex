@@ -1,5 +1,6 @@
 defmodule FactFluencyWeb.SessionController do
     use FactFluencyWeb, :controller
+    use Drab.Controller
 
     alias FactFluency.Accounts
 
@@ -7,7 +8,7 @@ defmodule FactFluencyWeb.SessionController do
         render(conn, "new.html")
     end
 
-    def create(conn, %{"user" => %{"email" => email, "password" => password ,"user_type" => user_type}}) do
+    def create(conn, %{"user" => %{ "email" => email, "password" => password, "user_type" => user_type}}) do
         case Accounts.authenticate_by_email_password(email, password, user_type) do
             {:ok, user} ->
                 conn
@@ -17,7 +18,7 @@ defmodule FactFluencyWeb.SessionController do
             {:error, :unauthorized} ->
                 conn
                 |> put_flash(:error, "Bad email/password combination")
-                |> redirect(to: session_path(conn, :new))
+                |> render(FactFluencyWeb.SessionView, "new.html", user_type: user_type)
         end
     end
 

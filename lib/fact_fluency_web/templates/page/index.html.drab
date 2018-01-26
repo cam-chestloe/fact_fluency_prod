@@ -6,9 +6,9 @@
   <h3>Practice and Test Your Fact Fluency</h3>
 </div>
 
-<%= render "login.html", Map.put(assigns, :user_type, "Teacher") %>
-<%= render "login.html", Map.put(assigns, :user_type, "Student") %>
-<%= render "login.html", Map.put(assigns, :user_type, "Parent") %>
+<%= render "login.html", [user_type: "Teacher", conn: @conn] %>
+<%= render "login.html", [user_type: "Student", conn: @conn] %>
+<%= render "login.html", [user_type: "Parent", conn: @conn] %>
 
 <!--	Side Illustrations		-->
 <div class="sidepics"></div>

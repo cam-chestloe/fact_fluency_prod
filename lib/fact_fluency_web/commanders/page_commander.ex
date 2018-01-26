@@ -29,4 +29,20 @@ defmodule FactFluencyWeb.PageCommander do
         show_modal(socket, current_user_type)
         hide_modal(socket, other_user_types)
     end
-end
+
+    def submit_login(socket, %{"dataset" => %{"btnFor" => user_type}}) do
+        %{"value" => email}  = query_one!(socket, "##{user_type}-login-email input", :value)
+        %{"value" => password} = query_one!(socket, "##{user_type}-login-password input", :value)
+
+        case FactFluency.Accounts.authenticate_by_email_password(email, password, user_type) do
+            {:ok, user} ->
+                set_attr(socket, "#session-email", value: email)
+                set_attr(socket, "#session-password", value: password)
+                set_attr(socket, "#session-user-type", value: user_type)
+                exec_js!(socket, "document.forms.namedItem('session-form').submit()")
+
+            {:error, :unauthorized} ->
+                set_prop(socket, "##{user_type}-login-password p", innerHTML: "Invalid username and #{user_type === "Student" && "PIN" || "password"}.")
+        end
+    end
+end 
