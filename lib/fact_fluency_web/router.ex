@@ -39,7 +39,9 @@ defmodule FactFluencyWeb.Router do
     resources "/school_parameters", SchoolParametersController
     resources "/test_parameters", TestParametersController
     resources "/tests", TestController
-    get "/logout", SessionController, :logout
+
+    post "/login", PageController, :login
+    delete "/logout", PageController, :logout
 
     scope "/take" do
       pipe_through :authenticate
