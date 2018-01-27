@@ -17,13 +17,23 @@
 <!--	Navbar	-->
 	<header>
 		<nav>
-			<a href="#contactform" class="contactlink">Contact</a>
-			<a href="#"><img id="logohome" src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.png?width=48&height=48&select=fnVZV3K0apage0"></a>
+			<!--	Contact Link	-->
+			<div class="contact">
+					<a href="#contactform" class="contactlink"><b>Contact</b></a>
+			</div>
+
+			<!--	Logo	-->
+			<div class="logo">
+				<a href="#"><img id="logohome" src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.svg?width=48&height=48&select=fnVZV3K0apage0"></a>
+			</div>
+
 
 			<!-- Sign Up Modal	-->
-			<button class="signup-btn" onclick="document.getElementById('signupform').style.display='block'">Sign Up</button>
-			<div id="signupform" class="modal">
+			<div class="signup">
+				<button class="signup-btn" onclick="document.getElementById('signupform').style.display='block'"><b>Sign Up</b></button>
+			</div>
 
+			<div id="signupform" class="modal">
 				<form class="modal-content" action="#">
 					<div class="container">
 						<div class="modal-header">
@@ -62,19 +72,21 @@
 	</header>
 
 <!--	Banner Text		-->
-	<div class="header">
-		<h1><strong>Come On In</strong></h1>
-		<h3>Practice and Test Your Fact Fluency</h3>
+	<div class="banner">
+		<p class="banner-title"><strong>Come On In</strong></p>
+		<p class="banner-sub-title">Practice and Test Your Fact Fluency</p>
 	</div>
 
 <!-- Teacher Cards -->
 <!-- Link to open the modal login form -->
-<a href="#" onclick="document.getElementById('id01').style.display='block'">
-		<div class="teachercard">
-			<img src="#" alt="Teacher Avatar">
-			<button class="teacher-btn">Teacher</button>
-		</div>
-	</a>
+<div class="card-container">
+	<a href="#" class="teacher-link" onclick="document.getElementById('id01').style.display='block'">
+			<div class="teachercard">
+				<img src="#" class="teacher-avatar" alt="Teacher Avatar">
+				<button class="teacher-btn"><strong>Teacher</strong></button>
+			</div>
+		</a>
+</div>
 
 <!-- The Modal -->
 <div id="id01" class="modal">
@@ -109,12 +121,14 @@ class="close" title="Close Modal">&times;</span>
 
 <!-- Student Cards -->
 <!-- Link to open the modal login form -->
-<a href="#" onclick="document.getElementById('id02').style.display='block'">
-		<div class="studentcard">
-			<img src="#" alt="Student Avatar">
-			<button class="student-btn">Student</button>
-		</div>
-	</a>
+<div class="card-container">
+	<a href="#" class="student-link" onclick="document.getElementById('id02').style.display='block'">
+			<div class="studentcard">
+				<img src="#" class="student-avatar" alt="Student Avatar">
+				<button class="student-btn">Student</button>
+			</div>
+		</a>
+	</div>
 
 <!-- The Modal -->
 <div id="id02" class="modal">
@@ -152,13 +166,14 @@ class="close" title="Close Modal">&times;</span>
 
 <!-- Parent Cards -->
 <!-- Link to open the modal login form -->
-<a href="#" onclick="document.getElementById('id03').style.display='block'">
-		<div class="parentcard">
-			<img src="#" alt="Parent Avatar">
-			<button class="parent-btn">Teacher</button>
-		</div>
-	</a>
-
+<div class="card-container">	
+	<a href="#" class="parent-link" onclick="document.getElementById('id03').style.display='block'">
+			<div class="parentcard">
+				<img src="#" class="parent-avatar" alt="Parent Avatar">
+				<button class="parent-btn">Teacher</button>
+			</div>
+		</a>
+</div>
 <!-- The Modal -->
 <div id="id03" class="modal">
   <span onclick="document.getElementById('id03').style.display='none'" 
@@ -194,65 +209,78 @@ class="close" title="Close Modal">&times;</span>
 	<div class="sidepics"></div>
 
 <!--	About Text		-->
+<div class="about-content">
 	<div class="about">
 		<h3><strong>About Us</strong></h3>
 		<p>For many of us, our most precious comodity is time. Teachers are no different. Which is why a third grade teacher approached a friend to solve a problem. Fact Fluency plays a large part in your child’s success in math. The Common Core requires that students are fluent in the different operations by the end of each year. To practice, assess, and monitor a student’s progress takes time. Time that could be better spent. We’ve built this app to get your time back.</p>
+		<div class="about-border"></div>
 	</div>
-	<div class="aboutbreakdown">
-		<div class="noprofit">
-			<h3><strong>Not For Profit</strong></h3>
-			<p>Here at Fact Fluency we are a non-profit built to help teachers and parents. We practice, and assess student progress towards mastering their fact fluency. We will never take an extra dollar in prusuit of this. We just want to pay the bills.</p>
-			<img src="#" alt="No Profit Image">
-		</div>
-		<div class="customize">
-			<h3><strong>Spice It Up</strong></h3>
-			<p>Everywhere is different. We get that. That is why we’ve made every bit fully customizable. Whether it’s practice tests or the real deal we give you all the ingredients you need to customize each test for student success.</p>
-			<img src="#" alt="Spice It Up Image">
-		</div>
-		<div class="bigdata">
-			<h3><strong>Spice It Up</strong></h3>
-			<p>Don’t worry, we can break it down too. Every student gets a custom report that can be used to help you calculate grades or send notifications to parents. All while being beautifully plain and simple.</p>
-			<img src="#" alt="Big Data Image">
-		</div>
+
+	<div class="nonprofit">
+		<h3><strong>Not For Profit</strong></h3>
+		<p>Here at Fact Fluency we are a non-profit built to help teachers and parents. We practice, and assess student progress towards mastering their fact fluency. We will never take an extra dollar in prusuit of this. We just want to pay the bills.</p>
+		<img src="#" alt="No Profit Image">
+		<div class="about-border"></div>
 	</div>
+
+	<div class="customize">
+		<h3><strong>Spice It Up</strong></h3>
+		<p>Everywhere is different. We get that. That is why we’ve made every bit fully customizable. Whether it’s practice tests or the real deal we give you all the ingredients you need to customize each test for student success.</p>
+		<img src="#" alt="Spice It Up Image">
+		<div class="about-border"></div>
+	</div>
+
+	<div class="bigdata">
+		<h3><strong>Big Data</strong></h3>
+		<p>Don’t worry, we can break it down too. Every student gets a custom report that can be used to help you calculate grades or send notifications to parents. All while being beautifully plain and simple.</p>
+		<img src="#" alt="Big Data Image">
+		<div class="about-border"></div>
+	</div>
+</div>
 
 <!--	Second Sign Up		-->
 	<div class="secondheader">
 		<h1><strong>Plain and Simple</strong></h1>
-		<h3>A Teaching Tool You Won't Forget</h3>
+		<p>A Teaching Tool You Won't Forget</p>
+				<button class="signup-btn second-btn" onclick="document.getElementById('signupform').style.display='block'"><b>Sign Up</b></button>
+		<div class="about-border"></div>
 	</div>
 
 <!--	Contact Card	-->
 	<a name="contactform"></a>
 	<div class="contactform">
-		<h2><strong>Questions? Comments? Concerns?</strong></h2>
+		<h3><strong>Questions? Comments? Concerns?</strong></h3>
 		<div class="card">
 			<div class="container">
-				<fieldset>
 					<p>Fill out the form and we can problem solve together.</p>
-      				<input type="text" placeholder="Name" name="fullname" required>	
-					<input type="text" placeholder="Email" name="email" required>
-					<input type="text" placeholder="Phone Number" name="telephone" required>	
-					<textarea name="emailbody"></textarea>  
-				</fieldset>
-				<button class="submit-btn">Submit</button>
+      		<input type="text" class="contact-input" placeholder="Name" name="fullname" required>	
+					<input type="text" class="contact-input" placeholder="Email" name="email" required>
+					<input type="text"  class="contact-input"placeholder="Phone Number" name="telephone" required>	
+					<textarea name="emailbody" placeholder="Type Message..."></textarea>  
+					<button class="submit-btn"><strong>Submit</strong></button>
 			</div>
 		</div>
 	</div>
 
+	<div class="about-border"></div>
+
 <!--	Social Media	-->
 	<div class="social">
 		<h3><strong>Let's Get Social</strong></h3>
-		<img src="#" alt="Facebook">
-		<img src="#" alt="Twitter">
-		<img src="#" alt="Instagram">
+		<img src="http://www.tinna.se/_imagebank/facebook-logo_318-49940.jpg" class="social-logo facebook" alt="Facebook">
+		<img src="http://pngimg.com/uploads/twitter/twitter_PNG1.png" class="social-logo twitter" alt="Twitter">
+		<img src="file:///C:/Users/Thomas/Documents/Web%20App/fact_fluency/lib/fact_fluency_web/html/glyph-logo_May2016.png" class="social-logo instagram" alt="Instagram">
 	</div>
+
+	<div class="about-border"></div>
 
 <!--	Footer		-->
 	<footer>
-		<p id="copyright">&copy SayYeahYeah</p>
-		<p id="hometown">Seattle, WA</p>
-		<p id="creation">2018</p>
+		<div class="footer">
+			<p id="copyright">&copy SayYeahYeah</p>
+			<p id="hometown">Seattle, WA</p>
+			<p id="creation">2018</p>
+		</div>
 	</footer>
 </body>
 </html>
