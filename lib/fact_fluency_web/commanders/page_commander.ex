@@ -36,10 +36,7 @@ defmodule FactFluencyWeb.PageCommander do
 
         case FactFluency.Accounts.authenticate_by_email_password(email, password, user_type) do
             {:ok, user} ->
-                set_attr(socket, "#session-email", value: email)
-                set_attr(socket, "#session-password", value: password)
-                set_attr(socket, "#session-user-type", value: user_type)
-                exec_js!(socket, "document.forms.namedItem('session-form').submit()")
+                exec_js!(socket, "document.forms.namedItem('#{user_type}-session-form').submit()")
 
             {:error, :unauthorized} ->
                 set_prop(socket, "##{user_type}-login-password p", innerHTML: "Invalid username and #{user_type === "Student" && "PIN" || "password"}.")

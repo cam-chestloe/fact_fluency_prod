@@ -15,7 +15,28 @@
       <img src="#" alt="<%= @user_type %> Avatar" class="avatar">
     </div>
 
-    <%= render FactFluencyWeb.SessionView, "new.html", [user_type: @user_type, conn: @conn] %>
+    <div id="<%= @user_type %>-modal">
+      <%= form_for @conn, page_path(@conn, :login), [method: :post, as: :user, id: "#{@user_type}-session-form"], fn f -> %>
+          <div class="form-group" id="<%= @user_type %>-login-email" %>
+              <%= label f, :email, class: "control-label" %>
+              <%= text_input f, :email, class: "form-control" %>
+          </div>
+
+          <div class="form-group" id="<%= @user_type %>-login-password">
+              <%= label f, :password, class: "control-label"%>
+              <%= password_input f, :password, class: "form-control" %>
+              <p class="danger" display="hidden"></p>
+          </div>
+
+          <%= hidden_input f, :user_type, value: @user_type %>
+
+          <%= submit "Login", style: "display: none" %>
+
+          <div class="form-group">
+              <button data-btn-for="<%= @user_type %>" drab-click="submit_login">Login</button>
+          </div>
+      <% end %>
+  </div>
 
   <button data-btn-for="<%= @user_type %>" drab-click="hide_modal" class="cancelbtn">Cancel</button>
   </div>
