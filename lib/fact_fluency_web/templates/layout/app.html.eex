@@ -20,6 +20,7 @@
             <li><a href="#contactform" class="contactlink">Contact</a></li>
             <li><a href="<%= page_path(@conn, :index) %>"><img id="logohome" src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.png?width=48&height=48&select=fnVZV3K0apage0"></a></li>
             <li><button data-btn-for="signup" drab-click="show_modal">Sign Up</button></li>
+            <li><%= render FactFluencyWeb.PageView, "logout_button.html", conn: @conn %></li>
           </ul>
         </nav>
         <span class="logo"></span>

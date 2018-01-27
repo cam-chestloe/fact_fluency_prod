@@ -25,7 +25,9 @@
           <div class="form-group" id="<%= @user_type %>-login-password">
               <%= label f, :password, class: "control-label"%>
               <%= password_input f, :password, class: "form-control" %>
-              <p class="danger" display="hidden"></p>
+              <p style="visibility: hidden">
+                Invalid username and/or <%= "#{@user_type === "Student" && "PIN" || "password"}." %>
+              </p>
           </div>
 
           <%= hidden_input f, :user_type, value: @user_type %>

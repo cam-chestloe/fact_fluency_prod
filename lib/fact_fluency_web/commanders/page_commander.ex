@@ -39,7 +39,7 @@ defmodule FactFluencyWeb.PageCommander do
                 exec_js!(socket, "document.forms.namedItem('#{user_type}-session-form').submit()")
 
             {:error, :unauthorized} ->
-                set_prop(socket, "##{user_type}-login-password p", innerHTML: "Invalid username and #{user_type === "Student" && "PIN" || "password"}.")
+                set_style(socket, "##{user_type}-login-password p", visibility: "visible")
         end
     end
 end 
