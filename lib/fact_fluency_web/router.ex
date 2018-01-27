@@ -17,7 +17,7 @@ defmodule FactFluencyWeb.Router do
     plug Guardian.Plug.Pipeline, module: FactFluency.Guardian,
                                  error_handler: FactFluency.AuthErrorHandler
 
-    plug Guardian.Plug.VerifySession, claims: %{"typ" => "access", "user_type" => "Student"}
+    plug Guardian.Plug.VerifySession, claims: %{"typ" => "access"}
     plug Guardian.Plug.VerifyHeader, claims: %{"typ" => "access"}, realm: "Bearer"
     plug Guardian.Plug.EnsureAuthenticated
     plug Guardian.Plug.LoadResource, ensure: true
@@ -28,9 +28,6 @@ defmodule FactFluencyWeb.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
-    resources "/sessions", SessionController, only: [:new, :create, :delete], 
-                                              singleton: true
-
     resources "/schools", SchoolController
     resources "/classes", ClassController
     resources "/teachers", TeacherController

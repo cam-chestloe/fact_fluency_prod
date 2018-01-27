@@ -13,7 +13,7 @@ defmodule FactFluencyWeb.PageController do
           conn
           |> put_flash(:info, "Welcome back!")
           |> FactFluency.Guardian.Plug.sign_in(user, %{"user_type" => user_type})
-          |> redirect(to: "/")
+          |> redirect(to: "/take")
       {:error, :unauthorized} ->
           conn
           |> put_flash(:error, "There was an error logging in.")
