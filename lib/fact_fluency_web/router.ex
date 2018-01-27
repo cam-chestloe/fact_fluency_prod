@@ -13,11 +13,11 @@ defmodule FactFluencyWeb.Router do
     plug :accepts, ["json"]
   end
 
-  pipeline :authenticate do
+  pipeline :authenticate_student do
     plug Guardian.Plug.Pipeline, module: FactFluency.Guardian,
                                  error_handler: FactFluency.AuthErrorHandler
 
-    plug Guardian.Plug.VerifySession, claims: %{"typ" => "access"}
+    plug Guardian.Plug.VerifySession, claims: %{"typ" => "access", "user_type" => "Student"}
     plug Guardian.Plug.VerifyHeader, claims: %{"typ" => "access"}, realm: "Bearer"
     plug Guardian.Plug.EnsureAuthenticated
     plug Guardian.Plug.LoadResource, ensure: true
@@ -44,7 +44,7 @@ defmodule FactFluencyWeb.Router do
     delete "/logout", PageController, :logout
 
     scope "/take" do
-      pipe_through :authenticate
+      pipe_through :authenticate_student
 
       get "/", TestController, :new
     end
