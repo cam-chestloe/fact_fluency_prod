@@ -1,7 +1,8 @@
-<div id="signup-modal" class="modal">
+<div id="signup-modal" class="modal">    
     <div data-btn-for="signup" 
         drab-click="hide_modal" 
-        title="Close Modal">
+        title="Close Modal"
+        class="signup-btn">
         &times;
     </div>
 
@@ -10,33 +11,33 @@
         <input drab-click="change_signup_form" 
             type="radio" 
             name="usertype" 
-            value="teacher" 
+            value="Teacher" 
         />Teacher
 
-        <input drab-click="change_signup_form" 
-            type="radio" 
-            name="usertype" 
-            value="student" 
-            checked="checked" 
+        <input drab-click="change_signup_form"
+            type="radio"
+            name="usertype"
+            value="Student"
+            checked="checked"
         />Student
 
-        <input drab-click="change_signup_form" 
-            type="radio" 
-            name="usertype" 
-            value="parent" 
+        <input drab-click="change_signup_form"
+            type="radio"
+            name="usertype"
+            value="Parent"
         />Parent
 
     </div>
 
-    <div id="student-modal" style="display: block">
+    <div id="Student-signup-modal" style="display: block">
         <%= render_signup_form("Student", @conn) %>
     </div>
 
-    <div id="teacher-modal" style="display: none">
+    <div id="Teacher-signup-modal" style="display: none">
         <%= render_signup_form("Teacher", @conn) %>
     </div>
 
-    <div id="parent-modal" style="display: none">    
+    <div id="Parent-signup-modal" style="display: none">    
         <%= render_signup_form("Parent", @conn) %>
     </div>
 

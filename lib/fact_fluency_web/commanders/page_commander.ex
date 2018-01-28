@@ -24,9 +24,9 @@ defmodule FactFluencyWeb.PageCommander do
     def change_signup_form(socket,  %{"value" => current_user_type} = sender) do
         set_prop(socket, this(sender), checked: "checked")
 
-        other_user_types = ["teacher", "student", "parent"] -- [current_user_type]
+        other_user_types = ["Teacher-signup", "Student-signup", "Parent-signup"] -- ["#{current_user_type}-signup"]
 
-        show_modal(socket, current_user_type)
+        show_modal(socket, "#{current_user_type}-signup")
         hide_modal(socket, other_user_types)
     end
 
@@ -35,7 +35,7 @@ defmodule FactFluencyWeb.PageCommander do
         %{"value" => password} = query_one!(socket, "##{user_type}-login-password input", :value)
 
         case FactFluency.Accounts.authenticate_by_email_password(email, password, user_type) do
-            {:ok, user} ->
+            {:ok, _user} ->
                 exec_js!(socket, "document.forms.namedItem('#{user_type}-session-form').submit()")
 
             {:error, :unauthorized} ->
