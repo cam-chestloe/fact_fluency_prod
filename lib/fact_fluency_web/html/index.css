@@ -6,22 +6,53 @@ body {
     display: grid;
     grid-template-columns: 12fr;
     grid-template-rows: auto;
-}
-
-body {
+    margin: 0;
+    padding: 0;
     font-family: 'Oswald', sans-serif;
     font-family: 'Roboto', sans-serif;
 }
 
+/* Navbar */
+header {
+    min-width: 100%;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.20);
+    background-color: white;
+    margin: 0px 0px 16px 0px;
+}
+
+
+/* Contact Link */
 .contactlink {
+    vertical-align: middle;
     text-decoration: none;
-    font-family: Roboto, sans-serif;
-    font-size: 1.1rem;
-    opacity: 20%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
+    color: lightgray;
+    
 }
 
 .contactlink:hover {
-    text-decoration: underline;
+    color: rgb(8, 162, 233);
+}
+
+/*  Sign Up Button  */
+.signup-btn {
+    color: #3a93e1;
+    background-color: transparent;
+    -moz-border-radius: 32px;
+    -webkit-border-radius: 32px;
+    border-radius: 12px;
+    border: 3px solid #3a93e1;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
+    padding: 12px 32px;
+    text-decoration: none;
+}
+
+.signup-btn:hover {
+    color: white;
+    background-color: #3a93e1;
 }
 
 /*  Modal Background    */
@@ -71,6 +102,555 @@ input[type=text]:focus, input[type=text]:focus {
     border: 3px solid gray;
 }
 
+/*  Banner Text */
+.banner {
+    display: grid;
+    grid-template-rows: auto;
+    justify-items: center;
+}
+
 /*  Mobile  */
+@media only screen and (max-width: 599px) {
+
+    /*  Navbar  */
+    nav {
+        display: grid;
+        grid-template-rows: 1fr;
+        padding: 16px;  
+    }
+
+    /*  Navbar Content  */
+        /* Logo */ 
+        .logo {
+            justify-self: center;
+            align-self: center; 
+            grid-row-start: 1;
+        }
+        
+        /* Contact Link */
+        .contact {
+            display: none;
+            justify-self: center;
+            align-self: center 
+        }
+
+        /*  Sign Up Button Navbar   */
+        .signup {
+            display: none;
+            justify-self: center;
+            align-self: center;
+        }
+
+        /*  Banner Text */
+        .banner-title {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 2.5rem;
+            font-family: 'Oswald', sans-serif;
+            opacity: 0.5;
+        }
+        .banner-sub-title {
+            margin-top: 8px;
+            font-size: 1.15rem;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.5;
+        }
+
+        /* Login Cards */ 
+        .card-container {
+            display: grid;
+            grid-template-columns: auto;
+        }
+
+        /* Teacher Card */
+        .teachercard {
+            margin-right: 5%;
+            margin-left: 5%;
+            margin-bottom: 16px;
+            justify-self: center;
+        }
+        
+        .teachercard {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-auto-columns: auto;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            padding: 16px;
+            padding-bottom: 32px;
+            
+        }
+
+        .teacher-link {
+            text-decoration: none;
+        }
+        .teacher-avatar {
+            justify-self: center;
+            align-self: center;
+        }
+
+        .teacher-btn {
+            color: #3a93e1;
+            background-color: transparent;
+            -moz-border-radius: 32px;
+            -webkit-border-radius: 32px;
+            border-radius: 32px;
+            border: 3px solid #3a93e1;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            padding: 12px 48px;
+            text-decoration: none;
+            max-width: 50%;
+            justify-self: center;
+        }
+        
+        .teacher-btn:hover {
+            color: white;
+            background-color: #3a93e1;
+        }
+
+        /* Student Card */
+        .studentcard {
+            margin-right: 5%;
+            margin-left: 5%;
+            margin-top: 16px;
+            justify-self: center;
+        }
+        
+        .studentcard {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-auto-columns: auto;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            padding: 16px;
+            padding-bottom: 32px;
+            
+        }
+
+        .student-link {
+            text-decoration: none;
+        }
+        .student-avatar {
+            justify-self: center;
+            align-self: center;
+        }
+
+        .student-btn {
+            color: #ff0000;
+            background-color: transparent;
+            -moz-border-radius: 32px;
+            -webkit-border-radius: 32px;
+            border-radius: 32px;
+            border: 3px solid #ff0000;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            padding: 12px 48px;
+            text-decoration: none;
+            max-width: 50%;
+            justify-self: center;
+        }
+        
+        .student-btn:hover {
+            color: white;
+            background-color: #ff0000;
+        }
+
+        /* Parent Card */
+        .parentcard {
+            margin-right: 5%;
+            margin-left: 5%;
+            margin-top: 16px;
+            justify-self: center;
+        }
+        
+        .parentcard {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-auto-columns: auto;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            padding: 16px;
+            padding-bottom: 32px;
+            
+        }
+
+        .parent-link {
+            text-decoration: none;
+        }
+        .parent-avatar {
+            justify-self: center;
+            align-self: center;
+        }
+
+        .parent-btn {
+            color: #f7c940;
+            background-color: transparent;
+            -moz-border-radius: 32px;
+            -webkit-border-radius: 32px;
+            border-radius: 32px;
+            border: 3px solid #f7c940;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            padding: 12px 48px;
+            text-decoration: none;
+            max-width: 50%;
+            justify-self: center;
+        }
+        
+        .parent-btn:hover {
+            color: white;
+            background-color: #f7c940;
+        }
+
+         /*  About Text  */
+         .about-content {
+             display: grid;
+             grid-template-rows: auto;
+         }
+         
+         .about {
+             display: grid;
+             grid-template-rows: auto;         }
+
+         .about-border {
+            justify-self: center;
+            width: 80%;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.05); 
+        }
+
+         .about h3 {
+             margin-top: 32px;
+             margin-bottom: 0;
+             justify-self: center;
+             color: #3a93e1;
+             font-family: 'Oswald', sans-serif;
+             font-size: 1.5rem;
+         }
+
+        .about p {
+            margin-left: 16px;
+            margin-right: 16px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.5;
+        }
+
+        /* Non Profit Paragraph */
+        .nonprofit {
+            display: grid;
+            grid-template-rows: auto;
+        }
+
+        .nonprofit h3 {
+            margin-top: 32px;
+             margin-bottom: 0;
+             justify-self: center;
+             color: #ff0000;
+             font-family: 'Oswald', sans-serif;
+             font-size: 1.5rem;
+        }
+
+        .nonprofit p {
+            margin-left: 16px;
+            margin-right: 16px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.5;
+        }
+
+        .nonprofit img {
+            justify-self: center;
+            margin-top: 64px;
+            grid-row-start: 1;
+        }
+
+        /* Customize Paragraph */
+        .customize {
+            display: grid;
+            grid-template-rows: auto;
+        }
+
+        .customize h3 {
+            margin-top: 32px;
+             margin-bottom: 0;
+             justify-self: center;
+             color: #f7c940;
+             font-family: 'Oswald', sans-serif;
+             font-size: 1.5rem;
+        }
+
+        .customize p {
+            margin-left: 16px;
+            margin-right: 16px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.5;
+        }
+
+        .customize img {
+            justify-self: center;
+            margin-top: 64px;
+            grid-row-start: 1;
+        }
+
+        /* Big Data Paragraph */
+        .bigdata {
+            display: grid;
+            grid-template-rows: auto;
+        }
+
+        .bigdata h3 {
+            margin-top: 32px;
+             margin-bottom: 0;
+             justify-self: center;
+             color: #A8C75A;
+             font-family: 'Oswald', sans-serif;
+             font-size: 1.5rem;
+        }
+
+        .bigdata p {
+            margin-left: 16px;
+            margin-right: 16px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.5;
+        }
+
+        .bigdata img {
+            justify-self: center;
+            margin-top: 64px;
+            grid-row-start: 1;
+        }
+
+        /* Second Sign Up */
+        .secondheader {
+            display: grid;
+            grid-template-rows: auto;
+            margin-top: 64px;
+        }
+
+        .secondheader h1 {
+            justify-self: center;
+            font-family: 'Oswald', sans-serif;
+            opacity: 0.5;
+            margin-bottom: 0;
+        }
+
+        .secondheader p {
+            justify-self: center;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.5;
+
+        }
+
+        .second-btn {
+            justify-self: center;
+            margin-left: 16px;
+            margin-right: 16px;
+            margin-bottom: 64px;
+            max-width: 50%;
+        }
+
+        /* Contact Card */
+        .contactform {
+            display: grid;
+            grid-template-columns: 5% 90% 5%;
+            grid-template-rows: 2fr;
+            margin-top: 32px;
+            margin-bottom: 64px;
+        }
+
+        .contactform h3 {
+            grid-column: 2;
+            grid-row-start: 1;
+            justify-self: center;
+            color: #3a93e1;
+            font-size: 1.5rem;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .card {
+            grid-column-start: 2;
+            grid-row-start: 2;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        }
+
+        .container {
+            display: grid;
+            grid-template-rows: auto;
+            padding: 16px;
+        }
+
+        .container p {
+            font-family: 'Roboto', sans-serif;
+            justify-self: center;
+            opacity: 0.5;
+        }
+
+        .contact-input { 
+            font-family: 'Roboto', sans-serif;
+        }
+
+        textarea {
+            max-width: 100%;
+            resize: none;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            height: 10rem;
+            font-family: 'Roboto', sans-serif;
+            
+        }
+
+        .submit-btn {
+            color: #A8C75A;
+            background-color: transparent;
+            -moz-border-radius: 32px;
+            -webkit-border-radius: 32px;
+            border-radius: 12px;
+            border: 3px solid #A8C75A;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            padding: 12px 32px;
+            text-decoration: none;
+            max-width: 50%;
+            justify-self: center;
+        }
+
+        .submit-btn:hover {
+            color: white;
+            background-color: #A8C75A;
+        }
+
+        /* Social Links */
+        .social {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: 2fr;
+            margin-bottom: 32px;
+        }
+
+        .social h3 {
+            grid-column-start: 3;
+            grid-column: span 5;
+            text-align: center;
+            font-size: 2rem;
+            font-family: 'Oswald', sans-serif;
+            color: #3a93e1;
+        }
+
+        .social-logo {
+            grid-row-start: 2;
+        }
+
+        .facebook {
+            grid-column-start: 2;
+            justify-self: center;
+            align-self: center;
+            max-width: 48px;
+            max-height: 48px;
+            margin: 16px;
+            opacity: 0.15;
+        }
+
+        .twitter {
+            grid-column-start: 3;
+            justify-self: center;
+            align-self: center;
+            max-width: 48px;
+            max-height: 48px;
+            margin: 16px;
+            opacity: 0.15;
+        }
+
+        .instagram {
+            grid-column-start: 4;
+            justify-self: center;
+            align-self: center;
+            max-width: 48px;
+            max-height: 48px;
+            margin: 16px;
+            opacity: 0.15;
+        }
+
+        /* Footer */
+        .footer {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+
+        .footer p {
+            font-family: 'Roboto', sans-serif;
+            font-size: .75rem;
+            opacity: 0.5;
+            justify-self: center;
+        }
+
+        #copyright {
+            grid-column-start: 1;
+        }
+
+        #hometown {
+            grid-column-start: 2;   
+        }
+
+        #creation {
+            grid-column-start: 3;   
+        }
+
+
+}
+
 /*  Tablet  */
+@media only screen and (min-width: 600px) {
+    
+    /*  Navbar  */
+    nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 16px;  
+    }
+
+    /*  Navbar Content  */
+        /* Logo */ 
+        .logo {
+            justify-self: center;
+            align-self: center; 
+        }
+        
+        /* Contact Link */
+        .contact {
+            justify-self: flex-start;
+            align-self: center; 
+            padding-left: 16px;
+        }
+
+        /*  Sign Up Button Navbar   */
+        .signup {
+            justify-self: flex-end;
+            align-self: center;
+            padding-right: 16px;
+        }
+
+        /*  Banner Text */
+        .banner-title {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 3.5rem;
+            font-family: 'Oswald', sans-serif;
+            opacity: 0.5;
+        }
+
+        .banner-sub-title {
+            margin-top: 8px;
+            font-size: 2rem;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.5;
+        }
+
+}
 /*  Desktop */
+@media only screen and (min-width: 1200px) {}
