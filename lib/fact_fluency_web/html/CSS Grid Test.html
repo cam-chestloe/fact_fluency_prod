@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="cssgridnavbartest.css" />
+
+    <script src="navbar.js"></script>
+
+    <!-- Font Families	-->
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="navbar" id="navbar-fixed" role="navigation">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.svg?width=48&height=48&select=fnVZV3K0apage0" alt="Logo"> 
+            </a>
+
+            <!-- Menu Items Medium Screen and Up -->
+            <div class="logout">
+                <a href="mathfacts.html" class="logout"><strong>Logout</strong></a>
+            </div>
+
+            <div class="user">
+                <a class="user" href="#"><span class="username"><i class="material-icons md-36" id="accountCircle">account_circle</i><strong>Username</strong></span></a>
+            </div>
+
+
+
+            <!-- Menu Items Small Screens -->
+            <!-- Toggle Button/Javascript Link -->
+            <a href="javascript:void(0);" class="navbar-toggler" onclick="myFunction()"><i class="material-icons md-36">menu</i></a>
+
+            <!-- Collapse Content -->
+            <div class="navbar-collapse" id="collapsingNavbar">
+                <a class="sm-nav-item" href="#"><span class="sm-username"><i class="material-icons md-36">account_circle</i><strong>Username</strong></span></a>
+                <a class="sm-nav-item sm-logout" href="#"><strong>Logout</strong></a>
+            </div>           
+        </nav>
+
+        <!--	Footer		-->
+        <footer>
+            <div class="container">
+                <p id="copyright">&copy SayYeahYeah</p>
+                <p id="hometown">Seattle, WA</p>
+                <p id="creation">2018</p>
+            </div>
+        </footer>
+    </div> 
+</body>
+</html>
