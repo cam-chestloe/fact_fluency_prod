@@ -5,112 +5,279 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Student Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" type="text/css" media="screen" href="studentpage.css" />
+   
+    <!-- Javascript -->
     <script src="main.js"></script>
+
+    <!-- Font Families	-->
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
     <div class="wrapper">
-    <!--	Navbar	-->
-	<header>
-            <nav>
-                <div class="user">
-                    <img class="user-icon" src="#"/><span class="username"><strong>Username</strong></span>
-                </div>
-                <a class="logo" href="studentpage.html"><img class="logo-icon" id="logostudenthome" src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.svg?width=48&height=48&select=fnVZV3K0apage0"></a>
-                <a href="mathfacts.html" class="logout"><strong>Logout</strong></a>  
-            </nav>
-        </header>
+        <nav class="navbar" id="navbar-fixed" role="navigation">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.svg?width=48&height=48&select=fnVZV3K0apage0" alt="Logo"> 
+            </a>
     
-    <div class="wrapper-card-body">
-    <!--    Body Cards  -->
-    <div class="card-wrapper">
-            <!-- Card 0  -->
-            <div class="card0" id="card-red"onclick="document.getElementById('id00').style.display='block'">
-                <h1>0</h1>
+            <!-- Menu Items Medium Screen and Up -->
+            <div class="logout">
+                <a href="mathfacts.html" class="logout"><strong>Logout</strong></a>
             </div>
+    
+            <div class="user">
+                <a class="user" href="#"><span class="username"><i class="material-icons md-36" id="accountCircle">account_circle</i><strong>Username</strong></span></a>
+            </div>
+    
+    
+    
+            <!-- Menu Items Small Screens -->
+            <!-- Toggle Button/Javascript Link -->
+            <a href="javascript:void(0);" class="navbar-toggler" onclick="myFunction()"><i class="material-icons md-36">menu</i></a>
+    
+            <!-- Collapse Content -->
+            <div class="navbar-collapse" id="collapsingNavbar">
+                <a class="sm-nav-item" href="#"><span class="sm-username"><i class="material-icons md-36">account_circle</i><strong>Username</strong></span></a>
+                <a class="sm-nav-item sm-logout" href="#"><strong>Logout</strong></a>
+            </div>           
+        </nav>
+    
+        <!-- Placeholder Div -->
+        <div class="placeholder"></div>
+    
+        <div class="wrapper-card-body">
+            <!--    Body Cards  -->
+            <div class="card-wrapper">
+                    <!-- Card 0  -->
+                    <div class="card0" id="card-red"onclick="document.getElementById('id00').style.display='block'">
+                        <div class="number-header">
+                            <h1>0</h1>    
+                        </div>
+                        
 
-            <!-- The Modal -->
-            <div id="id00" class="modal">
-                <!-- Modal Content -->
-                <form class="modal-content animate" action="/action_page.php">
-                    <span onclick="document.getElementById('id00').style.display='none'" class="close" title="Close Modal">&times;</span>
-
-                    <div class="modalcontent">
-                        <h1>0</h1>
-                        <input type="checkbox" name="plus" id="addition" value="plussign"/><label>+</label>
-                        <input type="checkbox" name="minus" id="subtraction" value="minussign"/><label>-</label>
-                        <input type="checkbox" name="times" id="multiplication" value="timessign"/><label>x</label>
-                        <input type="checkbox" name="divide" id="division" value="dividesign"/><label>÷</label>                    
-                        <button type="button" class="practice" id="create-test">Practice Test</button>
-                        <button type="button" class="real-deal" id="create-test">Test</button>
+                        <!-- Symbols Light Up If Student Passes That Operation -->
+                        <div class="passing-symbols">
+                            <h1 class="symbol" id="plus-sign">&plus;</h1>
+                            <h1 class="symbol" id="minus-sign">&minus;</h1>
+                            <h1 class="symbol" id="multiplication-sign">&times;</h1>
+                            <h1 class="symbol" id="division-sign">&divide;</h1>
+                        </div>
                     </div>
-                </form>
-            </div>
+        
+                    <!-- The Modal -->
+                    <div id="id00" class="modal">
+                        <!-- Modal Content -->
+                        <form class="modal-content animate" action="/action_page.php">
+                            <span onclick="document.getElementById('id00').style.display='none'" class="close" title="Close Modal">&times;</span>
+        
+                            <div class="modalcontent">
+                                <h1>0</h1>
+                                
+                                <div class="add">
+                                    <input type="checkbox" name="plus" id="addition" value="plussign"/><label>&plus;</label>
+                                </div>
+                                <input type="checkbox" name="minus" id="subtraction" value="minussign"/><label>&minus;</label>
+                                <input type="checkbox" name="times" id="multiplication" value="timessign"/><label>&times;</label>
+                                <input type="checkbox" name="divide" id="division" value="dividesign"/><label>&divide;</label>                    
+                                <button type="button" class="practice" id="create-test">Practice Test</button>
+                                <button type="button" class="real-deal" id="create-test">Test</button>
+                            </div>
+                        </form>
+                    </div>
+        
+                 
+                    <div class="card0" id="card-blue" onclick="document.getElementById('id00').style.display='block'">
+                        <div class="number-header">
+                            <h1>1</h1>    
+                        </div>
+                        
 
-            <div class="card0" id="card-blue" onclick="document.getElementById('id00').style.display='block'">
-                <h1>1</h1>
-            </div>
+                        <!-- Symbols Light Up If Student Passes That Operation -->
+                        <div class="passing-symbols">
+                            <h1 class="symbol" id="plus-sign">&plus;</h1>
+                            <h1 class="symbol" id="minus-sign">&minus;</h1>
+                            <h1 class="symbol" id="multiplication-sign">&times;</h1>
+                            <h1 class="symbol" id="division-sign">&divide;</h1>
+                        </div>
+                    </div>
+        
+                    <div class="card0" id="card-yellow" onclick="document.getElementById('id00').style.display='block'">
+                        <div class="number-header">
+                            <h1>2</h1>    
+                        </div>
+                        
 
-            <div class="card0" id="card-yellow" onclick="document.getElementById('id00').style.display='block'">
-                <h1>2</h1>
-            </div>
-            
-            <div class="card0" id="card-green" onclick="document.getElementById('id00').style.display='block'">
-                <h1>3</h1>
-            </div>
+                        <!-- Symbols Light Up If Student Passes That Operation -->
+                        <div class="passing-symbols">
+                            <h1 class="symbol" id="plus-sign">&plus;</h1>
+                            <h1 class="symbol" id="minus-sign">&minus;</h1>
+                            <h1 class="symbol" id="multiplication-sign">&times;</h1>
+                            <h1 class="symbol" id="division-sign">&divide;</h1>
+                        </div>
+                    </div>
+                    
+                    <div class="card0" id="card-green" onclick="document.getElementById('id00').style.display='block'">
+                        <div class="number-header">
+                            <h1>3</h1>    
+                        </div>
+                        
 
-            <div class="card0" id="card-red" onclick="document.getElementById('id00').style.display='block'">
-                <h1>4</h1>
-            </div>
+                        <!-- Symbols Light Up If Student Passes That Operation -->
+                        <div class="passing-symbols">
+                            <h1 class="symbol" id="plus-sign">&plus;</h1>
+                            <h1 class="symbol" id="minus-sign">&minus;</h1>
+                            <h1 class="symbol" id="multiplication-sign">&times;</h1>
+                            <h1 class="symbol" id="division-sign">&divide;</h1>
+                        </div>
+                    </div>
+        
+                    <div class="card0" id="card-red" onclick="document.getElementById('id00').style.display='block'">
+                        <div class="number-header">
+                            <h1>4</h1>    
+                        </div>
+                        
 
-            <div class="card0" id="card-blue" onclick="document.getElementById('id00').style.display='block'">
-                <h1>5</h1>
-            </div>
-            
-            <div class="card0" id="card-yellow" onclick="document.getElementById('id00').style.display='block'">
-                <h1>6</h1>
-            </div>
+                        <!-- Symbols Light Up If Student Passes That Operation -->
+                        <div class="passing-symbols">
+                            <h1 class="symbol" id="plus-sign">&plus;</h1>
+                            <h1 class="symbol" id="minus-sign">&minus;</h1>
+                            <h1 class="symbol" id="multiplication-sign">&times;</h1>
+                            <h1 class="symbol" id="division-sign">&divide;</h1>
+                        </div>
+                    </div>
+        
+                    <div class="card0" id="card-blue" onclick="document.getElementById('id00').style.display='block'">
+                        <div class="number-header">
+                            <h1>5</h1>    
+                        </div>
+                        
 
-            <div class="card0" id="card-green" onclick="document.getElementById('id00').style.display='block'">
-                <h1>7</h1>
-            </div>
+                        <!-- Symbols Light Up If Student Passes That Operation -->
+                        <div class="passing-symbols">
+                            <h1 class="symbol" id="plus-sign">&plus;</h1>
+                            <h1 class="symbol" id="minus-sign">&minus;</h1>
+                            <h1 class="symbol" id="multiplication-sign">&times;</h1>
+                            <h1 class="symbol" id="division-sign">&divide;</h1>
+                        </div>
+                    </div>
+                    
+                    <div class="card0" id="card-yellow" onclick="document.getElementById('id00').style.display='block'">
+                        <div class="number-header">
+                            <h1>6</h1>    
+                        </div>
+                        
 
-            <div class="card0" id="card-red" onclick="document.getElementById('id00').style.display='block'">
-                <h1>8</h1>
-            </div>
-            
-            <div class="card0" id="card-blue" onclick="document.getElementById('id00').style.display='block'">
-                <h1>9</h1>
-            </div>
+                        <!-- Symbols Light Up If Student Passes That Operation -->
+                        <div class="passing-symbols">
+                            <h1 class="symbol" id="plus-sign">&plus;</h1>
+                            <h1 class="symbol" id="minus-sign">&minus;</h1>
+                            <h1 class="symbol" id="multiplication-sign">&times;</h1>
+                            <h1 class="symbol" id="division-sign">&divide;</h1>
+                        </div>
+                    </div>
+        
+                    <div class="card0" id="card-green" onclick="document.getElementById('id00').style.display='block'">
+                        <div class="number-header">
+                            <h1>7</h1>    
+                        </div>
+                        
 
-            <div class="card0" id="card-yellow" onclick="document.getElementById('id00').style.display='block'">
-                <h1>10</h1>
-            </div>
+                        <!-- Symbols Light Up If Student Passes That Operation -->
+                        <div class="passing-symbols">
+                            <h1 class="symbol" id="plus-sign">&plus;</h1>
+                            <h1 class="symbol" id="minus-sign">&minus;</h1>
+                            <h1 class="symbol" id="multiplication-sign">&times;</h1>
+                            <h1 class="symbol" id="division-sign">&divide;</h1>
+                        </div>
+                    </div>
+        
+                    <div class="card0" id="card-red" onclick="document.getElementById('id00').style.display='block'">
+                        <div class="number-header">
+                            <h1>8</h1>    
+                        </div>
+                        
 
-            <div class="card0" id="card-green" onclick="document.getElementById('id00').style.display='block'">
-                <h1>11</h1>
+                        <!-- Symbols Light Up If Student Passes That Operation -->
+                        <div class="passing-symbols">
+                            <h1 class="symbol" id="plus-sign">&plus;</h1>
+                            <h1 class="symbol" id="minus-sign">&minus;</h1>
+                            <h1 class="symbol" id="multiplication-sign">&times;</h1>
+                            <h1 class="symbol" id="division-sign">&divide;</h1>
+                        </div>
+                    </div>
+                    
+                    <div class="card0" id="card-blue" onclick="document.getElementById('id00').style.display='block'">
+                        <div class="number-header">
+                            <h1>9</h1>    
+                        </div>
+                        
+
+                        <!-- Symbols Light Up If Student Passes That Operation -->
+                        <div class="passing-symbols">
+                            <h1 class="symbol" id="plus-sign">&plus;</h1>
+                            <h1 class="symbol" id="minus-sign">&minus;</h1>
+                            <h1 class="symbol" id="multiplication-sign">&times;</h1>
+                            <h1 class="symbol" id="division-sign">&divide;</h1>
+                        </div>
+                    </div>
+        
+                    <div class="card0" id="card-yellow" onclick="document.getElementById('id00').style.display='block'">
+                        <div class="number-header">
+                            <h1>10</h1>    
+                        </div>
+                        
+
+                        <!-- Symbols Light Up If Student Passes That Operation -->
+                        <div class="passing-symbols">
+                            <h1 class="symbol" id="plus-sign">&plus;</h1>
+                            <h1 class="symbol" id="minus-sign">&minus;</h1>
+                            <h1 class="symbol" id="multiplication-sign">&times;</h1>
+                            <h1 class="symbol" id="division-sign">&divide;</h1>
+                        </div>
+                    </div>
+        
+                    <div class="card0" id="card-green" onclick="document.getElementById('id00').style.display='block'">
+                        <div class="number-header">
+                            <h1>11</h1>    
+                        </div>
+                        
+
+                        <!-- Symbols Light Up If Student Passes That Operation -->
+                        <div class="passing-symbols">
+                            <h1 class="symbol" id="plus-sign">&plus;</h1>
+                            <h1 class="symbol" id="minus-sign">&minus;</h1>
+                            <h1 class="symbol" id="multiplication-sign">&times;</h1>
+                            <h1 class="symbol" id="division-sign">&divide;</h1>
+                        </div>
+                    </div>
+                    
+                    <div class="card0" id="card-red" onclick="document.getElementById('id00').style.display='block'">
+                        <div class="number-header">
+                            <h1>12</h1>    
+                        </div>
+                        
+
+                        <!-- Symbols Light Up If Student Passes That Operation -->
+                        <div class="passing-symbols">
+                            <h1 class="symbol" id="plus-sign">&plus;</h1>
+                            <h1 class="symbol" id="minus-sign">&minus;</h1>
+                            <h1 class="symbol" id="multiplication-sign">&times;</h1>
+                            <h1 class="symbol" id="division-sign">&divide;</h1>
+                        </div>
+                    </div>
             </div>
-            
-            <div class="card0" id="card-red" onclick="document.getElementById('id00').style.display='block'">
-                <h1>12</h1>
-            </div>
-    </div>
-</div>
+        </div>
+
         <!--    Side Illustrations  -->
         <div class="character-image">
             <img src="#" class="illustration" id="right-illustration" alt="Right Illustration">
             <img src="#" class="illustration" id="left-illustration" alt="Left Illustration"> 
         </div>
-
-          <!--	Footer		-->
-        <footer>
-            <div class="wrapper">
-                <p id="copyright">&copy SayYeahYeah</p>
-                <p id="hometown">Seattle, WA</p>
-                <p id="creation">2018</p>
-            </div>
-        </footer>
-
-    </div>
+    </div> 
 </body>
 </html>
