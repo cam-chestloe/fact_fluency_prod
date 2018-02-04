@@ -223,8 +223,20 @@ body {
     /* Checkbox */
         /* Grid Position */
         .add {
-        justify-self: center;
+        grid-column: 2 / 2;
+        grid-row: 2 / 2;
         }
+
+    /* Modal Buttons */
+    .practice {
+        grid-column: 2 / 2;
+        grid-row: 4 / 4;
+    }
+
+    .real-deal {
+        grid-column: 3 / 3;
+        grid-row: 4 / 4;
+    }
 
     /* Illustrations */
     .character-image {
