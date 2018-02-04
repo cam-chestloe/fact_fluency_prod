@@ -74,16 +74,27 @@
                         <!-- Modal Content -->
                         <form class="modal-content animate" action="/action_page.php">
                             <span onclick="document.getElementById('id00').style.display='none'" class="close" title="Close Modal">&times;</span>
-                                <h1>0</h1>
-                                
+                                <div class="modal-number-header">
+                                    <h1 class="modal-header">0</h1>
+                                </div> 
+
                                 <div class="add">
                                     <input type="checkbox" name="plus" id="addition" value="plussign"/><label>&plus;</label>
                                 </div>
+
+                                <div class="minus">
+                                    <input type="checkbox" name="minus" id="subtraction" value="minussign"/><label>&minus;</label>
+                                </div>
                                 
-                                <input type="checkbox" name="minus" id="subtraction" value="minussign"/><label>&minus;</label>
-                                <input type="checkbox" name="times" id="multiplication" value="timessign"/><label>&times;</label>
-                                <input type="checkbox" name="divide" id="division" value="dividesign"/><label>&divide;</label>                    
-                                <button type="button" class="practice" id="create-test">Practice Test</button>
+                                <div class="times">
+                                    <input type="checkbox" name="times" id="multiplication" value="timessign"/><label>&times;</label>
+                                </div>
+
+                                <div class="divide">
+                                    <input type="checkbox" name="divide" id="division" value="dividesign"/><label>&divide;</label>                    
+                                </div>
+
+                                <button type="button" class="practice" id="create-test">Practice</button>
                                 <button type="button" class="real-deal" id="create-test">Test</button>
                         </form>
                     </div>
