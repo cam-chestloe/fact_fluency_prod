@@ -237,6 +237,8 @@ body {
         grid-row: 3 / 3;
         align-self: center;
         justify-self: center;
+        font-size: 4em;
+        color: #ff0000;
         }
 
         .minus {
@@ -244,6 +246,8 @@ body {
             grid-row: 3 / 3;
             align-self: center;
             justify-self: center;
+            font-size: 4em;
+            color: #3a93e1;
         }
 
         .times {
@@ -251,6 +255,8 @@ body {
             grid-row: 3 / 3;
             align-self: center;
             justify-self: center;
+            font-size: 4em;
+            color: #f7c940;
         }
 
         .divide {
@@ -258,6 +264,8 @@ body {
             grid-row: 3 / 3;
             align-self: center;
             justify-self: center;
+            font-size: 4em;
+            color: #A8C75A;
         }
 
     /* Modal Buttons */
