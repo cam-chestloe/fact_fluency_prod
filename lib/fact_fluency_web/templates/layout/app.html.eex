@@ -9,6 +9,7 @@
 
     <title>Math Facts</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/studentpage.css") %>">
     <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto" rel="stylesheet">
   </head>
 
