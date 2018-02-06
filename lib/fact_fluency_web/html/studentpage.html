@@ -78,24 +78,37 @@
                                     <h1 class="modal-header">0</h1>
                                 </div> 
 
-                                <div class="add">
-                                    <label><input type="radio" name="plus" id="addition" value="plussign"/>&plus;</label>
-                                </div>
+                                <!-- Dividing Line -->
+                                <div class="divide-line" id="top-line"></div>
 
-                                <div class="minus">
-                                    <input type="radio" name="minus" id="subtraction" value="minussign"/><label>&minus;</label>
-                                </div>
+                                <!-- Paragraph Text --> 
+                                <p class="test-text"><strong>Choose an operator to practice or test.</strong></p>
+
+                                <!-- Radio Buttons -->
+                                <label class="add radio-btn radio-click" for="addition">
+                                    <input type="radio" name="plus" id="addition" value="plussign"/><span>&plus;</span>
+                                </label>
+                            
+
+                                <label class="minus radio-btn radio-click" for="subtraction">
+                                    <input type="radio" name="minus" id="subtraction" value="minussign"/><span>&minus;</span>
+                                </label>
                                 
-                                <div class="times">
-                                    <input type="radio" name="times" id="multiplication" value="timessign"/><label>&times;</label>
-                                </div>
+                                <label class="times radio-btn radio-click" for="multiplication">
+                                    <input type="radio" name="times" id="multiplication" value="timessign"/><span>&times;</span>
+                                </label>
+                                
 
-                                <div class="divide">
-                                    <input type="radio" name="divide" id="division" value="dividesign"/><label>&divide;</label>                    
-                                </div>
+                                <label class="divide radio-btn radio-click">
+                                    <input type="radio" name="divide" id="division" value="dividesign"/><span>&divide;</span>                    
+                                </label>
+                    
+                                <!-- Dividing Line -->
+                                <div class="divide-line" id="bottom-line"></div>
 
-                                <button type="button" class="practice" id="create-test">Practice</button>
-                                <button type="button" class="real-deal" id="create-test">Test</button>
+                                <!-- Modal Buttons -->
+                                <button type="button" class="practice" id="create-test"><strong>Practice</strong></button>
+                                <button type="button" class="real-deal" id="create-test"><strong>Take Test</strong></button>
                         </form>
                     </div>
         
