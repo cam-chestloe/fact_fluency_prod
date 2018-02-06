@@ -258,7 +258,7 @@ body {
         /* Bottom Position */
         #bottom-line {
             grid-column: 1 / -1;
-            grid-row: 5 / 5;
+            grid-row: 4 / 4;
         }
 
     /* Checkbox */
@@ -268,20 +268,12 @@ body {
             display: none;
         } 
         .radio-btn input:checked+span {
-            border-bottom: 2px solid;
-        }
-
-        .radio-btn {
-            cursor: pointer;
-            opacity: 0.5;
-        }
-
-        .radio-btn:hover {
+            text-decoration: underline;
             opacity: 1.0;
         }
 
-        .radio-click {
-            margin-bottom: 0;
+        span {
+            opacity: 0.5;
         }
 
 
@@ -382,7 +374,7 @@ body {
     }
 
 
-    /* Illustrations */
+    /* Illustrations 
     .character-image {
         grid-column: 1 / -1;
         grid-row: 3 / 3;
@@ -402,7 +394,7 @@ body {
     #left-illustration {
         grid-column-start: 2;
         justify-self: center;
-    }
+    } */
 
 
 /*  Mobile  */
@@ -521,10 +513,10 @@ body {
             width: 80% 
         }
 
-     /* Illustrations */
+     /* Illustrations 
      .character-image {
         display: none;
-    }
+    } */
 }
 
 /*  Tablet  */
