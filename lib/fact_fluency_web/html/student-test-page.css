@@ -1,0 +1,224 @@
+@charset "UTF-8";
+
+* {box-sizing: border-box;}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+    /* Nav Position: Spans full length of screen */
+    nav {
+        /* grid-column: 1 / -1; */
+        position: fixed;
+        min-width: 100%;
+    }
+
+    /* Nav grid styles */
+    nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        padding: 1rem;
+        background-color: #FFFFFF;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.20);
+    }
+
+        /* Navigation Items */
+        .nav-item {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Medium and Up Screen Logout Styles */
+        .logout {
+            text-decoration: none; 
+            color: #000000;
+            opacity: 0.5;
+        }
+
+        .logout:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        /* Medium and Up Screen Username Styles */
+        .user {
+            text-decoration: none;
+        }
+
+        .username {
+            color: #000000;
+            opacity: 0.25;
+        }
+
+        .username:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        .material-icons.md-36 { 
+            padding-right: 8px;
+            font-size: 36px;
+            vertical-align: middle;
+        }
+
+        /* Tells the collapsing content to not be displayed on medium and up screens */
+        #collapsingNavbar {
+            display: none;
+        }
+    
+    /* Body */  
+
+    /* Placeholder Div */
+    .placeholder {
+        min-width: 100%;
+        height: 96px;
+    }
+
+    .body-wrapper {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 10% 80% 10%;
+        grid-template-rows: auto;
+    }
+
+    /* Test Card */
+    .test-area {
+        grid-column: 2 / 2;
+        grid-row: 2 / 2;
+        background-color: #FFFFFF;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.20);
+
+    }
+
+    .keyboard {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 1em;
+        height: 375px;
+        width: 250px;
+        background-color: #ffffff;
+        border-radius: .5em;
+        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+        color: #000000;
+    }
+
+/* Mobile */
+@media only screen and (max-width: 599px) {
+    
+    /* Navbar */
+    .user, .logout {
+        display: none;
+    }
+        /* Navbar Toggler Icon */
+        .navbar-toggler {
+            grid-column-start: 3;
+            justify-self: flex-end;
+            align-self: center;
+            color: #000000;
+            opacity: 0.25;
+        }
+
+        .navbar-toggler:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        /* Navbar Collapsed State Style */
+        
+        #collapsingNavbar.navbar-collapse.responsive {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            margin-top: 1em;
+        }
+
+        .navbar-collapse {
+            border-top: 2px solid rgba(0,0,0,0.05);
+            
+        }
+
+        .sm-nav-item {
+            text-decoration: none;
+            color: #000000;
+            padding-top: 1em;
+        }
+
+        .sm-username {
+            opacity: 0.25;
+        }
+
+        .material-icons.md-36 { 
+            padding-right: 8px;
+            font-size: 36px;
+            vertical-align: middle;
+        }
+
+        .sm-logout {
+            opacity: 0.25;
+        }
+
+        .sm-username:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        .sm-logout:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+}
+
+/*  Tablet  */
+@media only screen and (min-width: 600px) {
+
+    /* Navbar */
+    .navbar-collapse {
+        display: none;
+    }
+        /* Logo */
+        /* Logo Position */
+        .navbar-brand {
+            grid-column-start: 2;
+            justify-self: center;
+            align-self: center;
+        }
+
+        /* Navbar Toggler Icon */
+        .navbar-toggler {
+            display: none;
+        }
+
+        /* Navigation Items */
+        .logout {
+            grid-column-start: 3;
+            grid-row-start: 1;
+            justify-self: flex-end;
+            align-self: center;
+        }
+
+        .user {
+            grid-column-start: 1;
+            grid-row-start: 1;
+            justify-self: flex-start;
+            align-self: center;
+        }
+}
+
+/*  Desktop  */
+@media only screen and (min-width: 1200px) {}
