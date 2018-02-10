@@ -3,7 +3,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>First name</th>
       <th>Last name</th>
       <th>Timestamps</th>
 
@@ -13,7 +12,6 @@
   <tbody>
 <%= for teacher <- @teachers do %>
     <tr>
-      <td><%= teacher.first_name %></td>
       <td><%= teacher.last_name %></td>
       <td><%= teacher.timestamps %></td>
 

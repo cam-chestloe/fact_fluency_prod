@@ -57,4 +57,8 @@ defmodule FactFluencyWeb.StudentController do
     |> put_flash(:info, "Student deleted successfully.")
     |> redirect(to: student_path(conn, :index))
   end
+
+  def home(conn, _params) do
+    render(conn, "home.html")
+  end
 end

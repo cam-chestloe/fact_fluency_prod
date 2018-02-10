@@ -34,7 +34,10 @@ defmodule FactFluencyWeb.Router do
     resources "/schools", SchoolController
     resources "/classes", ClassController
     resources "/teachers", TeacherController
+
     resources "/students", StudentController
+    get "/students-home", StudentController, :home
+
     resources "/parents", ParentController
     resources "/school_parameters", SchoolParametersController
     resources "/test_parameters", TestParametersController
