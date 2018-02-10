@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.keyboard {
+    height: 50%;
+    width: 100%;
+    padding: 1em;
+
+    display: grid;
+
+
+}
