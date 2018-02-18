@@ -1,0 +1,227 @@
+@charset "UTF-8";
+
+* {box-sizing: border-box;}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+    /* Nav Position: Spans full length of screen */
+    nav {
+        /* grid-column: 1 / -1; */
+        position: fixed;
+        min-width: 100%;
+    }
+
+    /* Nav grid styles */
+    nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        padding: 1rem;
+        background-color: #FFFFFF;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.20);
+    }
+
+        /* Navigation Items */
+        .nav-item {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Medium and Up Contact Styles */
+        .contactlink {
+            text-decoration: none; 
+            color: #000000;
+            font-size: 1.1em;
+            opacity: 0.5;
+        }
+
+        .contactlink:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        /* Medium and Up Screen Username Styles */
+        .signup-btn {
+            color: #3a93e1;
+            background-color: transparent;
+            -moz-border-radius: 32px;
+            -webkit-border-radius: 32px;
+            border-radius: 12px;
+            border: 3px solid #3a93e1;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            padding: 12px 32px;
+            text-decoration: none;
+        }
+        
+        .signup-btn:hover {
+            color: white;
+            background-color: #3a93e1;
+        }
+
+        .material-icons.md-36 { 
+            padding-right: 8px;
+            font-size: 36px;
+            vertical-align: middle;
+        }
+
+        /* Tells the collapsing content to not be displayed on medium and up screens */
+        #collapsingNavbar {
+            display: none;
+        }
+
+    /* Footer */
+    footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        min-width: 100%;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+    }
+
+
+/* Mobile */
+@media only screen and (max-width: 599px) {
+    
+    /* Navbar */
+    .contact, .signup {
+        display: none;
+    }
+        /* Navbar Toggler Icon */
+        .navbar-toggler {
+            grid-column-start: 3;
+            justify-self: flex-end;
+            align-self: center;
+            color: #000000;
+            opacity: 0.25;
+        }
+
+        .navbar-toggler:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        /* Navbar Collapsed State Style */
+        
+        #collapsingNavbar.navbar-collapse.responsive {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            margin-top: 1em;
+        }
+
+        .navbar-collapse {
+            border-top: 2px solid rgba(0,0,0,0.05);
+            
+        }
+        
+        .sm-signup-btn {
+            color: #3a93e1;
+            background-color: transparent;
+            -moz-border-radius: 32px;
+            -webkit-border-radius: 32px;
+            border-radius: 12px;
+            border: 3px solid #3a93e1;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            padding: 12px 32px;
+            text-decoration: none;
+        }
+
+        .sm-signup-btn:hover {
+            color: white;
+            background-color: #3a93e1;
+        }
+
+        .sm-contactlink {
+            text-decoration: none; 
+            color: #000000;
+            font-size: 1.1em;
+            opacity: 0.5;
+
+            padding: 1em 0 1em 0;
+        }
+
+        .sm-contactlink:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+    /* Footer */
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        font-size: 0.75em;
+        color: #000000;
+        opacity: 0.5;
+    }
+}
+
+/*  Tablet  */
+@media only screen and (min-width: 600px) {
+
+    /* Navbar */
+    .navbar-collapse {
+        display: none;
+    }
+        /* Logo */
+        /* Logo Position */
+        .navbar-brand {
+            grid-column-start: 2;
+            justify-self: center;
+            align-self: center;
+        }
+
+        /* Navbar Toggler Icon */
+        .navbar-toggler {
+            display: none;
+        }
+
+        /* Navigation Items */
+        .signup {
+            grid-column-start: 3;
+            grid-row-start: 1;
+            justify-self: flex-end;
+            align-self: center;
+        }
+
+        .contact {
+            grid-column-start: 1;
+            grid-row-start: 1;
+            justify-self: flex-start;
+            align-self: center;
+        }
+
+    /* Footer */
+    .container {
+        font-size: 0.85em;
+        color: #000000;
+        opacity: 0.5;
+    }
+}
+
+/*  Desktop  */
+@media only screen and (min-width: 1200px) {}

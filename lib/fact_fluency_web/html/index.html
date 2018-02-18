@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="index-main.css" />
+
+    <script src="navbar.js"></script>
+
+    <!-- Font Families	-->
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="navbar" id="navbar-fixed" role="navigation">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.svg?width=48&height=48&select=fnVZV3K0apage0" alt="Logo"> 
+            </a>
+
+            <!-- Menu Items Medium Screen and Up -->
+            <div class="contact">
+                <a href="#contactform" class="contactlink"><strong>Contact</strong></a>
+            </div>
+
+            <div class="signup">
+				<button class="signup-btn" onclick="document.getElementById('signupform').style.display='block'"><b>Sign Up</b></button>
+			</div>
+
+
+
+            <!-- Menu Items Small Screens -->
+            <!-- Toggle Button/Javascript Link -->
+            <a href="javascript:void(0);" class="navbar-toggler" onclick="myFunction()"><i class="material-icons md-36">menu</i></a>
+
+            <!-- Collapse Content -->
+            <div class="navbar-collapse" id="collapsingNavbar">
+                <a href="#contactform" class="sm-contactlink"><b>Contact</b></a>
+				<button class="sm-signup-btn" onclick="document.getElementById('signupform').style.display='block'"><b>Sign Up</b></button>
+            </div>           
+        </nav>
+
+        <!--	Footer		-->
+        <footer>
+            <div class="container">
+                <p id="copyright">&copy SayYeahYeah</p>
+                <p id="hometown">Seattle, WA</p>
+                <p id="creation">2018</p>
+            </div>
+        </footer>
+    </div> 
+</body>
+</html>
