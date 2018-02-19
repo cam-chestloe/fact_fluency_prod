@@ -19,6 +19,10 @@
 </head>
 <body>
     
+
+        <!-- TODO: Navbar with less classes n divs -->
+
+
         <nav class="navbar" id="navbar-fixed" role="navigation">
             <!-- Logo -->
             <a class="navbar-brand" href="#">
@@ -52,35 +56,35 @@
             <!--    Body Cards  -->
             <div class="card-wrapper">
                     <!-- Card 0  -->
-                    <div class="card0" id="card-red"onclick="document.getElementById('id00').style.display='block'">
-                        <div class="number-header">
+                    <div class="number-choice-wrapper card-hover" id="card-red"onclick="document.getElementById('id00').style.display='block'">
+                        <div class="card-number-header">
                             <h1>0</h1>    
                         </div>
                         
 
                         <!-- Symbols Light Up If Student Passes That Operation -->
                         <div class="passing-symbols">
-                            <h1 class="symbol" id="plus-sign">&plus;</h1>
-                            <h1 class="symbol" id="minus-sign">&minus;</h1>
-                            <h1 class="symbol" id="multiplication-sign">&times;</h1>
-                            <h1 class="symbol" id="division-sign">&divide;</h1>
+                            <h1 id="plus-sign">&plus;</h1>
+                            <h1 id="minus-sign">&minus;</h1>
+                            <h1 id="multiplication-sign">&times;</h1>
+                            <h1 id="division-sign">&divide;</h1>
                         </div>
                     </div>
         
                     <!-- The Modal -->
-                    <div id="id00" class="modal">
+                    <div id="id00" class="modal-overlay">
                         <!-- Modal Content -->
-                        <form class="modal-content animate" action="/action_page.php">
-                            <span onclick="document.getElementById('id00').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <form class="modal test-choice-modal animate" action="/action_page.php">
+                            <span onclick="document.getElementById('id00').style.display='none'" class="close-modal-button" title="Close Modal">&times;</span>
                                 <div class="modal-number-header">
-                                    <h1 class="modal-header">0</h1>
+                                    <h1>0</h1>
                                 </div> 
 
                                 <!-- Dividing Line -->
                                 <div class="divide-line" id="top-line"></div>
 
                                 <!-- Paragraph Text --> 
-                                <p class="test-text"><strong>Choose an operator to practice or test.</strong></p>
+                                <p class="modal-test-text"><strong>Choose an operator to practice or test.</strong></p>
 
                                 <!-- Radio Buttons -->
                                 <label class="add radio-btn radio-click" for="addition">
