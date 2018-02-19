@@ -1,252 +1,77 @@
 <!-- School or Home modal 
 
-<%= for number <- 0..12 do %>
-    <%= render FactFluencyWeb.TestView, "card.html", number: number %>
-<% end %>
+
 
 -->
 
 <div class="wrapper-card-body">
     <!--    Body Cards  -->
     <div class="card-wrapper">
-            <!-- Card 0  -->
-            <div class="number-choice-wrapper card-hover" id="card-red"onclick="document.getElementById('id00').style.display='block'">
-                <div class="card-number-header">
-                    <h1>0</h1>    
-                </div>
+
+        <%= for number <- 0..12 do %>
+            <%= render FactFluencyWeb.TestView, "number-choice-card.html", number: number %>
+        <% end %>
+
+        <!-- The Modal -->
+        <div id="test-choice-modal" class="modal-overlay">
+            <!-- Modal Content -->
+            <div class="modal test-choice-modal animate">
+                <span onclick="document.getElementById('test-choice-modal').style.display='none'" class="close-modal-button" title="Close Modal">&times;</span>
                 
+                <div class="modal-number-header">
+                    <h1>0</h1>
+                </div> 
 
-                <!-- Symbols Light Up If Student Passes That Operation -->
-                <div class="passing-symbols">
-                    <h1 id="plus-sign">&plus;</h1>
-                    <h1 id="minus-sign">&minus;</h1>
-                    <h1 id="multiplication-sign">&times;</h1>
-                    <h1 id="division-sign">&divide;</h1>
-                </div>
-            </div>
+                <%= render "form.html", Map.put(assigns, :action, test_path(@conn, :create)) %>
 
-            <!-- The Modal -->
-            <div id="id00" class="modal-overlay">
-                <!-- Modal Content -->
-                <form class="modal test-choice-modal animate" action="/action_page.php">
-                    <span onclick="document.getElementById('id00').style.display='none'" class="close-modal-button" title="Close Modal">&times;</span>
-                        <div class="modal-number-header">
-                            <h1>0</h1>
-                        </div> 
+                <!-- Dividing Line -->
+                <div class="divide-line" id="top-line"></div>
 
-                        <!-- Dividing Line -->
-                        <div class="divide-line" id="top-line"></div>
+                <!-- Paragraph Text --> 
+                <p class="modal-test-text"><strong>Choose an operator to practice or test.</strong></p>
 
-                        <!-- Paragraph Text --> 
-                        <p class="modal-test-text"><strong>Choose an operator to practice or test.</strong></p>
-
-                        <!-- Radio Buttons -->
-                        <label class="add radio-btn radio-click" for="addition">
-                            <input type="radio" name="plus" id="addition" value="plussign"/><span>&plus;</span>
-                        </label>
-                    
-
-                        <label class="minus radio-btn radio-click" for="subtraction">
-                            <input type="radio" name="minus" id="subtraction" value="minussign"/><span>&minus;</span>
-                        </label>
-                        
-                        <label class="times radio-btn radio-click" for="multiplication">
-                            <input type="radio" name="times" id="multiplication" value="timessign"/><span>&times;</span>
-                        </label>
-                        
-
-                        <label class="divide radio-btn radio-click">
-                            <input type="radio" name="divide" id="division" value="dividesign"/><span>&divide;</span>                    
-                        </label>
+                <!-- Radio Buttons -->
+                <label class="add radio-btn radio-click" for="addition">
+                    <input type="radio" name="plus" id="addition" value="plussign"/><span>&plus;</span>
+                </label>
             
-                        <!-- Dividing Line -->
-                        <div class="divide-line" id="bottom-line"></div>
 
-                        <!-- Modal Buttons -->
-                        <button type="button" class="practice" id="create-test"><strong>Practice</strong></button>
-                        <button type="button" class="real-deal" id="create-test"><strong><span class="long-title">Take </span>Test</strong></button>
-                </form>
-            </div>
-
-            
-            <div class="card0" id="card-blue" onclick="document.getElementById('id00').style.display='block'">
-                <div class="number-header">
-                    <h1>1</h1>    
-                </div>
+                <label class="minus radio-btn radio-click" for="subtraction">
+                    <input type="radio" name="minus" id="subtraction" value="minussign"/><span>&minus;</span>
+                </label>
+                
+                <label class="times radio-btn radio-click" for="multiplication">
+                    <input type="radio" name="times" id="multiplication" value="timessign"/><span>&times;</span>
+                </label>
                 
 
-                <!-- Symbols Light Up If Student Passes That Operation -->
-                <div class="passing-symbols">
-                    <h1 class="symbol" id="plus-sign">&plus;</h1>
-                    <h1 class="symbol" id="minus-sign">&minus;</h1>
-                    <h1 class="symbol" id="multiplication-sign">&times;</h1>
-                    <h1 class="symbol" id="division-sign">&divide;</h1>
-                </div>
+                <label class="divide radio-btn radio-click">
+                    <input type="radio" name="divide" id="division" value="dividesign"/><span>&divide;</span>                    
+                </label>
+    
+                <!-- Dividing Line -->
+                <div class="divide-line" id="bottom-line"></div>
+
+                <!-- Modal Buttons -->
+                <button type="button" class="practice" id="create-test"><strong>Practice</strong></button>
+                <button type="button" class="real-deal" id="create-test"><strong><span class="long-title">Take </span>Test</strong></button>
             </div>
+        </div>
 
-            <div class="card0" id="card-yellow" onclick="document.getElementById('id00').style.display='block'">
-                <div class="number-header">
-                    <h1>2</h1>    
-                </div>
-                
-
-                <!-- Symbols Light Up If Student Passes That Operation -->
-                <div class="passing-symbols">
-                    <h1 class="symbol" id="plus-sign">&plus;</h1>
-                    <h1 class="symbol" id="minus-sign">&minus;</h1>
-                    <h1 class="symbol" id="multiplication-sign">&times;</h1>
-                    <h1 class="symbol" id="division-sign">&divide;</h1>
-                </div>
+        <!-- Card 0  -->
+        <div class="number-choice-wrapper card-hover" id="card-red"onclick="document.getElementById('id00').style.display='block'">
+            <div class="card-number-header">
+                <h1>0</h1>    
             </div>
             
-            <div class="card0" id="card-green" onclick="document.getElementById('id00').style.display='block'">
-                <div class="number-header">
-                    <h1>3</h1>    
-                </div>
-                
 
-                <!-- Symbols Light Up If Student Passes That Operation -->
-                <div class="passing-symbols">
-                    <h1 class="symbol" id="plus-sign">&plus;</h1>
-                    <h1 class="symbol" id="minus-sign">&minus;</h1>
-                    <h1 class="symbol" id="multiplication-sign">&times;</h1>
-                    <h1 class="symbol" id="division-sign">&divide;</h1>
-                </div>
+            <!-- Symbols Light Up If Student Passes That Operation -->
+            <div class="passing-symbols">
+                <h1 id="plus-sign">&plus;</h1>
+                <h1 id="minus-sign">&minus;</h1>
+                <h1 id="multiplication-sign">&times;</h1>
+                <h1 id="division-sign">&divide;</h1>
             </div>
-
-            <div class="card0" id="card-red" onclick="document.getElementById('id00').style.display='block'">
-                <div class="number-header">
-                    <h1>4</h1>    
-                </div>
-                
-
-                <!-- Symbols Light Up If Student Passes That Operation -->
-                <div class="passing-symbols">
-                    <h1 class="symbol" id="plus-sign">&plus;</h1>
-                    <h1 class="symbol" id="minus-sign">&minus;</h1>
-                    <h1 class="symbol" id="multiplication-sign">&times;</h1>
-                    <h1 class="symbol" id="division-sign">&divide;</h1>
-                </div>
-            </div>
-
-            <div class="card0" id="card-blue" onclick="document.getElementById('id00').style.display='block'">
-                <div class="number-header">
-                    <h1>5</h1>    
-                </div>
-                
-
-                <!-- Symbols Light Up If Student Passes That Operation -->
-                <div class="passing-symbols">
-                    <h1 class="symbol" id="plus-sign">&plus;</h1>
-                    <h1 class="symbol" id="minus-sign">&minus;</h1>
-                    <h1 class="symbol" id="multiplication-sign">&times;</h1>
-                    <h1 class="symbol" id="division-sign">&divide;</h1>
-                </div>
-            </div>
-            
-            <div class="card0" id="card-yellow" onclick="document.getElementById('id00').style.display='block'">
-                <div class="number-header">
-                    <h1>6</h1>    
-                </div>
-                
-
-                <!-- Symbols Light Up If Student Passes That Operation -->
-                <div class="passing-symbols">
-                    <h1 class="symbol" id="plus-sign">&plus;</h1>
-                    <h1 class="symbol" id="minus-sign">&minus;</h1>
-                    <h1 class="symbol" id="multiplication-sign">&times;</h1>
-                    <h1 class="symbol" id="division-sign">&divide;</h1>
-                </div>
-            </div>
-
-            <div class="card0" id="card-green" onclick="document.getElementById('id00').style.display='block'">
-                <div class="number-header">
-                    <h1>7</h1>    
-                </div>
-                
-
-                <!-- Symbols Light Up If Student Passes That Operation -->
-                <div class="passing-symbols">
-                    <h1 class="symbol" id="plus-sign">&plus;</h1>
-                    <h1 class="symbol" id="minus-sign">&minus;</h1>
-                    <h1 class="symbol" id="multiplication-sign">&times;</h1>
-                    <h1 class="symbol" id="division-sign">&divide;</h1>
-                </div>
-            </div>
-
-            <div class="card0" id="card-red" onclick="document.getElementById('id00').style.display='block'">
-                <div class="number-header">
-                    <h1>8</h1>    
-                </div>
-                
-
-                <!-- Symbols Light Up If Student Passes That Operation -->
-                <div class="passing-symbols">
-                    <h1 class="symbol" id="plus-sign">&plus;</h1>
-                    <h1 class="symbol" id="minus-sign">&minus;</h1>
-                    <h1 class="symbol" id="multiplication-sign">&times;</h1>
-                    <h1 class="symbol" id="division-sign">&divide;</h1>
-                </div>
-            </div>
-            
-            <div class="card0" id="card-blue" onclick="document.getElementById('id00').style.display='block'">
-                <div class="number-header">
-                    <h1>9</h1>    
-                </div>
-                
-
-                <!-- Symbols Light Up If Student Passes That Operation -->
-                <div class="passing-symbols">
-                    <h1 class="symbol" id="plus-sign">&plus;</h1>
-                    <h1 class="symbol" id="minus-sign">&minus;</h1>
-                    <h1 class="symbol" id="multiplication-sign">&times;</h1>
-                    <h1 class="symbol" id="division-sign">&divide;</h1>
-                </div>
-            </div>
-
-            <div class="card0" id="card-yellow" onclick="document.getElementById('id00').style.display='block'">
-                <div class="number-header">
-                    <h1>10</h1>    
-                </div>
-                
-
-                <!-- Symbols Light Up If Student Passes That Operation -->
-                <div class="passing-symbols">
-                    <h1 class="symbol" id="plus-sign">&plus;</h1>
-                    <h1 class="symbol" id="minus-sign">&minus;</h1>
-                    <h1 class="symbol" id="multiplication-sign">&times;</h1>
-                    <h1 class="symbol" id="division-sign">&divide;</h1>
-                </div>
-            </div>
-
-            <div class="card0" id="card-green" onclick="document.getElementById('id00').style.display='block'">
-                <div class="number-header">
-                    <h1>11</h1>    
-                </div>
-                
-
-                <!-- Symbols Light Up If Student Passes That Operation -->
-                <div class="passing-symbols">
-                    <h1 class="symbol" id="plus-sign">&plus;</h1>
-                    <h1 class="symbol" id="minus-sign">&minus;</h1>
-                    <h1 class="symbol" id="multiplication-sign">&times;</h1>
-                    <h1 class="symbol" id="division-sign">&divide;</h1>
-                </div>
-            </div>
-            
-            <div class="card0" id="card-red" onclick="document.getElementById('id00').style.display='block'">
-                <div class="number-header">
-                    <h1>12</h1>    
-                </div>
-                
-
-                <!-- Symbols Light Up If Student Passes That Operation -->
-                <div class="passing-symbols">
-                    <h1 class="symbol" id="plus-sign">&plus;</h1>
-                    <h1 class="symbol" id="minus-sign">&minus;</h1>
-                    <h1 class="symbol" id="multiplication-sign">&times;</h1>
-                    <h1 class="symbol" id="division-sign">&divide;</h1>
-                </div>
-            </div>
+        </div>
     </div>
 </div>
