@@ -188,9 +188,6 @@ body {
     font-size: 1.25em;
 }
 
-
-
-
 .create-account {
     grid-column: 1 / -1;
     grid-row: 7 / 7;
