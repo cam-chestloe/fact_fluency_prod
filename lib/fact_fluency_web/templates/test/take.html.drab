@@ -1,3 +1,18 @@
+<!--
+    Variables that are available to you
+    - @index = The number of ``question``. ie. Question 1, 2, 3 etc.
+    - @question
+        - To access the first number: @question[number1]
+        - To access the second number: @question[number2]
+        - To access the operator: @question[operator]
+
+    Example:
+
+    <h2>Question number <%= @index %>: <%= question[number1] %> <%= question[operator] %> <%= question[number1] %></h2>
+    =
+    <h2>Question number 1: 1 + 2</h2>
+-->
+
 <div id="answer_div" style="display:none">
     <h3 id="question"><span>Question <%= @index %>: <%= @question.question %></h3>
     <input id="answer_input">
