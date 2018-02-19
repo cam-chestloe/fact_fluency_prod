@@ -41,8 +41,54 @@
             <div class="navbar-collapse" id="collapsingNavbar">
                 <a href="#contactform" class="sm-contactlink"><b>Contact</b></a>
 				<button class="sm-signup-btn" onclick="document.getElementById('signupform').style.display='block'"><b>Sign Up</b></button>
-            </div>           
+            </div> 
+            
+            <div id="signupform" class="modal">
+				<form class="modal-content" action="#">
+					<div class="container">
+                        <span onclick="document.getElementById('signupform').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <h1 class="sign-up">Sign Up</h1>
+				        <p class="sign-up-text">What type of user are you?</p>
+
+						<div class="option-row">
+							<input type="radio" class="type-of-user" name="usertype" value="teacher"/>Teacher
+							<input type="radio" name="usertype" value="student"/>Student
+							<input type="radio" name="usertype" value="parent"/>Parent
+						</div>
+
+                        <div class="email">
+      			            <label><b>Email</b></label>
+      			            <input type="text" name="email" required>
+                        </div>
+
+                        <div class="password">
+                            <label><b>Password</b></label>
+                            <input type="password" name="psw" required>
+                        </div>
+
+                        <!-- Create Account --> 
+                        <button type="submit" class="create-account">Create Account</button>
+
+                        <!-- Send User To Login Modal -->
+                        <button type="button" onclick="document.getElementById('signupform').style.display='none'" class="accidental-signup"><span class="accidental-signup-text">Already have an account?</span> Login here.</button>
+
+                        <!-- Disclaimer -->
+                        <p class="disclaimer">By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+					</div>
+				</form>
+			</div>
         </nav>
+
+        <!-- Placeholder Div -->
+        <div class="placeholder"></div>
+
+        <!--	Banner Text		-->
+        <div class="banner">
+            <p class="banner-title"><strong>Come On In</strong></p>
+            <p class="banner-sub-title">Practice and Test Your Fact Fluency</p>
+        </div>
+
+
 
         <!--	Footer		-->
         <footer>
