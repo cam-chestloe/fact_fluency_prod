@@ -105,27 +105,29 @@ body {
         padding: 16px;
     }
 
-    .card0 {
+    .number-choice-wrapper {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr .5fr;
+    }
+    
+    .card-hover {
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         transition: all 0.3s cubic-bezier(.25,.8,.25,1);
         border-radius: .5em;
     }
-    
-    .card0:hover {
+
+    .card-hover:hover {
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);  
     }
 
     /* Number Header Position and Padding */
-    .number-header {
+    .card-number-header {
         grid-column: 1 / -1;
         justify-self: center;
         align-self: center;
         padding: .25em 0 0 0;
         font-size: 1.5em;
-        
     }
 
     /* Passing Symbols */
@@ -177,7 +179,7 @@ body {
     }
 
     /*  Modal Background    */
-    .modal {
+    .modal-overlay {
         display: none; /* Hidden By Default */
         position: fixed; /* Stay In Place */
         z-index: 1; /* Sit On Top */
@@ -190,10 +192,7 @@ body {
     }
 
     /*  Modal Card Signup  */
-    .modal-content {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto;
+    .modal {
         background-color: white;
         border-radius: .5em;
         margin: 5% auto;
@@ -202,8 +201,14 @@ body {
         width: 50%;
     }
 
+    .test-choice-modal {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+    }
+
     /*  Close Button    */
-    .close {
+    .close-modal-button {
         grid-column-start: 4;
         grid-row-start: 1;
         justify-self: flex-end;
@@ -214,7 +219,7 @@ body {
         color: gray;
     }
 
-    .close:hover {
+    .close-modal-button:hover {
         color: #ff0000;
     }
 
@@ -230,7 +235,7 @@ body {
         }
 
     /* Modal Paragraph */
-    .test-text {
+    .modal-test-text {
         grid-column: 1 / -1;
         grid-row: 3 / 3;
         align-self: center;
@@ -464,11 +469,6 @@ body {
         display: grid;
         grid-template-columns: 5% 90% 5%;
     }
-
-        /* Placeholder Div */
-        .placeholder {
-            height: 84px;
-        }
         /* Card Style */
         .card-wrapper {
             grid-column-start: 2;
