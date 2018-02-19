@@ -17,8 +17,28 @@ defmodule FactFluencyWeb.Router do
     plug Guardian.Plug.Pipeline, module: FactFluency.Guardian,
                                  error_handler: FactFluency.AuthErrorHandler
 
-    plug Guardian.Plug.VerifySession, claims: %{"typ" => "access"}
-    plug Guardian.Plug.VerifyHeader, claims: %{"typ" => "access"}, realm: "Bearer"
+    plug Guardian.Plug.VerifySession, claims: %{"typ" => "access", "user_type" => "Student"}
+    plug Guardian.Plug.VerifyHeader, claims: %{"typ" => "access", "user_type" => "Student"}, realm: "Bearer"
+    plug Guardian.Plug.EnsureAuthenticated
+    plug Guardian.Plug.LoadResource, ensure: true
+  end
+
+  pipeline :authenticate_teacher do
+    plug Guardian.Plug.Pipline, module: FactFluency.Guardian,
+                                error_handler: FactFluency.AuthErrorHandler
+
+    plug Guardian.Plug.VerifySession, claims: %{"typ" => "access", "user_type" => "Teacher"}
+    plug Guardian.Plug.VerifyHeader, claims: %{"typ" => "access", "user_type" => "Teacher"}, realm: "Bearer"
+    plug Guardian.Plug.EnsureAuthenticated
+    plug Guardian.Plug.LoadResource, ensure: true
+  end
+
+  pipeline :authenticate_parent do
+    plug Guardian.Plug.Pipline, module: FactFluency.Guardian,
+                                error_handler: FactFluency.AuthErrorHandler
+
+    plug Guardian.Plug.VerifySession, claims: %{"typ" => "access", "user_type" => "Parent"}
+    plug Guardian.Plug.VerifyHeader, claims: %{"typ" => "access", "user_type" => "Parent"}, realm: "Bearer"
     plug Guardian.Plug.EnsureAuthenticated
     plug Guardian.Plug.LoadResource, ensure: true
   end
