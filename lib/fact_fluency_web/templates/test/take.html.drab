@@ -1,3 +1,5 @@
+
+
 <div id="answer_div" style="display:none">
     <h3 id="question"><span>Question <%= @index %>: <%= @question.question %></h3>
     <input id="answer_input">
@@ -5,3 +7,36 @@
 </div>
 
 <button id="start_button" drab-click="start_test">Start Test!</button>
+
+<!-- Start Button -->
+<div class="card ready-set-go">
+    <button type="button" class="button cancel">Cancel</button>
+    <button type="button" class="button start">Start</button>
+
+    <p>Place Holder Countdown</p>
+</div>
+
+<div class="card test">
+    <div class="problem">
+        <!-- Fact Fluency Problem -->
+        <p class="top-number">Placeholder</p>
+        <p class="bottom-number">Placeholder</p>
+        <p class="operator">Placeholder</p>
+
+        <!-- Line Under Problem -->
+        <div class="line"></div>
+
+        <!-- Answer to Problem Input -->
+        <input type="text" name="answer" id="answer" value="answer"/>
+    </div>
+
+
+    <div class="button-row">
+        <button class="keyboard-btn" type="button" document.getElementById('keyboard')></button>
+
+        <!-- Eventual Buttons 
+        <button class="digi-pen" type="button" document.getElementById('digi-pen')></button>
+        <button class="voice-to-text" type="button" document.getElementById('voice-to-text')></button>
+        -->
+    </div>
+</div>

@@ -1,0 +1,409 @@
+@charset "UTF-8";
+
+* {box-sizing: border-box;}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+    /* Nav Position: Spans full length of screen */
+    nav {
+        /* grid-column: 1 / -1; */
+        position: fixed;
+        min-width: 100%;
+    }
+
+    /* Nav grid styles */
+    nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        padding: 1rem;
+        background-color: #FFFFFF;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.20);
+    }
+
+        /* Navigation Items */
+        .nav-item {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Medium and Up Contact Styles */
+        .contactlink {
+            text-decoration: none; 
+            color: #000000;
+            font-size: 1.1em;
+            opacity: 0.5;
+        }
+
+        .contactlink:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        /* Medium and Up Screen Username Styles */
+        .signup-btn {
+            color: #3a93e1;
+            background-color: transparent;
+            -moz-border-radius: 32px;
+            -webkit-border-radius: 32px;
+            border-radius: 12px;
+            border: 3px solid #3a93e1;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            padding: 12px 32px;
+            text-decoration: none;
+        }
+        
+        .signup-btn:hover {
+            color: white;
+            background-color: #3a93e1;
+        }
+
+        .material-icons.md-36 { 
+            padding-right: 8px;
+            font-size: 36px;
+            vertical-align: middle;
+        }
+
+        /* Tells the collapsing content to not be displayed on medium and up screens */
+        #collapsingNavbar {
+            display: none;
+        }
+
+
+        /*  Modal Background    */
+.modal {
+    display: none; /* Hidden By Default */
+    position: fixed; /* Stay In Place */
+    z-index: 1; /* Sit On Top */
+    left: 0;
+    top: 0; 
+    width: 100%; /* Full Width */
+    height: 100%; /* Full Height */
+    background-color: rgb(0,0,0); /* Fallback Color */
+    background-color: rgba(1, 0, 0, 0.75); /* Black w/ Opacity */
+}
+
+/*  Modal Card Signup  */
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 16px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: .5em;
+    
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/* Modal Container*/ 
+.container {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+}
+
+/*  Close Button    */
+.close {
+    grid-column: 1 / -1;
+    grid-row: 1 / 1;
+    justify-self: flex-end;
+
+    color: gray;
+    font-family: Roboto, sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.close:hover {
+    color: red;
+    opacity: 1.0;
+}
+
+.sign-up {
+    grid-column: 1 / -1;
+    grid-row: 1 / 1;
+    justify-self: center;
+
+    margin-top: 0.5;
+    margin-bottom: 0.5em;
+
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.sign-up-text {
+    grid-column: 1 / -1;
+    grid-row: 2 / 2;
+    justify-self: center;
+
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+.option-row {
+    grid-column: 1 / -1;
+    grid-row: 3 / 3;
+    justify-self: center;
+}
+
+.email {
+    grid-column: 1 / -1;
+    grid-row: 4 / 4;
+    justify-self: flex-start;
+
+    width: 100%;
+    font-size: 1.25em;
+    margin: .5em 0 .5em 0;
+}
+
+.password {
+    grid-column: 1 / -1;
+    grid-row: 5 / 5;
+    justify-self: flex-start; 
+
+    width: 100%;
+    font-size: 1.25em;
+}
+
+.create-account {
+    grid-column: 1 / -1;
+    grid-row: 7 / 7;
+    justify-self: center;
+
+    color: green;
+    background-color: transparent;
+    -moz-border-radius: 32px;
+    -webkit-border-radius: 32px;
+    border-radius: 12px;
+    border: 3px solid green;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+
+    margin: 1em;
+    padding: 12px 32px;
+    text-decoration: none;
+    width: 80%;
+}
+
+.create-account:hover {
+    color: white;
+    background-color: green;
+}
+
+.accidental-signup {
+    grid-column: 1 / -1;
+    grid-row: 8 / 8;
+    justify-self: center;
+
+    border: none;
+    color: #3a93e1;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25em;
+    text-decoration: none;
+}
+
+.accidental-signup-text {
+    color: #000000;
+    opacity: .5;
+}
+
+.disclaimer {
+    grid-column: 1 / -1;
+    grid-row: 9 / 9;
+
+    padding-top: 1em;
+    font-size: .75em;
+}
+
+/* Input Styles */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 4px;
+    margin: 8px 0;
+
+    font-size: 1.25em;
+    border: none;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.425);
+}
+
+input[type="radio"] {
+    display: none;
+  }
+
+input:checked {
+    border: blue;
+}
+
+/* Body */ 
+
+        /* Placeholder Div */
+        .placeholder {
+            min-width: 100%;
+            height: 96px;
+        }
+
+    /* Footer */
+    footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        min-width: 100%;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+    }
+
+
+/* Mobile */
+@media only screen and (max-width: 599px) {
+    
+    /* Navbar */
+    .contact, .signup {
+        display: none;
+    }
+        /* Navbar Toggler Icon */
+        .navbar-toggler {
+            grid-column-start: 3;
+            justify-self: flex-end;
+            align-self: center;
+            color: #000000;
+            opacity: 0.25;
+        }
+
+        .navbar-toggler:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        /* Navbar Collapsed State Style */
+        
+        #collapsingNavbar.navbar-collapse.responsive {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            margin-top: 1em;
+        }
+
+        .navbar-collapse {
+            border-top: 2px solid rgba(0,0,0,0.05);
+            
+        }
+        
+        .sm-signup-btn {
+            color: #3a93e1;
+            background-color: transparent;
+            -moz-border-radius: 32px;
+            -webkit-border-radius: 32px;
+            border-radius: 12px;
+            border: 3px solid #3a93e1;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            padding: 12px 32px;
+            text-decoration: none;
+        }
+
+        .sm-signup-btn:hover {
+            color: white;
+            background-color: #3a93e1;
+        }
+
+        .sm-contactlink {
+            text-decoration: none; 
+            color: #000000;
+            font-size: 1.1em;
+            opacity: 0.5;
+
+            padding: 1em 0 1em 0;
+        }
+
+        .sm-contactlink:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+    /* Footer */
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        font-size: 0.75em;
+        color: #000000;
+        opacity: 0.5;
+    }
+}
+
+/*  Tablet  */
+@media only screen and (min-width: 600px) {
+
+    /* Navbar */
+    .navbar-collapse {
+        display: none;
+    }
+        /* Logo */
+        /* Logo Position */
+        .navbar-brand {
+            grid-column-start: 2;
+            justify-self: center;
+            align-self: center;
+        }
+
+        /* Navbar Toggler Icon */
+        .navbar-toggler {
+            display: none;
+        }
+
+        /* Navigation Items */
+        .signup {
+            grid-column-start: 3;
+            grid-row-start: 1;
+            justify-self: flex-end;
+            align-self: center;
+        }
+
+        .contact {
+            grid-column-start: 1;
+            grid-row-start: 1;
+            justify-self: flex-start;
+            align-self: center;
+        }
+
+    /* Footer */
+    .container {
+        font-size: 0.85em;
+        color: #000000;
+        opacity: 0.5;
+    }
+}
+
+/*  Desktop  */
+@media only screen and (min-width: 1200px) {}

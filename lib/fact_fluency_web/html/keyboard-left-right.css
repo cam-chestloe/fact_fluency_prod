@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+
+.keyboard.right, keyboard.left {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    padding: 1em;
+    height: 375px;
+    width: 300px;
+    background-color: #ffffff;
+    border-radius: .5em;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    color: #000000;
+}
+
+  .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+
+  }
+
+.number {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.number-input {
+    min-height: 100%;
+    min-width: 100%;
+
+    border: none;
+    background-color: transparent;
+    color: #000000;
+    opacity: 0.5;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    border-radius: .2em;
+
+    outline: 0;
+}
+
+.reset-input, .submit-input {
+    min-height: 100%;
+    min-width: 100%;
+
+    border: none;
+    background-color: transparent;
+    opacity: 0.75;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    border-radius: .2em;
+
+    outline: 0;  
+}
+
+.submit-input {
+    color: green;
+}
+
+.reset-input {
+    color: red;
+}
+
+.number-input:active {
+    border-radius: .2em;
+    background-color: rgba(153,153,153,0.40); 
+    transition: background 0.3s linear;
+}
+
+.number:hover {
+    border-radius: .2em;
+    background-color:rgba(153,153,153,0.12);
+    transition: background 0.3s linear;
+  }
+
+  .reset-input:active {
+    border-radius: .2em;
+    background-color: rgba(153,153,153,0.40); 
+    transition: background 0.3s linear;
+}
+
+.reset:hover {
+    border-radius: .2em;
+    background-color:rgba(153,153,153,0.12);
+    transition: background 0.3s linear;
+  }
+
+  .submit-input:active {
+    border-radius: .2em;
+    background-color: rgba(153,153,153,0.40); 
+    transition: background 0.3s linear;
+}
+
+.submit:hover {
+    border-radius: .2em;
+    background-color:rgba(153,153,153,0.12);
+    transition: background 0.3s linear;
+  }
+
+  
+
+  

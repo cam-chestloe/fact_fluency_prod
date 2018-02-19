@@ -3,11 +3,6 @@
 <ul>
 
   <li>
-    <strong>First name:</strong>
-    <%= @parent.first_name %>
-  </li>
-
-  <li>
     <strong>Email:</strong>
     <%= @parent.email %>
   </li>

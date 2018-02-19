@@ -13,47 +13,49 @@
   </head>
 
   <body>
-      <header>
-        <nav>
+    <nav class="navbar" id="navbar-fixed" role="navigation">
+      <!-- Logo -->
+      <a class="navbar-brand" href="#">
+          <img src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.svg?width=48&height=48&select=fnVZV3K0apage0" alt="Logo"> 
+      </a>
 
-          <div class="contact">
-            <a href="#contactform" class="contactlink">Contact</a>
-          </div>
-
-          <div class="logo">
-            <a href="<%= page_path(@conn, :index) %>"><img id="logohome" src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.png?width=48&height=48&select=fnVZV3K0apage0"></a>
-          </div>
-
-          <div class="signup">
-            <%= render FactFluencyWeb.PageView, "signup_button.html", assigns %>
-          </div>
-
-          <%= render FactFluencyWeb.PageView, "logout_button.html", conn: @conn %>
-
-          <%= render FactFluencyWeb.PageView, "signup.html", assigns %>
-
-        </nav>
-      </header>
-
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
-
-    </div>
-
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-    <%= Drab.Client.js(@conn) %>
-
-<!-- Footer -->
-    <footer>
-      <div class="footer">
-        <p id="copyright">&copy SayYeahYeah</p>
-        <p id="hometown">Seattle, WA</p>
-        <p id="creation">2018</p>
+      <!-- Menu Items Medium Screen and Up -->
+      <div class="logout">
+          <a href="mathfacts.html" class="logout"><strong>Logout</strong></a>
       </div>
-    </footer>
-  </body>
+
+      <div class="user">
+          <a class="user" href="#"><span class="username"><i class="material-icons md-36" id="accountCircle">account_circle</i><strong>Username</strong></span></a>
+      </div>
+
+
+
+      <!-- Menu Items Small Screens -->
+      <!-- Toggle Button/Javascript Link -->
+      <a href="javascript:void(0);" class="navbar-toggler" onclick="myFunction()"><i class="material-icons md-36">menu</i></a>
+
+      <!-- Collapse Content -->
+      <div class="navbar-collapse" id="collapsingNavbar">
+          <a class="sm-nav-item" href="#"><span class="sm-username"><i class="material-icons md-36">account_circle</i><strong>Username</strong></span></a>
+          <a class="sm-nav-item sm-logout" href="#"><strong>Logout</strong></a>
+      </div>           
+  </nav>
+
+  <div class="main-wrapper">
+    <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+    <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+    <%= render @view_module, @view_template, assigns %>
+  </div>
+
+  <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  <%= Drab.Client.js(@conn) %>
+
+  <!--	Footer		-->
+  <footer>
+    <p id="copyright">&copy SayYeahYeah</p>
+    <p id="hometown">Seattle, WA</p>
+    <p id="creation">2018</p>
+  </footer>
+</body>
 </html>

@@ -5,57 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="student-test-page.css" />
+
+    <script src="navbar.js"></script>
+
+    <!-- Font Families	-->
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-
 <body>
-    <!--	Navbar	-->
-	<header>
-        <nav>
-            <p>User Name Placeholder</p>
-            <a href="#"><img id="logostudenthome" src="#"></a>
-            <button class="logout-btn">Logout</button>
+    <div class="wrapper">
+        <nav class="navbar" id="navbar-fixed" role="navigation">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.svg?width=48&height=48&select=fnVZV3K0apage0" alt="Logo"> 
+            </a>
+
+            <!-- Menu Items Medium Screen and Up -->
+            <div class="logout">
+                <a href="mathfacts.html" class="logout"><strong>Logout</strong></a>
+            </div>
+
+            <div class="user">
+                <a class="user" href="#"><span class="username"><i class="material-icons md-36" id="accountCircle">account_circle</i><strong>Username</strong></span></a>
+            </div>
+
+
+
+            <!-- Menu Items Small Screens -->
+            <!-- Toggle Button/Javascript Link -->
+            <a href="javascript:void(0);" class="navbar-toggler" onclick="myFunction()"><i class="material-icons md-36">menu</i></a>
+
+            <!-- Collapse Content -->
+            <div class="navbar-collapse" id="collapsingNavbar">
+                <a class="sm-nav-item" href="#"><span class="sm-username"><i class="material-icons md-36">account_circle</i><strong>Username</strong></span></a>
+                <a class="sm-nav-item sm-logout" href="#"><strong>Logout</strong></a>
+            </div>           
         </nav>
-    </header>
-    
-    <!--    Test Card   -->
-    <div  class="test-area">
-        <div class="problem">
-            <p>*Note top number red bottom number black</p>
-        </div>
-        <div class="student-answer">
-            <input type="text" name="answer">
-        </div>
-        <div class="keyboard-button">
-            <button type="button" class="key-btn">Open Screen Keyboard</button>
-        </div>
-    </div>
 
-    <!--    Keyboard    -->
-    <div class="keyboard">
-        <p>Place Holder On Screen Keyboard</p>
-    </div>
+        
+        <!-- Placeholder Div -->
+        <div class="placeholder"></div>
 
-    <!--    Results Modal   -->
-    <div class="container">
-        <div class="modal-card">
-            <div class="modal-header">
-                <h1>Encouraging Text</h1>
-                <h2>Pass Or Didn't Pass</h2>
+        <div class="body-wrapper">
+            <!--    Test Card   -->
+            <div  class="test-area">
+                
             </div>
 
-            <!--    Give Students helpful data related to the test they just completed  -->
-            <div class="data-point">
-                <div class="positive"></div>
-                <div class="helpful"></div>
+            
+            <!--    Keyboard  -->  
+            <div class="keyboard left center right">
+                <div class="result">0</div>
+                    <div class="keypad">
+                        <div class="row">
+                        <div class="number">7</div>
+                        <div class="number">8</div>
+                        <div class="number">9</div>
+                        </div>
+                        <div class="row">
+                        <div class="number">4</div>
+                        <div class="number">5</div>
+                        <div class="number">6</div>
+                        </div>
+                        <div class="row">
+                        <div class="number">1</div>
+                        <div class="number">2</div>
+                        <div class="number">3</div>
+                        </div>
+                        <div class="row">
+                        <div class="number reset">Clear</div>
+                        <div class="number">0</div>
+                        <div class="action">Enter</div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <hr>
+            <!--    Results Modal   -->
+            <div class="container">
+                <div class="modal-card">
+                    <div class="modal-header">
+                        <h1>Encouraging Text</h1>
+                        <h2>Pass Or Didn't Pass</h2>
+                    </div>
 
-            <div class="result-buttons">
-                <button type="button" class="home">Home</button>
-                <button type="button" class="try-again">Try Again</button>
+                    <!--    Give Students helpful data related to the test they just completed  -->
+                    <div class="data-point">
+                        <div class="positive"></div>
+                        <div class="helpful"></div>
+                    </div>
+
+                    <hr>
+
+                    <div class="result-buttons">
+                        <button type="button" class="home">Home</button>
+                        <button type="button" class="try-again">Try Again</button>
+                    </div>
+                </div>
             </div>
-        </div>
+        </div>  
     </div>
 </body>
 </html>

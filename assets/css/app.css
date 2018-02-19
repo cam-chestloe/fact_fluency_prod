@@ -1,106 +1,402 @@
 @charset "UTF-8";
 
 /*  Universal Styles    */
+* {box-sizing: border-box;}
 
 body {
-    display: grid;
-    grid-template-columns: 12fr;
-    grid-template-rows: auto;
     margin: 0;
     padding: 0;
     font-family: 'Oswald', sans-serif;
     font-family: 'Roboto', sans-serif;
 }
 
+.main-wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto 1fr;
+    margin: 0;
+    padding: 108px 0 0 0;
+}
+
 /* Navbar */
-header {
-    min-width: 100%;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.20);
-    background-color: white;
-    margin: 0px 0px 16px 0px;
-}
+    /* Nav Position: Spans full length of screen */
+    nav {
+        /* grid-column: 1 / -1; */
+        position: fixed;
+        min-width: 100%;
+        z-index: 1;
+    }
+
+    /* Nav grid styles */
+    nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        padding: 1rem;
+        background-color: #FFFFFF;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.20);
+    }
+
+        /* Navigation Items */
+        .nav-item {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Medium and Up Screen Logout Styles */
+        .logout {
+            text-decoration: none; 
+            color: #000000;
+            opacity: 0.5;
+        }
+
+        .logout:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        /* Medium and Up Screen Username Styles */
+        .user {
+            text-decoration: none;
+        }
+
+        .username {
+            color: #000000;
+            opacity: 0.25;
+        }
+
+        .username:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        .material-icons.md-36 { 
+            padding-right: 8px;
+            font-size: 36px;
+            vertical-align: middle;
+        }
+
+        /* Tells the collapsing content to not be displayed on medium and up screens */
+        #collapsingNavbar {
+            display: none;
+        }
+
+ 
+/* Body */  
 
 
-/* Contact Link */
-.contactlink {
-    vertical-align: middle;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.1em;
-    color: lightgray;
+    /* Card Body */
+    .wrapper-card-body {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 10% 80% 10%;
+    }
+
+    /* Card Style */
+    .card-wrapper {
+        grid-column-start: 2;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-auto-rows: minmax(auto, auto);
+        grid-column-gap: 16px;
+        grid-row-gap: 16px;
+        padding: 16px;
+    }
+
+    .number-choice-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr .5fr;
+    }
     
-}
+    .card-hover {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        border-radius: .5em;
+    }
 
-.contactlink:hover {
-    color: rgb(8, 162, 233);
-}
+    .card-hover:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);  
+    }
 
-/*  Sign Up Button  */
-.signup-btn {
-    color: #3a93e1;
-    background-color: transparent;
-    -moz-border-radius: 32px;
-    -webkit-border-radius: 32px;
-    border-radius: 12px;
-    border: 3px solid #3a93e1;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.1em;
-    padding: 12px 32px;
-    text-decoration: none;
-}
+    /* Number Header Position and Padding */
+    .card-number-header {
+        grid-column: 1 / -1;
+        justify-self: center;
+        align-self: center;
+        padding: .25em 0 0 0;
+        font-size: 1.5em;
+    }
 
-.signup-btn:hover {
-    color: white;
-    background-color: #3a93e1;
-}
+    /* Passing Symbols */
+    /* Passing Symbols Position, Color, and Padding*/
+    .passing-symbols {
+        grid-row: 2 / 2; 
+        grid-column: 1 / -1;
+    }
+        /* Passing Symbol Subgrid */
+        .passing-symbols {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 0 1em .5em 1em;
+        }
 
-/*  Modal Background    */
-.modal {
-    display: none; /* Hidden By Default */
-    position: fixed; /* Stay In Place */
-    z-index: 1; /* Sit On Top */
-    left: 0;
-    top: 0; 
-    width: 100%; /* Full Width */
-    height: 100%; /* Full Height */
-    background-color: rgb(0,0,0); /* Fallback Color */
-    background-color: rgba(1, 0, 0, 0.75); /* Black w/ Opacity */
-}
+        /* Passing Symbol h1 color and opacity */
+        .passing-symbols h1 {
+            color: #000000;
+            opacity: 0.10;
+        }
 
-/*  Modal Card Signup  */
-.modal-content {
-    background-color: white;
-    margin: 15% auto;
-    padding: 16px;
-    width: 80% 
-}
+        /* Symbol Position */
+        #plus-sign, #minus-sign, #multiplication-sign, #division-sign {
+            align-self: center;
+            justify-self: center;
+        }
 
-/*  Close Button    */
-.close {
-    color: gray;
-    float: right;
-    font-family: Roboto, sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-}
+    /* h1 Element Styles */
 
-.close:hover {
-    color: black;
-}
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
 
-/* Input Styles */
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 4px;
-    margin: 8px 0;
-    border: none;
-    border-bottom: 2px solid rgba(128, 128, 128, 0.425);
-}
+    #card-red h1 {
+        color: #ff0000;
+    }
 
-input[type=text]:focus, input[type=text]:focus {
-    border: 3px solid gray;
-}
+    #card-blue h1 {
+        color: #3a93e1;
+    }
+
+    #card-yellow h1 {
+        color: #f7c940;
+    }
+
+    #card-green h1 {
+        color: #A8C75A;
+    }
+
+    /*  Modal Background    */
+    .modal-overlay {
+        display: none; /* Hidden By Default */
+        position: fixed; /* Stay In Place */
+        z-index: 1; /* Sit On Top */
+        left: 0;
+        top: 0; 
+        width: 100%; /* Full Width */
+        height: 100%; /* Full Height */
+        background-color: rgb(0,0,0); /* Fallback Color */
+        background-color: rgba(1, 0, 0, 0.75); /* Black w/ Opacity */
+    }
+
+    /*  Modal Card Signup  */
+    .modal {
+        background-color: white;
+        border-radius: .5em;
+        margin: 5% auto;
+        padding: 0;
+        max-width: 500px; 
+        width: 50%;
+    }
+
+    .test-choice-modal {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+    }
+
+    /*  Close Button    */
+    .close-modal-button {
+        grid-column-start: 4;
+        grid-row-start: 1;
+        justify-self: flex-end;
+        padding: .25em .5em 0 0;
+        font-family: Roboto, sans-serif;
+        font-size: 36px;
+        font-weight: bold;
+        color: gray;
+    }
+
+    .close-modal-button:hover {
+        color: #ff0000;
+    }
+
+    /* Number Header */
+        /* Position and Font-Size */
+        .modal-number-header {
+            grid-column: 2 / 4;
+            grid-row: 2 / 3;
+            align-self: center;
+            justify-self: center;
+            font-size: 5em;
+            color: #ff0000;
+        }
+
+    /* Modal Paragraph */
+    .modal-test-text {
+        grid-column: 1 / -1;
+        grid-row: 3 / 3;
+        align-self: center;
+        justify-self: center;
+        color: #000000;
+        opacity: 0.5;
+    }
+
+    /* Dividing Line */
+        /* Padding and Border */
+        .divide-line {
+            margin: 0 1em 0 1em;
+            border-bottom: 2px solid rgba(1, 0, 0, 0.10);
+        }
+
+        /* Top Postion */
+        #top-line {
+            grid-column: 1 / -1;
+            grid-row: 2 / 2;
+        }
+        /* Bottom Position */
+        #bottom-line {
+            grid-column: 1 / -1;
+            grid-row: 4 / 4;
+        }
+
+    /* Checkbox */
+
+        /* Radio Box*/
+        .radio-btn input {
+            display: none;
+        } 
+        .radio-btn input:checked+span {
+            text-decoration: underline;
+            opacity: 1.0;
+        }
+
+        span {
+            opacity: 0.5;
+        }
+
+
+        /*  Radio Grid Position */
+        .add {
+        grid-column: 1 / 1;
+        grid-row: 4 / 4;
+        align-self: center;
+        justify-self: center;
+        font-size: 4em;
+        color: #ff0000;
+        }
+
+        .minus {
+            grid-column: 2 / 2;
+            grid-row: 4 / 4;
+            align-self: center;
+            justify-self: center;
+            font-size: 4em;
+            color: #3a93e1;
+        }
+
+        .times {
+            grid-column: 3 / 3;
+            grid-row: 4 / 4;
+            align-self: center;
+            justify-self: center;
+            font-size: 4em;
+            color: #f7c940;
+        }
+
+        .divide {
+            grid-column: 4 / 4;
+            grid-row: 4 / 4;
+            align-self: center;
+            justify-self: center;
+            font-size: 4em;
+            color: #A8C75A;
+        }
+
+    /* Modal Buttons */
+    .practice {
+        grid-column: 1 / 3;
+        grid-row: 5 / 5;
+        justify-self: center;
+        align-self: center;
+        margin: 1em;
+
+        /* Button Styles */
+        color: #3a93e1;
+        background-color: transparent;
+        -moz-border-radius: 32px;
+        -webkit-border-radius: 32px;
+        border-radius: 32px;
+        border: 3px solid #3a93e1;
+        cursor: pointer;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.1em;
+        padding: 12px 48px;
+        text-decoration: none;
+        opacity: 0.5;
+    }
+
+    .practice:hover {
+        color: white;
+        background-color: #3a93e1;
+        border-color: #3a93e1;
+        opacity: 1.0;
+    }
+
+    .real-deal {
+        grid-column: 3 / 5;
+        grid-row: 5 / 5;
+        justify-self: center;
+        align-self: center;
+        margin: 1em;
+
+        /* Button Styles */
+        color: #3a93e1;
+        background-color: transparent;
+        -moz-border-radius: 32px;
+        -webkit-border-radius: 32px;
+        border-radius: 32px;
+        border: 3px solid #3a93e1;
+        cursor: pointer;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.1em;
+        padding: 12px 48px;
+        text-decoration: none;
+        opacity: 0.5;
+    }
+
+    .real-deal:hover {
+        color: white;
+        background-color: #3a93e1;
+        border-color: #3a93e1;
+        opacity: 1.0;
+    }
+
+
+    /* Illustrations 
+    .character-image {
+        grid-column: 1 / -1;
+        grid-row: 3 / 3;
+        margin: 0;
+        padding: 0;
+    }
+    .character-image {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #right-illustration {
+        grid-column-start: 1;
+        justify-self: center;
+    }
+
+    #left-illustration {
+        grid-column-start: 2;
+        justify-self: center;
+    } */
+
 
 /*  Banner Text */
 .banner {
@@ -110,547 +406,347 @@ input[type=text]:focus, input[type=text]:focus {
 }
 
 /*  Mobile  */
-@media only screen and (max-width: 599px) {
 
-    /*  Navbar  */
-    nav {
+@media only screen and (max-width: 399px) {
+
+    /* Navbar */
+    .user, .logout {
+        display: none;
+    }
+        /* Navbar Toggler Icon */
+        .navbar-toggler {
+            grid-column-start: 3;
+            justify-self: flex-end;
+            align-self: center;
+            color: #000000;
+            opacity: 0.25;
+        }
+
+        .navbar-toggler:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        /* Navbar Collapsed State Style */
+        
+        #collapsingNavbar.navbar-collapse.responsive {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            margin-top: 1em;
+        }
+
+        .navbar-collapse {
+            border-top: 2px solid rgba(0,0,0,0.05);
+            
+        }
+
+        .sm-nav-item {
+            text-decoration: none;
+            color: #000000;
+            padding-top: 1em;
+        }
+
+        .sm-username {
+            opacity: 0.25;
+        }
+
+        .material-icons.md-36 { 
+            padding-right: 8px;
+            font-size: 36px;
+            vertical-align: middle;
+        }
+
+        .sm-logout {
+            opacity: 0.25;
+        }
+
+        .sm-username:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        .sm-logout:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+    /* Body */
+    .wrapper-card-body {
         display: grid;
-        grid-template-rows: 1fr;
-        padding: 16px;  
+        grid-template-columns: 5% 90% 5%;
+    }
+        /* Card Style */
+        .card-wrapper {
+            grid-column-start: 2;
+            display: grid;
+            grid-row-gap: .5em;
+            padding: 0 0 1em 0;
+        }
+
+        .card0 {
+            display: grid;
+            grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        /* Number Header Position and Padding */
+        .number-header {
+            grid-column-start: 1;
+            grid-column-end: 1;
+            justify-self: flex-start;
+            align-self: center;
+            padding: .25em 0 .25em 1em;
+            font-size: 1em; 
+        }
+
+        /* Passing Symbols */
+        /* Passing Symbols Position and Padding */
+        .passing-symbols {
+            grid-row-start: 1; 
+            grid-column-start: 2;
+            padding: 0;
+            font-size: .75em;
+        }
+
+    
+    /* Modal */
+
+    /*  Modal Card Signup  */
+    .modal-content {
+        display: grid;
+        padding: 0;
+        width: 90%;
+        max-width: 90%; 
     }
 
-    /*  Navbar Content  */
-        /* Logo */ 
-        .logo {
-            justify-self: center;
-            align-self: center; 
-            grid-row-start: 1;
-        }
-        
-        /* Contact Link */
-        .contact {
-            display: none;
-            justify-self: center;
-            align-self: center 
-        }
-
-        /*  Sign Up Button Navbar   */
-        .signup {
-            display: none;
-            justify-self: center;
+    /* Number Header */
+        /* Position and Font-Size */
+        .modal-number-header {
+            grid-column: 2 / 4;
+            grid-row: 1 / 3;
             align-self: center;
-        }
-
-        /*  Banner Text */
-        .banner-title {
-            margin-top: 0;
-            margin-bottom: 0;
-            font-size: 2.5rem;
-            font-family: 'Oswald', sans-serif;
-            opacity: 0.5;
-        }
-        .banner-sub-title {
-            margin-top: 8px;
-            font-size: 1.15rem;
-            font-family: 'Roboto', sans-serif;
-            opacity: 0.5;
-        }
-
-        /* Login Cards */ 
-        .card-container {
-            display: grid;
-            grid-template-columns: auto;
-        }
-
-        /* Teacher Card */
-        .teachercard {
-            margin-right: 5%;
-            margin-left: 5%;
-            margin-bottom: 16px;
             justify-self: center;
-        }
-        
-        .teachercard {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            grid-auto-columns: auto;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-            padding: 16px;
-            padding-bottom: 32px;
-            
-        }
-
-        .teacher-link {
-            text-decoration: none;
-        }
-        .teacher-avatar {
-            justify-self: center;
-            align-self: center;
-        }
-
-        .teacher-btn {
-            color: #3a93e1;
-            background-color: transparent;
-            -moz-border-radius: 32px;
-            -webkit-border-radius: 32px;
-            border-radius: 32px;
-            border: 3px solid #3a93e1;
-            cursor: pointer;
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.1em;
-            padding: 12px 48px;
-            text-decoration: none;
-            max-width: 50%;
-            justify-self: center;
-        }
-        
-        .teacher-btn:hover {
-            color: white;
-            background-color: #3a93e1;
-        }
-
-        /* Student Card */
-        .studentcard {
-            margin-right: 5%;
-            margin-left: 5%;
-            margin-top: 16px;
-            justify-self: center;
-        }
-        
-        .studentcard {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            grid-auto-columns: auto;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-            padding: 16px;
-            padding-bottom: 32px;
-            
-        }
-
-        .student-link {
-            text-decoration: none;
-        }
-        .student-avatar {
-            justify-self: center;
-            align-self: center;
-        }
-
-        .student-btn {
             color: #ff0000;
-            background-color: transparent;
-            -moz-border-radius: 32px;
-            -webkit-border-radius: 32px;
-            border-radius: 32px;
-            border: 3px solid #ff0000;
-            cursor: pointer;
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.1em;
-            padding: 12px 48px;
-            text-decoration: none;
-            max-width: 50%;
-            justify-self: center;
-        }
-        
-        .student-btn:hover {
-            color: white;
-            background-color: #ff0000;
         }
 
-        /* Parent Card */
-        .parentcard {
-            margin-right: 5%;
-            margin-left: 5%;
-            margin-top: 16px;
-            justify-self: center;
-        }
-        
-        .parentcard {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            grid-auto-columns: auto;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-            padding: 16px;
-            padding-bottom: 32px;
-            
+        .modal-header {
+            font-size: 1.5em;
         }
 
-        .parent-link {
-            text-decoration: none;
+    /* Modal Paragraph */
+    .test-text {
+        grid-column: 1 / -1;
+        grid-row: 3 / 3;
+
+        padding: 0 1em 0 1em;
+
+        text-align: center;
+        align-self: center;
+        justify-self: center;
+        color: #000000;
+        opacity: 0.5;
+    }
+
+    /* Dividing Line */
+        /* Padding and Border */
+        .divide-line {
+            margin: 0 1em 0 1em;
+            border-bottom: 2px solid rgba(1, 0, 0, 0.10);
         }
-        .parent-avatar {
-            justify-self: center;
+
+        /* Top Postion */
+        #top-line {
+            grid-column: 1 / -1;
+            grid-row: 2 / 2;
+        }
+        /* Bottom Position */
+        #bottom-line {
+            grid-column: 1 / -1;
+            grid-row: 5 / 5;
+        }
+
+    /* Checkbox */
+
+        /* Radio Box*/
+        .radio-btn input {
+            display: none;
+        } 
+        .radio-btn input:checked+span {
+            text-decoration: underline;
+            opacity: 1.0;
+        }
+
+        span {
+            opacity: 0.5;
+        }
+
+
+        /*  Radio Grid Position */
+        .add {
+        grid-column: 1 / 1;
+        grid-row: 4 / 4;
+        align-self: center;
+        justify-self: center;
+        font-size: 3em;
+        color: #ff0000;
+        }
+
+        .minus {
+            grid-column: 2 / 2;
+            grid-row: 4 / 4;
             align-self: center;
+            justify-self: center;
+            font-size: 3em;
+            color: #3a93e1;
         }
 
-        .parent-btn {
+        .times {
+            grid-column: 3 / 3;
+            grid-row: 4 / 4;
+            align-self: center;
+            justify-self: center;
+            font-size: 3em;
             color: #f7c940;
-            background-color: transparent;
-            -moz-border-radius: 32px;
-            -webkit-border-radius: 32px;
-            border-radius: 32px;
-            border: 3px solid #f7c940;
-            cursor: pointer;
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.1em;
-            padding: 12px 48px;
-            text-decoration: none;
-            max-width: 50%;
+        }
+
+        .divide {
+            grid-column: 4 / 4;
+            grid-row: 4 / 4;
+            align-self: center;
             justify-self: center;
-        }
-        
-        .parent-btn:hover {
-            color: white;
-            background-color: #f7c940;
-        }
-
-         /*  About Text  */
-         .about-content {
-             display: grid;
-             grid-template-rows: auto;
-         }
-         
-         .about {
-             display: grid;
-             grid-template-rows: auto;         }
-
-         .about-border {
-            justify-self: center;
-            width: 80%;
-            border-bottom: 2px solid rgba(0, 0, 0, 0.05); 
-        }
-
-         .about h3 {
-             margin-top: 32px;
-             margin-bottom: 0;
-             justify-self: center;
-             color: #3a93e1;
-             font-family: 'Oswald', sans-serif;
-             font-size: 1.5rem;
-         }
-
-        .about p {
-            margin-left: 16px;
-            margin-right: 16px;
-            text-align: center;
-            font-family: 'Roboto', sans-serif;
-            opacity: 0.5;
-        }
-
-        /* Non Profit Paragraph */
-        .nonprofit {
-            display: grid;
-            grid-template-rows: auto;
-        }
-
-        .nonprofit h3 {
-            margin-top: 32px;
-             margin-bottom: 0;
-             justify-self: center;
-             color: #ff0000;
-             font-family: 'Oswald', sans-serif;
-             font-size: 1.5rem;
-        }
-
-        .nonprofit p {
-            margin-left: 16px;
-            margin-right: 16px;
-            text-align: center;
-            font-family: 'Roboto', sans-serif;
-            opacity: 0.5;
-        }
-
-        .nonprofit img {
-            justify-self: center;
-            margin-top: 64px;
-            grid-row-start: 1;
-        }
-
-        /* Customize Paragraph */
-        .customize {
-            display: grid;
-            grid-template-rows: auto;
-        }
-
-        .customize h3 {
-            margin-top: 32px;
-             margin-bottom: 0;
-             justify-self: center;
-             color: #f7c940;
-             font-family: 'Oswald', sans-serif;
-             font-size: 1.5rem;
-        }
-
-        .customize p {
-            margin-left: 16px;
-            margin-right: 16px;
-            text-align: center;
-            font-family: 'Roboto', sans-serif;
-            opacity: 0.5;
-        }
-
-        .customize img {
-            justify-self: center;
-            margin-top: 64px;
-            grid-row-start: 1;
-        }
-
-        /* Big Data Paragraph */
-        .bigdata {
-            display: grid;
-            grid-template-rows: auto;
-        }
-
-        .bigdata h3 {
-            margin-top: 32px;
-             margin-bottom: 0;
-             justify-self: center;
-             color: #A8C75A;
-             font-family: 'Oswald', sans-serif;
-             font-size: 1.5rem;
-        }
-
-        .bigdata p {
-            margin-left: 16px;
-            margin-right: 16px;
-            text-align: center;
-            font-family: 'Roboto', sans-serif;
-            opacity: 0.5;
-        }
-
-        .bigdata img {
-            justify-self: center;
-            margin-top: 64px;
-            grid-row-start: 1;
-        }
-
-        /* Second Sign Up */
-        .secondheader {
-            display: grid;
-            grid-template-rows: auto;
-            margin-top: 64px;
-        }
-
-        .secondheader h1 {
-            justify-self: center;
-            font-family: 'Oswald', sans-serif;
-            opacity: 0.5;
-            margin-bottom: 0;
-        }
-
-        .secondheader p {
-            justify-self: center;
-            font-family: 'Roboto', sans-serif;
-            opacity: 0.5;
-
-        }
-
-        .second-btn {
-            justify-self: center;
-            margin-left: 16px;
-            margin-right: 16px;
-            margin-bottom: 64px;
-            max-width: 50%;
-        }
-
-        /* Contact Card */
-        .contactform {
-            display: grid;
-            grid-template-columns: 5% 90% 5%;
-            grid-template-rows: 2fr;
-            margin-top: 32px;
-            margin-bottom: 64px;
-        }
-
-        .contactform h3 {
-            grid-column: 2;
-            grid-row-start: 1;
-            justify-self: center;
-            color: #3a93e1;
-            font-size: 1.5rem;
-            font-family: 'Oswald', sans-serif;
-        }
-
-        .card {
-            grid-column-start: 2;
-            grid-row-start: 2;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-        }
-
-        .container {
-            display: grid;
-            grid-template-rows: auto;
-            padding: 16px;
-        }
-
-        .container p {
-            font-family: 'Roboto', sans-serif;
-            justify-self: center;
-            opacity: 0.5;
-        }
-
-        .contact-input { 
-            font-family: 'Roboto', sans-serif;
-        }
-
-        textarea {
-            max-width: 100%;
-            resize: none;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            height: 10rem;
-            font-family: 'Roboto', sans-serif;
-            
-        }
-
-        .submit-btn {
+            font-size: 3em;
             color: #A8C75A;
-            background-color: transparent;
-            -moz-border-radius: 32px;
-            -webkit-border-radius: 32px;
-            border-radius: 12px;
-            border: 3px solid #A8C75A;
-            cursor: pointer;
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.1em;
-            padding: 12px 32px;
-            text-decoration: none;
-            max-width: 50%;
-            justify-self: center;
         }
 
-        .submit-btn:hover {
-            color: white;
-            background-color: #A8C75A;
-        }
+    /* Modal Buttons */
+    .practice {
+        grid-column: 1 / 3;
+        grid-row: 6 / 6;
+        justify-self: center;
+        align-self: center;
+        margin: 1em;
 
-        /* Social Links */
-        .social {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            grid-template-rows: 2fr;
-            margin-bottom: 32px;
-        }
+        /* Button Styles */
+        color: #3a93e1;
+        background-color: transparent;
+        -moz-border-radius: 32px;
+        -webkit-border-radius: 32px;
+        border-radius: 32px;
+        border: 3px solid #3a93e1;
+        cursor: pointer;
+        font-family: 'Roboto', sans-serif;
+        font-size: .75em;
+        padding: 12px 36px;
+        text-decoration: none;
+        opacity: 0.5;
+    }
 
-        .social h3 {
-            grid-column-start: 3;
-            grid-column: span 5;
-            text-align: center;
-            font-size: 2rem;
-            font-family: 'Oswald', sans-serif;
-            color: #3a93e1;
-        }
+    .practice:hover {
+        color: white;
+        background-color: #3a93e1;
+        border-color: #3a93e1;
+        opacity: 1.0;
+    }
 
-        .social-logo {
-            grid-row-start: 2;
-        }
+    .real-deal {
+        grid-column: 3 / 5;
+        grid-row: 6 / 6;
+        justify-self: center;
+        align-self: center;
+        margin: 1em;
 
-        .facebook {
-            grid-column-start: 2;
-            justify-self: center;
-            align-self: center;
-            max-width: 48px;
-            max-height: 48px;
-            margin: 16px;
-            opacity: 0.15;
-        }
+        /* Button Styles */
+        color: #3a93e1;
+        background-color: transparent;
+        -moz-border-radius: 32px;
+        -webkit-border-radius: 32px;
+        border-radius: 32px;
+        border: 3px solid #3a93e1;
+        cursor: pointer;
+        font-family: 'Roboto', sans-serif;
+        font-size: .75em;
+        padding: 12px 36px;
+        text-decoration: none;
+        opacity: 0.5;
+    }
 
-        .twitter {
-            grid-column-start: 3;
-            justify-self: center;
-            align-self: center;
-            max-width: 48px;
-            max-height: 48px;
-            margin: 16px;
-            opacity: 0.15;
-        }
+    .real-deal:hover {
+        color: white;
+        background-color: #3a93e1;
+        border-color: #3a93e1;
+        opacity: 1.0;
+    }
 
-        .instagram {
-            grid-column-start: 4;
-            justify-self: center;
-            align-self: center;
-            max-width: 48px;
-            max-height: 48px;
-            margin: 16px;
-            opacity: 0.15;
-        }
+    .long-title {
+        display: none;
+    }
 
-        /* Footer */
-        .footer {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            margin-top: 32px;
-            margin-bottom: 16px;
-        }
-
-        .footer p {
-            font-family: 'Roboto', sans-serif;
-            font-size: .75rem;
-            opacity: 0.5;
-            justify-self: center;
-        }
-
-        #copyright {
-            grid-column-start: 1;
-        }
-
-        #hometown {
-            grid-column-start: 2;   
-        }
-
-        #creation {
-            grid-column-start: 3;   
-        }
-
-
+     /* Illustrations 
+     .character-image {
+        display: none;
+    } */
 }
 
 /*  Tablet  */
-@media only screen and (min-width: 600px) {
-    
-    /*  Navbar  */
-    nav {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        padding: 16px;  
+@media only screen and (min-width: 400px) {
+
+    /* Navbar */
+    .navbar-collapse {
+        display: none;
     }
-
-    /*  Navbar Content  */
-        /* Logo */ 
-        .logo {
+        /* Logo */
+        /* Logo Position */
+        .navbar-brand {
+            grid-column-start: 2;
             justify-self: center;
-            align-self: center; 
-        }
-        
-        /* Contact Link */
-        .contact {
-            justify-self: flex-start;
-            align-self: center; 
-            padding-left: 16px;
+            align-self: center;
         }
 
-        /*  Sign Up Button Navbar   */
-        .signup {
+        /* Navbar Toggler Icon */
+        .navbar-toggler {
+            display: none;
+        }
+
+        /* Navigation Items */
+        .logout {
+            grid-column-start: 3;
+            grid-row-start: 1;
             justify-self: flex-end;
             align-self: center;
-            padding-right: 16px;
         }
 
-        /*  Banner Text */
-        .banner-title {
-            margin-top: 0;
-            margin-bottom: 0;
-            font-size: 3.5rem;
-            font-family: 'Oswald', sans-serif;
-            opacity: 0.5;
+        .user {
+            grid-column-start: 1;
+            grid-row-start: 1;
+            justify-self: flex-start;
+            align-self: center;
         }
 
-        .banner-sub-title {
-            margin-top: 8px;
-            font-size: 2rem;
-            font-family: 'Roboto', sans-serif;
-            opacity: 0.5;
-        }
+         /* Modal */
 
+    /*  Modal Card Signup  */
+    .modal-content {
+        display: grid;
+        padding: 0;
+        width: 75%;
+        max-width: 600px; 
+    }
+
+    .long-title {
+        display: none;
+    }
 }
-/*  Desktop */
-@media only screen and (min-width: 1200px) {}
+
+/*  Desktop  */
+@media only screen and (min-width: 1200px) {
+    /* Card Body */
+    .wrapper-card-body {
+        grid-template-columns: 12.5% 75% 12.5%;
+    }
+
+    .long-title {
+        opacity: 1.0;
+    }
+}
