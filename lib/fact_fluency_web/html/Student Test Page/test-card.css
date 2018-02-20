@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+/* Universal Styles */
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto 1fr;
+    margin: 0;
+    padding: 108px 0 0 0; 
+}
+
+/* Body */  
+
+
+    /* Card Body */
+    .wrapper-card-body {
+        grid-column: 1 / -1;
+
+        display: grid;
+        grid-template-columns: 10% 80% 10%;
+    }
+
+    /* General Card Styles */
+    .card {
+        grid-column: 2 / 2;
+
+        width: 100%;
+        
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        border-radius: .5em;
+    }
+
+        /* Test Starting Line */
+        .card.ready-set-go {
+            display: none;
+        }
+
+        /* Test Card */
+        .card.test {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+
+        }
+
+    /* Test Equations */
+    .top-number {
+        grid-column: 2 / 2;
+        grid-row: 1 / 1;
+    }
+
+    .bottom-number {
+        grid-column: 2 / 2;
+        grid-row: 2 / 2;
+    }
+
+
+    /* Answer Input */
+    .answer-input {
+        grid-row: 4 / 4;
+    }
+
+
+    /* Button Row */
+    /* Possition and Alignment */
+    .button-row {
+        grid-column: 1 / -1;
+        grid-row: 5 / 5;
+
+        align-self: center;
+        justify-self: center;
+    }
+
+        /* Button Styles */
+        .keyboard-btn {
+            text-decoration: none;
+            background-color: transparent;
+            border: none;
+
+            opacity: 0.5;
+        }
+
+        .keyboard-btn:hover {
+            opacity: 1.0;
+            color: #3a93e1;
+        }
+
+
+@media only screen and (max-width: 599px) {}
+@media only screen and (min-width: 600px) {}
+@media only screen and (max-width: 1200px) {}

@@ -1,5 +1,3 @@
-
-
 <div id="answer_div" style="display:none">
     <h3 id="question"><span>Question <%= @index %>: <%= @question.question %></h3>
     <input id="answer_input">
