@@ -17,7 +17,120 @@ body {
     padding: 108px 0 0 0; 
 }
 
-/* Body */  
+@media only screen and (max-width: 599px) {
+    /* Body */  
+    /* Card Body */
+    .wrapper-card-body {
+        grid-column: 1 / -1;
+
+        display: grid;
+        grid-template-columns: 5% 90% 5%;
+    }
+
+    /* General Card Styles */
+    .card {
+        grid-column: 2 / 2;
+
+        width: 100%;
+        max-width: 600px;
+
+        justify-self: center;
+    }
+
+    /* Test Starting Line */
+    .card.ready-set-go {
+        display: none;
+    }
+
+    /* Test Card */
+    .card.test {
+        display: grid;
+        grid-template-columns: 20% 60% 20%;
+        grid-template-rows: repeat(5, auto);
+
+        padding: 1em 0 1em 0; 
+    }
+
+/* Test Equations */
+
+.top-alignment {
+    grid-column: 2 / 2;
+    grid-row: 1 / 1;
+
+    display: grid;
+    grid-template-columns: 25% auto;
+
+    color: red;
+}
+
+.top-number, .bottom-number {
+    justify-self: flex-end;
+
+    margin: 0;
+
+    font-weight: 900;
+    font-size: 5em;
+    letter-spacing: 4px;
+}
+
+.top-number {
+    grid-column: 2 / 2;
+}
+
+.bottom-alignment {
+    grid-column: 2 / 2;
+    grid-row: 2 / 2;
+
+    display: grid;
+    grid-template-columns: 25% auto;
+
+    border-bottom: 5px solid black;
+    
+}
+
+.bottom-number {
+    grid: 2 / 2;
+}
+
+.operator {
+    grid-column: 1 / 1;
+
+    justify-self: flex-end;
+
+    margin: 0;
+
+    font-weight: 900;
+    font-size: 5em;
+}
+
+
+/* Answer Input */
+.answer-input {
+    grid-column: 2 / 2;
+    grid-row: 4 / 4;
+}
+
+input {
+    width: 100%;
+
+    border: none;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 5em;
+    letter-spacing: 4px;
+    
+}
+
+
+/* Button Row */
+/* Possition and Alignment */
+.button-row {
+    display: none;
+}
+
+@media only screen and (min-width: 600px) {
+    /* Body */  
     /* Card Body */
     .wrapper-card-body {
         grid-column: 1 / -1;
@@ -155,17 +268,5 @@ body {
             opacity: 1.0;
             color: #3a93e1;
         }
-
-
-@media only screen and (max-width: 599px) {
-    /* Body */  
-    /* Card Body */
-    .wrapper-card-body {
-        grid-column: 1 / -1;
-
-        display: grid;
-        grid-template-columns: 5% 90% 5%;
-    }
 }
-@media only screen and (min-width: 600px) {}
 @media only screen and (max-width: 1200px) {}
