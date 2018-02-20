@@ -10,7 +10,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="test-card.css" />
    
     <!-- Javascript -->
-    <script src="test-card.js"></script>
+    <script src="navbar.js"></script>
+
 
     <!-- Font Families	-->
     <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto" rel="stylesheet">
@@ -18,6 +19,35 @@
 
 </head>
 <body>
+    <nav class="navbar" id="navbar-fixed" role="navigation">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.svg?width=48&height=48&select=fnVZV3K0apage0" alt="Logo"> 
+            </a>
+    
+            <!-- Menu Items Medium Screen and Up -->
+            <div class="logout">
+                <a href="mathfacts.html" class="logout"><strong>Logout</strong></a>
+            </div>
+    
+            <div class="user">
+                <a class="user" href="#"><span class="username"><i class="material-icons md-36" id="accountCircle">account_circle</i><strong>Username</strong></span></a>
+            </div>
+    
+    
+    
+            <!-- Menu Items Small Screens -->
+            <!-- Toggle Button/Javascript Link -->
+            <a href="javascript:void(0);" class="navbar-toggler" onclick="myFunction()"><i class="material-icons md-36">menu</i></a>
+    
+            <!-- Collapse Content -->
+            <div class="navbar-collapse" id="collapsingNavbar">
+                <a class="sm-nav-item" href="#"><span class="sm-username"><i class="material-icons md-36">account_circle</i><strong>Username</strong></span></a>
+                <a class="sm-nav-item sm-logout" href="#"><strong>Logout</strong></a>
+            </div>           
+        </nav>
+
+
     <div class="main-wrapper">
         <div class="wrapper-card-body"> 
             <!-- Practice Problems
@@ -56,7 +86,7 @@
                     <div class="line"></div>
 
                 <div class="button-row">
-                    <button class="keyboard-btn" type="button" document.getElementById('keyboard')><i class="material-icons md-36" id="keyboard-icon">keyboard</i></span></button>
+                    <button class="keyboard-btn" type="button"><i class="material-icons md-36" id="keyboard-icon">keyboard</i></span></button>
 
                     <!-- Eventual Buttons 
                     <button class="digi-pen" type="button" document.getElementById('digi-pen')></button>

@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
 /* Universal Styles */
+* {box-sizing: border-box;}
+
 body {
     margin: 0;
     padding: 0;
@@ -17,10 +19,148 @@ body {
     padding: 108px 0 0 0; 
 }
 
+/* Navbar */
+    /* Nav Position: Spans full length of screen */
+    nav {
+        /* grid-column: 1 / -1; */
+        position: fixed;
+        min-width: 100%;
+        z-index: 1;
+    }
+
+    /* Nav grid styles */
+    nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        padding: 1rem;
+        background-color: #FFFFFF;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.20);
+    }
+
+        /* Navigation Items */
+        .nav-item {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Medium and Up Screen Logout Styles */
+        .logout {
+            text-decoration: none; 
+            color: #000000;
+            opacity: 0.5;
+        }
+
+        .logout:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        /* Medium and Up Screen Username Styles */
+        .user {
+            text-decoration: none;
+        }
+
+        .username {
+            color: #000000;
+            opacity: 0.25;
+        }
+
+        .username:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        .material-icons.md-36 { 
+            padding-right: 8px;
+            font-size: 36px;
+            vertical-align: middle;
+        }
+
+        /* Tells the collapsing content to not be displayed on medium and up screens */
+        #collapsingNavbar {
+            display: none;
+        }
+
 @media only screen and (max-width: 599px) {
+    /* Navbar */
+    nav {
+        background-color: transparent;
+        box-shadow: none;
+
+
+    }
+
+    .user, .logout {
+        display: none;
+    }
+        /* Navbar Toggler Icon */
+        .navbar-toggler {
+            grid-column-start: 3;
+            justify-self: flex-end;
+            align-self: center;
+            color: #000000;
+            opacity: 0.25;
+        }
+
+        .navbar-toggler:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        /* Navbar Collapsed State Style */
+        
+        #collapsingNavbar.navbar-collapse.responsive {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            margin-top: 1em;
+
+            width: 100%;
+        }
+
+        .navbar-collapse {
+            background-color: #FFFFFF;
+            border-top: 2px solid rgba(0,0,0,0.05);
+            
+        }
+
+        .sm-nav-item {
+            text-decoration: none;
+            color: #000000;
+            padding-top: 1em;
+        }
+
+        .sm-username {
+            opacity: 0.25;
+        }
+
+        .material-icons.md-36 { 
+            padding-right: 8px;
+            font-size: 36px;
+            vertical-align: middle;
+        }
+
+        .sm-logout {
+            opacity: 0.25;
+        }
+
+        .sm-username:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+        .sm-logout:hover {
+            color: cornflowerblue;
+            opacity: 1.0;
+        }
+
+
     /* Body */  
     .main-wrapper {
-        padding: 72px 0 0 0; 
+        padding: 64px 0 0 0; 
     }
     /* Card Body */
     .wrapper-card-body {
@@ -246,7 +386,39 @@ input {
 }
 
 @media only screen and (min-width: 600px) {
-    /* Body */  
+     /* Navbar */
+    .navbar-collapse {
+        display: none;
+    }
+        /* Logo */
+        /* Logo Position */
+        .navbar-brand {
+            grid-column-start: 2;
+            justify-self: center;
+            align-self: center;
+        }
+
+        /* Navbar Toggler Icon */
+        .navbar-toggler {
+            display: none;
+        }
+
+        /* Navigation Items */
+        .logout {
+            grid-column-start: 3;
+            grid-row-start: 1;
+            justify-self: flex-end;
+            align-self: center;
+        }
+
+        .user {
+            grid-column-start: 1;
+            grid-row-start: 1;
+            justify-self: flex-start;
+            align-self: center;
+        }
+
+    /* Body */ 
     /* Card Body */
     .wrapper-card-body {
         grid-column: 1 / -1;
