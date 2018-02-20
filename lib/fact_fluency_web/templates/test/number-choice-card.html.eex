@@ -1,4 +1,4 @@
-<div class="number-choice-wrapper card-hover" id="card-red" onclick="document.getElementById('test-choice-modal').style.display='block'">
+<div class="number-choice-wrapper card-hover" onclick="openModal(<%= @number %>)">
     <div class="card-number-header">
         <h1><%= @number %></h1>    
     </div>
@@ -11,4 +11,12 @@
         <h1 id="multiplication-sign">&times;</h1>
         <h1 id="division-sign">&divide;</h1>
     </div>
+
+    <script>
+    var openModal = function(num) {
+        document.getElementById('test-choice-modal').style.display='block';
+        document.getElementById('selected-number').innerHTML = num;
+        document.getElementById('test_number').value = num;
+    }
+    </script>
 </div>
