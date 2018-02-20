@@ -58,13 +58,13 @@ defmodule FactFluency.Testing.TestParameters do
   defp student_params(student_id) do
     query = from st in Student,
       where: st.id == ^student_id,
-      join: c in Class, 
+      left_join: c in Class, 
         on: st.class_id == c.id,
-      join: t in Teacher, 
+      left_join: t in Teacher, 
         on: c.teacher_id == t.id,
-      join: s in School, 
+      left_join: s in School, 
         on: t.school_id == s.id,
-      join: p in TestParameters, 
+      left_join: p in TestParameters, 
         on: p.student_id == st.id or p.class_id == c.id or p.teacher_id == t.id or p.school_id == s.id,
       order_by: [p.school_id, p.teacher_id, p.class_id, p.student_id],
       select: p
