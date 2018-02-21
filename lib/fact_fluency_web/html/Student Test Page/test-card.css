@@ -1,25 +1,25 @@
 @charset "UTF-8";
 
 /* Universal Styles */
-* {box-sizing: border-box;}
+    * {box-sizing: border-box;}
 
-body {
-    margin: 0;
-    padding: 0;
+    body {
+        margin: 0;
+        padding: 0;
 
-    font-family: 'Oswald', sans-serif;
-    font-family: 'Roboto', sans-serif;
-}
+        font-family: 'Oswald', sans-serif;
+        font-family: 'Roboto', sans-serif;
+    }
 
-.main-wrapper {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto 1fr;
-    margin: 0;
-    padding: 108px 0 0 0; 
-}
+    .main-wrapper {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        margin: 0;
+        padding: 108px 0 0 0; 
+    }
 
-/* Navbar */
+    /* Navbar */
     /* Nav Position: Spans full length of screen */
     nav {
         position: fixed;
@@ -81,6 +81,7 @@ body {
         #collapsingNavbar {
             display: none;
         }
+
 
 @media only screen and (max-width: 599px) {
     /* Navbar */
@@ -226,7 +227,6 @@ body {
     }
 
     .button {
-        /* Button Styles */
         background-color: transparent;
 
         cursor: pointer;
@@ -244,7 +244,7 @@ body {
         border:3px solid green;
 
         font-family: 'Roboto', sans-serif;
-        font-size: 1.5em;
+        font-size: 1.25em;
         font-weight: 900;
 
         margin: 1em;
@@ -260,21 +260,25 @@ body {
         border-color: green;
     }
 
-    .button.cancel {
+    .cancel-link {
         grid-column: 2 / 2;
         grid-row: 6 / 6;
+
+        justify-self: center;
+        align-self: center;
 
         border: none;
 
         font-family: 'Roboto', sans-serif;
         font-size: 1em;
         font-weight: 900;
+        text-decoration: none;
 
-        color: black;
+        color: red;
         opacity: 0.25;
     }
 
-    .button.cancel:hover {
+    .cancel-link:hover {
         opacity: 1.0;
     }
 
@@ -287,83 +291,83 @@ body {
         padding: 1em 0 1em 0; 
     }
 
-/* Test Equations */
+    /* Test Equations */
 
-.top-alignment {
-    grid-column: 2 / 2;
-    grid-row: 1 / 1;
+    .top-alignment {
+        grid-column: 2 / 2;
+        grid-row: 1 / 1;
 
-    display: grid;
-    grid-template-columns: 25% auto;
+        display: grid;
+        grid-template-columns: 25% auto;
 
-    color: red;
-}
+        color: red;
+    }
 
-.top-number, .bottom-number {
-    justify-self: flex-end;
+    .top-number, .bottom-number {
+        justify-self: flex-end;
 
-    margin: 0;
+        margin: 0;
 
-    font-weight: 900;
-    font-size: 4.5em;
-    letter-spacing: 4px;
-}
+        font-weight: 900;
+        font-size: 4.5em;
+        letter-spacing: 4px;
+    }
 
-.top-number {
-    grid-column: 2 / 2;
-}
+    .top-number {
+        grid-column: 2 / 2;
+    }
 
-.bottom-alignment {
-    grid-column: 2 / 2;
-    grid-row: 2 / 2;
+    .bottom-alignment {
+        grid-column: 2 / 2;
+        grid-row: 2 / 2;
 
-    display: grid;
-    grid-template-columns: 25% auto;
+        display: grid;
+        grid-template-columns: 25% auto;
 
-    border-bottom: 5px solid black;
-    
-}
+        border-bottom: 5px solid black;
+        
+    }
 
-.bottom-number {
-    grid: 2 / 2;
-}
+    .bottom-number {
+        grid: 2 / 2;
+    }
 
-.operator {
-    grid-column: 1 / 1;
+    .operator {
+        grid-column: 1 / 1;
 
-    justify-self: flex-end;
+        justify-self: flex-end;
 
-    margin: 0;
+        margin: 0;
 
-    font-weight: 900;
-    font-size: 4.5em;
-}
-
-
-/* Answer Input */
-.answer-input {
-    grid-column: 2 / 2;
-    grid-row: 4 / 4;
-}
-
-input {
-    width: 100%;
-
-    border: none;
-
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
-    font-size: 4.5em;
-    letter-spacing: 4px;
-    
-}
+        font-weight: 900;
+        font-size: 4.5em;
+    }
 
 
-/* Button Row */
-/* Possition and Alignment */
-.button-row {
-    display: none;
-}
+    /* Answer Input */
+    .answer-input {
+        grid-column: 2 / 2;
+        grid-row: 4 / 4;
+    }
+
+    input {
+        width: 100%;
+
+        border: none;
+
+        font-family: 'Roboto', sans-serif;
+        font-weight: 900;
+        font-size: 4.5em;
+        letter-spacing: 4px;
+        
+    }
+
+
+    /* Button Row */
+    /* Possition and Alignment */
+    .button-row {
+        display: none;
+    }
 
     /* Mobile Keyboard */
     .keyboard.small {
@@ -562,7 +566,7 @@ input {
         justify-self: center;
         align-self: center;
 
-        font-size: 2em;
+        font-size: 3em;
         font-weight: 900;
 
         opacity: 0.5;
@@ -575,14 +579,13 @@ input {
         justify-self: center;
         align-self: center;
 
-        font-size: 1em;
+        font-size: 2em;
         font-weight: 900;
 
         opacity: 0.5;
     }
 
     .button {
-        /* Button Styles */
         background-color: transparent;
 
         cursor: pointer;
@@ -605,6 +608,9 @@ input {
 
         margin: 1em;
         padding: 12px 36px;
+        max-width: 300px;
+        justify-self: center;
+        align-self: center;
 
         color: green;
         opacity: 0.5;
@@ -616,38 +622,27 @@ input {
         border-color: green;
     }
 
-    .button.cancel {
+    .cancel-link {
         grid-column: 2 / 2;
         grid-row: 6 / 6;
+
+        justify-self: center;
+        align-self: center;
 
         border: none;
 
         font-family: 'Roboto', sans-serif;
         font-size: 1em;
         font-weight: 900;
+        text-decoration: none;
 
-        color: black;
+        color: red;
         opacity: 0.25;
     }
 
-    .button.cancel:hover {
+    .cancel-link:hover {
         opacity: 1.0;
     }
-
-
-        /* Test Starting Line */
-        .card.ready-set-go {
-            display: none;
-        }
-
-        /* Test Card */
-        .card.test {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(5, auto);
-
-            padding: 1em 0 1em 0; 
-        }
 
     /* Test Equations */
 
