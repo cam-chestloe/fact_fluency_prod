@@ -22,10 +22,9 @@ body {
 /* Navbar */
     /* Nav Position: Spans full length of screen */
     nav {
-        /* grid-column: 1 / -1; */
         position: fixed;
         min-width: 100%;
-        z-index: 1;
+        z-index: 2;
     }
 
     /* Nav grid styles */
@@ -87,9 +86,7 @@ body {
     /* Navbar */
     nav {
         background-color: transparent;
-        box-shadow: none;
-
-
+        box-shadow: 0 3px 12px rgba(0,0,0,0.20);
     }
 
     .user, .logout {
@@ -118,7 +115,8 @@ body {
             grid-template-rows: auto;
             margin-top: 1em;
 
-            width: 100%;
+
+            min-width: 100%;
         }
 
         .navbar-collapse {
@@ -180,14 +178,109 @@ body {
         justify-self: center;
     }
 
-    /* Test Starting Line */
-    .card.ready-set-go {
-        display: none;
+    /* Test Starting Card */
+    .card-ready-set-go {
+        width: 100%;
+        min-height: 100%;
+
+        bottom: 0;
+
+        position: fixed;
+        z-index: 1;
+
+        padding-top: 144px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 40% auto;
+
+        background-color: white;
+    }
+
+    .encouraging-text {
+        grid-column: 1 / -1;
+        grid-row: 2 / 2;
+
+        margin: 1em 0 0 0;
+
+        justify-self: center;
+        align-self: center;
+
+        font-size: 2em;
+        font-weight: 900;
+
+        opacity: 0.5;
+    }
+
+    .side-comment {
+        grid-column: 1 / -1;
+        grid-row: 3 / 3;
+
+        justify-self: center;
+        align-self: center;
+
+        font-size: 1em;
+        font-weight: 900;
+
+        opacity: 0.5;
+    }
+
+    .button {
+        /* Button Styles */
+        background-color: transparent;
+
+        cursor: pointer;
+
+        text-decoration: none;
+    }
+
+    .button.start {
+        grid-column: 2 / 2;
+        grid-row: 5 / 5;
+
+        -moz-border-radius: 32px;
+        -webkit-border-radius: 32px;
+        border-radius: 32px;
+        border:3px solid green;
+
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.5em;
+        font-weight: 900;
+
+        margin: 1em;
+        padding: 12px 36px;
+
+        color: green;
+        opacity: 0.5;
+    }
+
+    .button.start:hover {
+        color: white;
+        background-color: green;
+        border-color: green;
+    }
+
+    .button.cancel {
+        grid-column: 2 / 2;
+        grid-row: 6 / 6;
+
+        border: none;
+
+        font-family: 'Roboto', sans-serif;
+        font-size: 1em;
+        font-weight: 900;
+
+        color: black;
+        opacity: 0.25;
+    }
+
+    .button.cancel:hover {
+        opacity: 1.0;
     }
 
     /* Test Card */
     .card.test {
-        display: grid;
+        display: none;
         grid-template-columns: 20% 60% 20%;
         grid-template-rows: repeat(5, auto);
 
@@ -440,6 +533,107 @@ input {
         transition: all 0.3s cubic-bezier(.25,.8,.25,1);
         border-radius: .5em;
     }
+
+        /* Test Starting Card */
+    .card-ready-set-go {
+        width: 100%;
+        min-height: 100%;
+
+        bottom: 0;
+
+        position: fixed;
+        z-index: 1;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+
+        padding-top: 144px;
+
+        background-color: white;
+    }
+
+    .encouraging-text {
+        grid-column: 1 / -1;
+        grid-row: 2 / 2;
+
+        margin: 1em 0 0 0;
+
+        justify-self: center;
+        align-self: center;
+
+        font-size: 2em;
+        font-weight: 900;
+
+        opacity: 0.5;
+    }
+
+    .side-comment {
+        grid-column: 1 / -1;
+        grid-row: 3 / 3;
+
+        justify-self: center;
+        align-self: center;
+
+        font-size: 1em;
+        font-weight: 900;
+
+        opacity: 0.5;
+    }
+
+    .button {
+        /* Button Styles */
+        background-color: transparent;
+
+        cursor: pointer;
+
+        text-decoration: none;
+    }
+
+    .button.start {
+        grid-column: 2 / 2;
+        grid-row: 5 / 5;
+
+        -moz-border-radius: 32px;
+        -webkit-border-radius: 32px;
+        border-radius: 32px;
+        border:3px solid green;
+
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.5em;
+        font-weight: 900;
+
+        margin: 1em;
+        padding: 12px 36px;
+
+        color: green;
+        opacity: 0.5;
+    }
+
+    .button.start:hover {
+        color: white;
+        background-color: green;
+        border-color: green;
+    }
+
+    .button.cancel {
+        grid-column: 2 / 2;
+        grid-row: 6 / 6;
+
+        border: none;
+
+        font-family: 'Roboto', sans-serif;
+        font-size: 1em;
+        font-weight: 900;
+
+        color: black;
+        opacity: 0.25;
+    }
+
+    .button.cancel:hover {
+        opacity: 1.0;
+    }
+
 
         /* Test Starting Line */
         .card.ready-set-go {
