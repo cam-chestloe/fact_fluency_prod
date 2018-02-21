@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Teacher Classes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" media="screen" href="teacher-classes.css" />
+   
+    <!-- Javascript -->
+    <script src="teacher-classes.js"></script>
+
+    <!-- Font Families	-->
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    
+
+        <!-- TODO: Navbar with less classes n divs -->
+
+
+        <nav class="navbar" id="navbar-fixed" role="navigation">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.svg?width=48&height=48&select=fnVZV3K0apage0" alt="Logo"> 
+            </a>
+    
+            <!-- Menu Items Medium Screen and Up -->
+            <div class="logout">
+                <a href="mathfacts.html" class="logout"><strong>Logout</strong></a>
+            </div>
+    
+            <div class="user">
+                <a class="user" href="#"><span class="username"><i class="material-icons md-36" id="accountCircle">account_circle</i><strong>Username</strong></span></a>
+            </div>
+    
+    
+    
+            <!-- Menu Items Small Screens -->
+            <!-- Toggle Button/Javascript Link -->
+            <a href="javascript:void(0);" class="navbar-toggler" onclick="myFunction()"><i class="material-icons md-36">menu</i></a>
+    
+            <!-- Collapse Content -->
+            <div class="navbar-collapse" id="collapsingNavbar">
+                <a class="sm-nav-item" href="#"><span class="sm-username"><i class="material-icons md-36">account_circle</i><strong>Username</strong></span></a>
+                <a class="sm-nav-item sm-logout" href="#"><strong>Logout</strong></a>
+            </div>           
+        </nav>
+    
+        <div class="main-wrapper">
+            <div class="wrapper-card-body">
+                
+                <!-- Add New Class -->
+                <button class="new-class-card" id="create-new-class" type="button" onclick="document.getElementById('create-class-modal').style.display='block'"><span><i class="material-icons md-48">add_circle</i></span></button>
+
+                <!-- The Modal -->
+                <div id="create-class-modal" class="modal-overlay">
+                    <!-- Modal Content -->
+                    <form class="modal test-choice-modal animate" action="/action_page.php">
+                        <span onclick="document.getElementById('create-class-modal').style.display='none'" class="close-modal-button" title="Close Modal">&times;</span>
+
+                        <!-- Header -->
+                        <div class="header">
+                            <h1 class="modal-header"><strong>New Class</strong></h1>
+                        </div>
+
+                        <!-- Form Details -->
+                        <label><strong>Grade</strong></label>
+                        <!-- When the input field gets focus, replace its current value with an empty string -->
+                        <select class="grade-options">
+                                <option value="" selected="" disabled="" hidden="">Select a grade</option>
+                                <option value="pre-k">Pre K</option>
+                                <option value="kindergarten">Kindergarten</option>
+                                <option value="first-grade">1st Grade</option>
+                                <option value="second-grade">2nd Grade</option>
+                                <option value="thrid-grade">3rd Grade</option>
+                                <option value="fourth-grade">4th Grade</option>
+                                <option value="fifth-grade">5th Grade</option>
+                                <option value="sixth-grade">6th Grade</option>
+                                <option value="seventh-grade">7th Grade</option>
+                                <option value="eighth-grade">8th Grade</option>
+                                <option value="ninth-grade">9th Grade</option>
+                                <option value="tenth-grade">10th Grade</option>
+                                <option value="eleventh-grade">11th Grade</option>
+                                <option value="twelth-grade">12th Grade</option>
+                                <option value="beyond-high-school">And Beyond!</option>
+                        </select>
+        
+                        <label><strong>Classroom Name</strong></label>
+                        <input type="text" name="class-name" onfocus="this.value=''" value="E.g. Homeroom" required>
+                            
+                        <!-- Modal Buttons (When Clicked Adds New Class Card)-->
+                        <button type="button" class="create-class" id="create-class"><strong>Create Class</strong></button>
+                        
+                        <div class="or">
+                            <p><strong>or</strong></p>
+                        </div>
+
+                        <button type="button" class="google-classroom-import" id="import-class"><strong>Import From Google Classroom</strong></button>
+                    </form>
+                </div>
+                
+                
+
+            </div>
+        </div>     
+</body>
+</html>
