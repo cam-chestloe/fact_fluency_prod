@@ -1,40 +1,65 @@
-<div id="answer_div" style="display:none">
-    <h3 id="question"><span>Question <%= @index %>: <%= @question.question %></h3>
-    <input id="answer_input">
-    <button id="answer_button" drab-click="answer_question">Answer!</button>
-</div>
+<div class="wrapper-card-body"> 
+    <!-- Practice Problems
+        <div class="practice-problems"></div>
+    -->
 
-<button id="start_button" drab-click="start_test">Start Test!</button>
-
-<!-- Start Button -->
-<div class="card ready-set-go">
-    <button type="button" class="button cancel">Cancel</button>
-    <button type="button" class="button start">Start</button>
-
-    <p>Place Holder Countdown</p>
-</div>
-
-<div class="card test">
-    <div class="problem">
-        <!-- Fact Fluency Problem -->
-        <p class="top-number">Placeholder</p>
-        <p class="bottom-number">Placeholder</p>
-        <p class="operator">Placeholder</p>
-
-        <!-- Line Under Problem -->
-        <div class="line"></div>
-
-        <!-- Answer to Problem Input -->
-        <input type="text" name="answer" id="answer" value="answer"/>
+    <!-- Start Button -->
+    <div id="start-test-confirmation" class="card-ready-set-go">
+        <h1 class="encouraging-text" id="encouraging-text">Encouraging Text</h1>
+        <h2 class="side-comment" id="side-comment">Side Comment</h2>
+        <button type="button" class="button start" onClick="document.getElementById('start-test-confirmation').style = 'display: none';">Start</button>
+        <a class="cancel-link" href="studentpage.html">Cancel</a>
     </div>
 
+    <div class="card test">
+            <!-- Fact Fluency Problem -->
+            <div class="top-alignment">
+                <p class="top-number"><%= parse_question(@question.question, :top) %></p>
+            </div>
 
-    <div class="button-row">
-        <button class="keyboard-btn" type="button" document.getElementById('keyboard')></button>
+            <div class="bottom-alignment">
+                <p class="operator"><%= parse_question(@question.question, :operator) %></p>
+                <p class="bottom-number"><%= parse_question(@question.question, :bottom) %></p>
+            </div>
 
-        <!-- Eventual Buttons 
-        <button class="digi-pen" type="button" document.getElementById('digi-pen')></button>
-        <button class="voice-to-text" type="button" document.getElementById('voice-to-text')></button>
-        -->
+            <!-- Answer to Problem Input -->
+            <div class="answer-input">
+                <input dir="rtl" type="text" name="answer" id="answer"/>
+            </div>
+
+            <!-- Line Under Problem -->
+            <div class="line"></div>
+
+        <div class="button-row">
+            <button class="keyboard-btn" type="button"><i class="material-icons md-36" id="keyboard-icon">keyboard</i></span></button>
+
+            <!-- Eventual Buttons 
+            <button class="digi-pen" type="button" document.getElementById('digi-pen')></button>
+            <button class="voice-to-text" type="button" document.getElementById('voice-to-text')></button>
+            -->
+        </div>
+    </div>
+</div>
+
+<!-- Keyboard  Small -->  
+<div class="keyboard small">
+    <div class="keypad">
+    
+        <div class="number"><button type="button" class="number-input">7</button></div>
+        <div class="number"><button type="button" class="number-input">8</button></div>
+        <div class="number"><button type="button" class="number-input">9</button></div>
+        
+        <div class="number"><button type="button" class="number-input">4</button></div>
+        <div class="number"><button type="button" class="number-input">5</button></div>
+        <div class="number"><button type="button" class="number-input">6</button></div>
+        
+        <div class="number"><button type="button" class="number-input">1</button></div>
+        <div class="number"><button type="button" class="number-input">2</button></div>
+        <div class="number"><button type="button" class="number-input">3</button></div>
+        
+        <div class="number reset"><button type="reset" class="reset-input">Clear</button></div>
+        <div class="number"><button type="button" class="number-input">0</button></div>
+        <div class="number action"><button type="submit" class="submit-input">Enter</button></div>
+
     </div>
 </div>
