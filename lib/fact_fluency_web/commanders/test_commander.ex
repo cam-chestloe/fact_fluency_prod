@@ -22,7 +22,6 @@ defmodule FactFluencyWeb.TestCommander do
 
     test = get_store(socket, :test, nil)
       |> Testing.answer_question(index, answer)
-      |> IO.inspect
 
     case Enum.fetch(test.questions, index + 1) do
       {:ok, question} ->

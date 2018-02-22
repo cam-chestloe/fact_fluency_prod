@@ -28,9 +28,6 @@ defmodule FactFluencyWeb.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
-    resources "/sessions", SessionController, only: [:new, :create, :delete], 
-                                              singleton: true
-
     resources "/schools", SchoolController
     resources "/classes", ClassController
     resources "/teachers", TeacherController
@@ -42,10 +39,12 @@ defmodule FactFluencyWeb.Router do
     resources "/school_parameters", SchoolParametersController
     resources "/test_parameters", TestParametersController
     resources "/tests", TestController
-    get "/logout", SessionController, :logout
+
+    post "/login", PageController, :login
+    delete "/logout", PageController, :logout
 
     scope "/take" do
-      pipe_through :authenticate
+      #pipe_through :authenticate_student
 
       get "/", TestController, :new
     end

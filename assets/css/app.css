@@ -161,20 +161,20 @@ body {
         margin: 0;
         padding: 0;
     }
-
-    #card-red h1 {
+    
+    .number-choice-wrapper:nth-child(4n + 1) {
         color: #ff0000;
     }
 
-    #card-blue h1 {
+    .number-choice-wrapper:nth-child(4n + 2) {
         color: #3a93e1;
     }
-
-    #card-yellow h1 {
+    
+    .number-choice-wrapper:nth-child(4n + 3) {
         color: #f7c940;
     }
 
-    #card-green h1 {
+    .number-choice-wrapper:nth-child(4n + 4) {
         color: #A8C75A;
     }
 
@@ -267,7 +267,8 @@ body {
         /* Radio Box*/
         .radio-btn input {
             display: none;
-        } 
+        }
+        
         .radio-btn input:checked+span {
             text-decoration: underline;
             opacity: 1.0;
@@ -278,14 +279,20 @@ body {
         }
 
 
+        .radio-btn-wrapper {
+            grid-column: 1 / -1;
+            grid-row: 4 / 4;
+            display: grid;
+        }
+
         /*  Radio Grid Position */
         .add {
-        grid-column: 1 / 1;
-        grid-row: 4 / 4;
-        align-self: center;
-        justify-self: center;
-        font-size: 4em;
-        color: #ff0000;
+            grid-column: 1 / 1;
+            grid-row: 4 / 4;
+            align-self: center;
+            justify-self: center;
+            font-size: 4em;
+            color: #ff0000;
         }
 
         .minus {
@@ -398,7 +405,15 @@ body {
     } */
 
 
+/*  Banner Text */
+.banner {
+    display: grid;
+    grid-template-rows: auto;
+    justify-items: center;
+}
+
 /*  Mobile  */
+
 @media only screen and (max-width: 399px) {
 
     /* Navbar */

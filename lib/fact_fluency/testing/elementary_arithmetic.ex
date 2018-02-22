@@ -25,25 +25,48 @@ defmodule FactFluency.Testing.ElementaryArithmetic do
     """
     @spec create_questions(%TestParameters{}) :: list(%Question{})
     def create_questions(test_parameters) do
-  
+
+      # Addition, subtraction and multiplication will feature numbers 0 - 12 (max_number?)
+      # Division will feature any numbers divisible by the number up to number * 12 (max_number?)
       %{operator: operator, number: number} = test_parameters.arguments
       %{number_of_random_questions: rand, total_questions: total} = test_parameters
-      numbers = Enum.to_list(0..number)
 
-      numbers ++ Enum.take_random(numbers, total - number - rand - 1)
-      |> Enum.map(&("#{&1} #{operator} #{number}"))
-      |> add_random_questions(operator, total, number)
-      |> Enum.map(fn(q) ->
-        {:ok, answer} = Abacus.eval(q)
-        %Question{question: q, correct_answer: Integer.to_string(answer)}
-      end)
+      # Forget adding random questions for now
+      questions = add_questions([], Enum.to_list(0..12), number, total, operator)
+
+      questions |> Enum.map &(%Question{question: &1})
+    end
+
+    @doc """
+    Recursively adds questions until the length of ``questions`` is ``total``.
+    """
+    @spec add_questions([String.t()], [integer], integer, integer, String.t()) :: [String.t()]
+    defp add_questions(questions, valid_numbers, number, total, operator) do
+      length_of_questions = length(questions)
+      length_of_valid_numbers = length(valid_numbers)
+
+      if length_of_questions < total do
+
+        if length_of_valid_numbers > length_of_questions do
+          questions
+            |> List.insert_at(0, "#{number} #{operator} #{Enum.at(valid_numbers, length_of_questions)}")
+            |> add_questions(valid_numbers, number, total, operator)
+        else
+          questions
+            |> List.insert_at(0, "#{number} #{operator} #{Enum.random(valid_numbers)}")
+            |> add_questions(valid_numbers, number, total, operator)
+        end
+
+      else
+        questions
+      end
     end
   
     @spec add_random_questions([String.t()], String.t(), integer(), integer()) :: [String.t()]
     defp add_random_questions(questions, operator, total, number) do
   
       if length(questions) < total do
-        List.insert_at(questions, 0, "#{:rand.uniform(number)} #{operator} #{number}")
+        List.insert_at(questions, 0, "#{:rand.uniform(12)} #{operator} #{number}")
         |> add_random_questions(operator, total, number)
         
       else questions end

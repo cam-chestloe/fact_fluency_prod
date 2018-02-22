@@ -1,22 +1,47 @@
-<div>
+<!-- Link to open the modal signup form -->
+<div data-btn-for="<%= @user_type %>" drab-click="show_modal" class="card-container"> 
+  <img src="#" alt="<%= @user_type %> Avatar" class="teachercard">  
+  <button class="teacher-btn"><%= @user_type %></button>  
+</div>
 
-  <!-- Link to open the modal signup form -->
-  <div data-btn-for="<%= @user_type %>" drab-click="show_modal">
-    <img src="#" alt="<%= @user_type %> Avatar">
-    <button><%= @user_type %></button>
-  </div>
+<!-- The Modal -->
+<div id="<%= @user_type %>-modal" class="modal">
 
-  <!-- The Modal -->
-  <div id="<%= @user_type %>-modal" class="modal">
+  <span data-btn-for="<%= @user_type %>" drab-click="hide_modal" title="Close Modal">&times;</span>
 
-    <div data-btn-for="<%= @user_type %>" drab-click="hide_modal" title="Close Modal">&times;</div>
+  <%= form_for @conn, page_path(@conn, :login), [method: :post, as: :user, id: "#{@user_type}-session-form"], fn f -> %>
 
     <div class="imgcontainer">
       <img src="#" alt="<%= @user_type %> Avatar" class="avatar">
     </div>
 
-  <button data-btn-for="<%= @user_type %>" drab-click="hide_modal" class="cancelbtn">Cancel</button>
-  </div>
+    <div id="<%= @user_type %>-modal" class="container">
 
-</div>
+      <div class="form-group" id="<%= @user_type %>-login-email" %>
+          <%= label f, :email, class: "control-label" %>
+          <%= text_input f, :email, class: "form-control" %>
+      </div>
+
+      <div class="form-group" id="<%= @user_type %>-login-password">
+          <%= label f, :password, class: "control-label"%>
+          <%= password_input f, :password, class: "form-control" %>
+          <p style="visibility: hidden">
+            Invalid username and/or <%= "#{@user_type === "Student" && "PIN" || "password"}." %>
+          </p>
+      </div>
+
+      <%= hidden_input f, :user_type, value: @user_type %>
+
+      <%= submit "Login", style: "display: none" %>
+
+      <div class="form-group">
+          <button data-btn-for="<%= @user_type %>" drab-click="submit_login">Login</button>
+      </div>
+
+    </div> 
+
+  <% end %> 
+
+</div> 
+
 

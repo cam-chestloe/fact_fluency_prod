@@ -1,9 +1,3 @@
-<!-- School or Home modal 
-
-
-
--->
-
 <div class="wrapper-card-body">
     <!--    Body Cards  -->
     <div class="card-wrapper">
@@ -19,10 +13,8 @@
                 <span onclick="document.getElementById('test-choice-modal').style.display='none'" class="close-modal-button" title="Close Modal">&times;</span>
                 
                 <div class="modal-number-header">
-                    <h1>0</h1>
+                    <h1 id="selected-number">0</h1>
                 </div> 
-
-                <%= render "form.html", Map.put(assigns, :action, test_path(@conn, :create)) %>
 
                 <!-- Dividing Line -->
                 <div class="divide-line" id="top-line"></div>
@@ -30,48 +22,42 @@
                 <!-- Paragraph Text --> 
                 <p class="modal-test-text"><strong>Choose an operator to practice or test.</strong></p>
 
-                <!-- Radio Buttons -->
-                <label class="add radio-btn radio-click" for="addition">
-                    <input type="radio" name="plus" id="addition" value="plussign"/><span>&plus;</span>
-                </label>
-            
-
-                <label class="minus radio-btn radio-click" for="subtraction">
-                    <input type="radio" name="minus" id="subtraction" value="minussign"/><span>&minus;</span>
-                </label>
-                
-                <label class="times radio-btn radio-click" for="multiplication">
-                    <input type="radio" name="times" id="multiplication" value="timessign"/><span>&times;</span>
-                </label>
-                
-
-                <label class="divide radio-btn radio-click">
-                    <input type="radio" name="divide" id="division" value="dividesign"/><span>&divide;</span>                    
-                </label>
-    
                 <!-- Dividing Line -->
                 <div class="divide-line" id="bottom-line"></div>
 
                 <!-- Modal Buttons -->
-                <button type="button" class="practice" id="create-test"><strong>Practice</strong></button>
-                <button type="button" class="real-deal" id="create-test"><strong><span class="long-title">Take </span>Test</strong></button>
-            </div>
-        </div>
+                <button type="button" class="practice" id="create-test" onClick="submitForm()"><strong>Practice</strong></button>
+                <button type="button" class="real-deal" id="create-test" onClick="submitForm()"><strong><span class="long-title">Take </span>Test</strong></button>
 
-        <!-- Card 0  -->
-        <div class="number-choice-wrapper card-hover" id="card-red"onclick="document.getElementById('id00').style.display='block'">
-            <div class="card-number-header">
-                <h1>0</h1>    
-            </div>
-            
+                <%= form_for @conn, test_path(@conn, :create), [method: :post, as: :test, id: "new-test-form", class: "radio-btn-wrapper"], fn f -> %>
+                    <label class="add radio-btn radio-click">
+                        <%= radio_button f, :operator, "+", checked: "checked" %><span>&plus;</span>
+                    </label>
 
-            <!-- Symbols Light Up If Student Passes That Operation -->
-            <div class="passing-symbols">
-                <h1 id="plus-sign">&plus;</h1>
-                <h1 id="minus-sign">&minus;</h1>
-                <h1 id="multiplication-sign">&times;</h1>
-                <h1 id="division-sign">&divide;</h1>
+                    <label class="minus radio-btn radio-click">
+                        <%= radio_button f, :operator, "-" %><span>&minus;</span>
+                    </label>
+
+                    <label class="times radio-btn radio-click">
+                        <%= radio_button f, :operator, "*" %><span>&times;</span>
+                    </label>
+
+                    <label class="divide radio-btn radio-click">
+                        <%= radio_button f, :operator, "/" %><span>&divide;</span>
+                    </label>
+
+                    <%= hidden_input f, :test_type, class: "form-control", value: "elementary_arithmetic" %>
+                    <%= hidden_input f, :number, class: "form-control" %>
+                    <%= hidden_input f, :student_id, [class: "form-control", value: 1] %>
+                <% end %>
             </div>
         </div>
     </div>
+
+    <script>
+    var submitForm = function()
+    {
+        document.getElementById('new-test-form').submit();
+    }
+    </script>
 </div>

@@ -20,9 +20,10 @@
   <!-- User and Credential forms -->
   <%= inputs_for f, :user, fn uf -> %>
     <div class="form-group">
-    <%= label uf, :first_name, class: "control-label" %>
-    <%= text_input uf, :first_name, class: "form-control" %>
-    <%= error_tag uf, :first_name %>
+      <%= label uf, :first_name, class: "control-label" %>
+      <%= text_input uf, :first_name, class: "form-control" %>
+      <%= error_tag uf, :first_name %>
+    </div>
 
     <div class="form-group">
       <%= label uf, :username, class: "control-label" %>
