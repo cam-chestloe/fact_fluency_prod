@@ -45,7 +45,7 @@
                     <label class="divide radio-btn radio-click">
                         <%= radio_button f, :operator, "/" %><span>&divide;</span>
                     </label>
-                    
+
                     <%= hidden_input f, :test_type, class: "form-control", value: "elementary_arithmetic" %>
                     <%= hidden_input f, :number, class: "form-control" %>
                     <%= hidden_input f, :student_id, [class: "form-control", value: 1] %>
@@ -58,13 +58,6 @@
     var submitForm = function()
     {
         document.getElementById('new-test-form').submit();
-    }
-
-    var updateNumber = function()
-    {
-
-
-        
     }
     </script>
 </div>
