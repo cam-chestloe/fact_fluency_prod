@@ -3,11 +3,14 @@
         <div class="practice-problems"></div>
     -->
 
+    <!-- Drab needs @index to be available via JS -->
+    <input style="display:hidden" value="<%= @index %>" />
+
     <!-- Start Button -->
     <div id="start-test-confirmation" class="card-ready-set-go">
         <h1 class="encouraging-text" id="encouraging-text">Encouraging Text</h1>
         <h2 class="side-comment" id="side-comment">Side Comment</h2>
-        <button type="button" class="button start" onClick="document.getElementById('start-test-confirmation').style = 'display: none';">Start</button>
+        <button type="button" class="button start" drab-click="start_test">Start</button>
         <a class="cancel-link" href="studentpage.html">Cancel</a>
     </div>
 
@@ -24,8 +27,10 @@
 
             <!-- Answer to Problem Input -->
             <div class="answer-input">
-                <input dir="rtl" type="text" name="answer" id="answer"/>
+                <input dir="rtl" type="text" name="answer" id="answer-input"/>
             </div>
+
+            <button type="button" class="button" drab-click="answer_question">Submit</button>
 
             <!-- Line Under Problem -->
             <div class="line"></div>
@@ -34,7 +39,7 @@
             <button class="keyboard-btn" type="button"><i class="material-icons md-36" id="keyboard-icon">keyboard</i></span></button>
 
             <!-- Eventual Buttons 
-            <button class="digi-pen" type="button" document.getElementById('digi-pen')></button>
+            <button class="digi-pen" t  ype="button" document.getElementById('digi-pen')></button>
             <button class="voice-to-text" type="button" document.getElementById('voice-to-text')></button>
             -->
         </div>
