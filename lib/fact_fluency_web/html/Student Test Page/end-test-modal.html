@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Student Page</title>
+    <title>Teacher Classes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" type="text/css" media="screen" href="test-card.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="end-test-modal.css" />
    
     <!-- Javascript -->
-    <script src="test-card.js"></script>
+    <script src="teacher-classes.js"></script>
 
     <!-- Font Families	-->
     <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto" rel="stylesheet">
@@ -18,37 +18,76 @@
 
 </head>
 <body>
-    <div class="card-wrapper">
-       <!-- After Test Modal --> 
-       <div class="modal-overlay">
-           <!-- After Test Modal Content -->
-           <form class="modal-content animate">
-                <span onclick="document.getElementById('id00').style.display='none'" class="close" title="Close Modal">&times;</span>
+    
 
-                <!-- Header --> 
-                <h1>Text Changes based on passing or not passing test.</h1>
+        <!-- TODO: Navbar with less classes n divs -->
 
-                <!-- Sub Header -->
-                <h2>Encouraging text</h2>
 
-                <!-- Things To Work On -->
-                <div class="improvement-plan-text">
+        <nav class="navbar" id="navbar-fixed" role="navigation">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.svg?width=48&height=48&select=fnVZV3K0apage0" alt="Logo"> 
+            </a>
+    
+            <!-- Menu Items Medium Screen and Up -->
+            <div class="logout">
+                <a href="mathfacts.html" class="logout"><strong>Logout</strong></a>
+            </div>
+    
+            <div class="user">
+                <a class="user" href="#"><span class="username"><i class="material-icons md-36" id="accountCircle">account_circle</i><strong>Username</strong></span></a>
+            </div>
+    
+    
+    
+            <!-- Menu Items Small Screens -->
+            <!-- Toggle Button/Javascript Link -->
+            <a href="javascript:void(0);" class="navbar-toggler" onclick="myFunction()"><i class="material-icons md-36">menu</i></a>
+    
+            <!-- Collapse Content -->
+            <div class="navbar-collapse" id="collapsingNavbar">
+                <a class="sm-nav-item" href="#"><span class="sm-username"><i class="material-icons md-36">account_circle</i><strong>Username</strong></span></a>
+                <a class="sm-nav-item sm-logout" href="#"><strong>Logout</strong></a>
+            </div>           
+        </nav>
+    
+        <div class="main-wrapper">
+            <div class="wrapper-card-body">
+                <div class="end-test-message">
+                    <!-- Header Text -->
+                    <h1 class="end-test-header">You Finished A Test</h1>
+                    <h2 class="end-test-subheader">I knew you could do it!</h2>
                     
-                </div>
+                    <!-- Passed / Didn't Pass -->
+                    <h1 class="pass-true-false">Better Luck Next Time</h1>
+                    <h2 class="amount-correct"><span class="student-name">Fritz</span> you got <span class="number-correct">16</span> out of <span class="number-assigned">20</span> correct!</h2>
 
-                <!-- Things To Work On -->
-                <div class="improvement-plan-text">
+                    <!-- Placeholder Div -->
+                    <div class="border"></div>
 
-                </div>
+                    <!-- Chameleon Data Points -->
+                    <div class="data-points"> 
+                        <div class="positive-time">
+                            <h3>You Rocked This Problem</h3>
+                            <h4>12 x 1 = 12</h4>
+                            <h4>It only took you 1.04 seconds to complete</h4>
+                        </div>
+                        <div class="improvement-time">
+                            <h3>You missed this problem a couple times</h3>
+                            <h4>12 x 2 = 24</h4>
+                            <h4>Hint: It might be good to practice this one:)</h4>
+                        </div>
+                    </div>
 
-                <!-- Buttons -->
-                <div class="buttons">
-                    <button type="button" class="print-certificate">Print Me</button>
-                    <button type="button" class="retake-test">Retake Test</button>
-                    <button type="button" class="student-page-home">Go Home</button>
+                    <!-- Placeholder Div -->
+                    <div class="border"></div>
+
+                    <!-- Button Row -->
+                    <button type="button" class="try-again">Try Again</button>
+                    <button type="button" class="print-me">Print Results</button>
+                    <button type="button" class="finished-testing">Finished</button>
                 </div>
-           </form>
-       </div>
-    </div>
+            </div>
+        </div>     
 </body>
 </html>
