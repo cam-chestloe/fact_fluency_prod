@@ -10,7 +10,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="test-card.css" />
    
     <!-- Javascript -->
-    <script src="test-card.js"></script>
+    <script src="navbar.js"></script>
+
 
     <!-- Font Families	-->
     <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto" rel="stylesheet">
@@ -18,40 +19,101 @@
 
 </head>
 <body>
+    <nav class="navbar" id="navbar-fixed" role="navigation">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="https://vectr.com/thomasisaacpeterecclesgmailcom/fnVZV3K0a.svg?width=48&height=48&select=fnVZV3K0apage0" alt="Logo"> 
+            </a>
+    
+            <!-- Menu Items Medium Screen and Up -->
+            <div class="logout">
+                <a href="mathfacts.html" class="logout"><strong>Logout</strong></a>
+            </div>
+    
+            <div class="user">
+                <a class="user" href="#"><span class="username"><i class="material-icons md-36" id="accountCircle">account_circle</i><strong>Username</strong></span></a>
+            </div>
+    
+    
+    
+            <!-- Menu Items Small Screens -->
+            <!-- Toggle Button/Javascript Link -->
+            <a href="javascript:void(0);" class="navbar-toggler" onclick="myFunction()"><i class="material-icons md-36">menu</i></a>
+    
+            <!-- Collapse Content -->
+            <div class="navbar-collapse" id="collapsingNavbar">
+                <a class="sm-nav-item" href="#"><span class="sm-username"><i class="material-icons md-36">account_circle</i><strong>Username</strong></span></a>
+                <a class="sm-nav-item sm-logout" href="#"><strong>Logout</strong></a>
+            </div>           
+        </nav>
+
+
     <div class="main-wrapper">
-        <!-- Start Button -->
-        <div class="card ready-set-go">
-            <button type="button" class="button cancel">Cancel</button>
-            <button type="button" class="button start">Start</button>
+        <div class="wrapper-card-body"> 
+            <!-- Practice Problems
+                <div class="practice-problems"></div>
+            -->
 
-            <p>Place Holder Countdown</p>
-        </div>
-
-        <div class="card test">
-            <div class="problem">
-                <!-- Fact Fluency Problem -->
-                <p class="top-number">Placeholder</p>
-                <p class="bottom-number">Placeholder</p>
-                <p class="operator">Placeholder</p>
-
-                <!-- Line Under Problem -->
-                <div class="line"></div>
-
-                <!-- Answer to Problem Input -->
-                <input type="text" name="answer" id="answer" value="answer"/>
+            <!-- Start Button -->
+            <div class="card-ready-set-go">
+                <h1 class="encouraging-text" id="encouraging-text">Encouraging Text</h1>
+                <h2 class="side-comment" id="side-comment">Side Comment</h2>
+                <button type="button" class="button start">Start</button>
+                <a class="cancel-link" href="studentpage.html">Cancel</a>
             </div>
 
+            <div class="card test">
+                    <!-- Fact Fluency Problem -->
+                    <div class="top-alignment">
+                        <p class="top-number">10</p>
+                    </div>
 
-            <div class="button-row">
-                <button class="keyboard-btn" type="button" document.getElementById('keyboard')></button>
+                    <div class="bottom-alignment">
+                        <p class="operator">+</p>
+                        <p class="bottom-number">0</p>
+                    </div>
 
-                <!-- Eventual Buttons 
-                <button class="digi-pen" type="button" document.getElementById('digi-pen')></button>
-                <button class="voice-to-text" type="button" document.getElementById('voice-to-text')></button>
-                -->
+                    <!-- Answer to Problem Input -->
+                    <div class="answer-input">
+                        <input dir="rtl" type="text" name="answer" id="answer"/>
+                    </div>
+
+                    <!-- Line Under Problem -->
+                    <div class="line"></div>
+
+                <div class="button-row">
+                    <button class="keyboard-btn" type="button"><i class="material-icons md-36" id="keyboard-icon">keyboard</i></span></button>
+
+                    <!-- Eventual Buttons 
+                    <button class="digi-pen" type="button" document.getElementById('digi-pen')></button>
+                    <button class="voice-to-text" type="button" document.getElementById('voice-to-text')></button>
+                    -->
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- Keyboard  Small -->  
+    <div class="keyboard small">
+            <div class="keypad">
+            
+                <div class="number"><button type="button" class="number-input">7</button></div>
+                <div class="number"><button type="button" class="number-input">8</button></div>
+                <div class="number"><button type="button" class="number-input">9</button></div>
+                
+                <div class="number"><button type="button" class="number-input">4</button></div>
+                <div class="number"><button type="button" class="number-input">5</button></div>
+                <div class="number"><button type="button" class="number-input">6</button></div>
+                
+                <div class="number"><button type="button" class="number-input">1</button></div>
+                <div class="number"><button type="button" class="number-input">2</button></div>
+                <div class="number"><button type="button" class="number-input">3</button></div>
+                
+                <div class="number reset"><button type="reset" class="reset-input">Clear</button></div>
+                <div class="number"><button type="button" class="number-input">0</button></div>
+                <div class="number action"><button type="submit" class="submit-input">Enter</button></div>
+        
+            </div>
+    </div>
 </body>
 </html>
