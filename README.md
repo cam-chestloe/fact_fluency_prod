@@ -13,3 +13,7 @@ To compile on windows.
 - navigate to the fact fluency root folder
 - run the command:
     cmd /K "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
+
+
+
+Student Test Page In Test Page Folder 
