@@ -228,11 +228,21 @@ defmodule FactFluency.Testing do
       %Test{questions: [%Question{student_answer: answer, start_time: now}]}
   """
   def answer_question(test, index, answer) do
-    test
-    |> Map.update!(:questions, fn questions ->
-        List.update_at(questions, index, fn q ->
-          %{q | student_answer: answer, end_time: DateTime.utc_now()}
-        end)
+    test |> Map.update!(:questions, fn questions ->
+      List.update_at(questions, index, fn q ->
+        %{q | student_answer: answer, end_time: DateTime.utc_now()}
       end)
+    end)
+  end
+
+  @doc """
+  Updates a test with the correct answers.
+  """
+  def submit_test(%Test{} = test, %{questions: questions}) do
+    {:ok, graded_questions} = Test.grade_questions(questions, test.test_type)
+
+    Ecto.Changeset.change(test, %{end_time: DateTime.utc_now()})
+    |>  Ecto.Changeset.put_embed(:questions, graded_questions)
+    |>  Repo.update!
   end
 end
