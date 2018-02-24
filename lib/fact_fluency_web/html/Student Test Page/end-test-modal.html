@@ -53,39 +53,41 @@
     
         <div class="main-wrapper">
             <div class="wrapper-card-body">
-                <div class="end-test-message">
-                    <!-- Header Text -->
-                    <h1 class="end-test-header">You Finished A Test</h1>
-                    <h2 class="end-test-subheader">I knew you could do it!</h2>
-                    
-                    <!-- Passed / Didn't Pass -->
-                    <h1 class="pass-true-false">Better Luck Next Time</h1>
-                    <h2 class="amount-correct"><span class="student-name">Fritz</span> you got <span class="number-correct">16</span> out of <span class="number-assigned">20</span> correct!</h2>
+                <div class="modal-overlay">
+                    <div class="modal-content">
+                        
+                        <p class="amount-correct"><span class="student-name">Fritz,</span> you got <span class="number-correct">16</span> out of <span class="number-assigned">20</span> correct!</p>
+                        <p class="pass-message">Congratulations, you passed! We knew you could do it.</p>
+                        <p class="reminder-message">Remember you need <span class="amount-needed">18</span>/<span class="total-number-of-problems">20</span> to pass.</p>
 
-                    <!-- Placeholder Div -->
-                    <div class="border"></div>
-
-                    <!-- Chameleon Data Points -->
-                    <div class="data-points"> 
-                        <div class="positive-time">
-                            <h3>You Rocked This Problem</h3>
-                            <h4>12 x 1 = 12</h4>
-                            <h4>It only took you 1.04 seconds to complete</h4>
+                        <!-- Chameleon Data Points -->
+                        <div class="data-points"> 
+                            <div class="positive-time">
+                                <div class="green-background">
+                                    <p class="positive header"><span class="checkmark"><i class="material-icons md-48">check_circle</i></span> You Rocked This Problem</p>
+                                </div>
+                                    <p class="positive problem">12 x 1 = 12</p>
+                                <p class="positive final">It only took you 1.04 seconds to complete.</p>
+                            </div>
+                            <div class="improvement-time">
+                                <div class="red-background">
+                                    <p class="improvement header"><span class="checkmark"><i class="material-icons md-48">cancel</i></span> This Gave You Some Trouble</p>
+                                </div>
+                                <p class="improvement problem">12 x 2 = 24</p>
+                                <p class="improvement final">Hint: It might be good to practice this one.</p>
+                            </div>
                         </div>
-                        <div class="improvement-time">
-                            <h3>You missed this problem a couple times</h3>
-                            <h4>12 x 2 = 24</h4>
-                            <h4>Hint: It might be good to practice this one:)</h4>
+
+                        <!-- Placeholder Div -->
+                        <div class=" bottom-border"></div>
+
+                        <!-- Button Row -->
+                        <div class="button-row">
+                            <button type="button" class="try-again">Try Again</button>
+                            <button type="button" class="print-me">Print Results</button>
+                            <button type="button" class="finished-testing">Home</button>
                         </div>
                     </div>
-
-                    <!-- Placeholder Div -->
-                    <div class="border"></div>
-
-                    <!-- Button Row -->
-                    <button type="button" class="try-again">Try Again</button>
-                    <button type="button" class="print-me">Print Results</button>
-                    <button type="button" class="finished-testing">Finished</button>
                 </div>
             </div>
         </div>     
