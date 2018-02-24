@@ -46,3 +46,4 @@ Fritz's TODO:
 - Write tests for elementary_arithmetic:
     - Create new tests for each type (addition, subtraction, multiplication, division) and check that the correct operator is included.
     - Check that max questions work properly.
+    - Create test with incorrect arguments returns an error.
