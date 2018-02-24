@@ -16,7 +16,8 @@ defmodule FactFluency.Testing.ElementaryArithmetic do
     def create_test(test_parameters, student_id) do
       %Test{
         student_id: student_id,
-        questions: create_questions(test_parameters)
+        questions: create_questions(test_parameters),
+        test_type: "elementary_arithmetic"
       }
     end
   
@@ -29,17 +30,14 @@ defmodule FactFluency.Testing.ElementaryArithmetic do
       # Addition, subtraction and multiplication will feature numbers 0 - 12 (max_number?)
       # Division will feature any numbers divisible by the number up to number * 12 (max_number?)
       %{operator: operator, number: number} = test_parameters.arguments
-      %{number_of_random_questions: rand, total_questions: total} = test_parameters
+      %{total_questions: total} = test_parameters
 
       # Forget adding random questions for now
       questions = add_questions([], Enum.to_list(0..12), number, total, operator)
 
-      questions |> Enum.map &(%Question{question: &1})
+      questions |> Enum.map(&(%Question{question: &1}))
     end
 
-    @doc """
-    Recursively adds questions until the length of ``questions`` is ``total``.
-    """
     @spec add_questions([String.t()], [integer], integer, integer, String.t()) :: [String.t()]
     defp add_questions(questions, valid_numbers, number, total, operator) do
       length_of_questions = length(questions)
@@ -70,5 +68,16 @@ defmodule FactFluency.Testing.ElementaryArithmetic do
         |> add_random_questions(operator, total, number)
         
       else questions end
+    end
+
+    @doc """
+    Adds the correct answer to each question.
+    """
+    @spec grade_questions([%Question{}]) :: [%Question{}]
+    def grade_questions(questions) do
+      questions |> Enum.map(fn(question) ->
+        {:ok, answer} = Abacus.eval(question.question)
+        Map.put(question, :correct_answer, to_string(answer))
+      end)
     end
   end

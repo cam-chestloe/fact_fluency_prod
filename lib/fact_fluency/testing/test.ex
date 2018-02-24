@@ -1,7 +1,7 @@
 defmodule FactFluency.Testing.Test do
   use Ecto.Schema
   import Ecto.Changeset
-  alias FactFluency.Testing.{Test, TestParameters}
+  alias FactFluency.Testing.{Test, TestParameters, Question}
   alias FactFluency.Testing.ElementaryArithmetic, as: Arithmetic
 
 
@@ -10,6 +10,7 @@ defmodule FactFluency.Testing.Test do
     field :review_start_time, :naive_datetime
     field :start_time, :naive_datetime
     field :timestamps, :string
+    field :test_type, :string
 
     embeds_many :questions, FactFluency.Testing.Question, on_replace: :delete
 
@@ -22,6 +23,7 @@ defmodule FactFluency.Testing.Test do
   def changeset(%Test{} = test, attrs) do
     test
     |> cast(attrs, [:start_time, :end_time, :review_start_time, :timestamps])
+    |> cast_embed(:questions)
     |> validate_required([:start_time, :end_time, :review_start_time, :timestamps])
   end
 
@@ -47,6 +49,20 @@ defmodule FactFluency.Testing.Test do
 
     other -> 
       {:error, "#{other} is not yet implemented."}
+    end
+  end
+
+  @doc """
+  Adds the correct answer to each question.
+  """
+  @spec grade_questions([%Question{}], String.t()) :: [%Question{}]
+  def grade_questions(questions, test_type) do
+    case test_type do
+      "elementary_arithmetic" ->
+        {:ok, Arithmetic.grade_questions(questions)}
+
+      other ->
+        {:error, "#{other} is not yet implemented."}
     end
   end
 end
