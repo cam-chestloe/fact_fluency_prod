@@ -38,3 +38,11 @@ Teacher Class Page in Teacher Page Folder
 - Add class button always sits at the end of list
 
 
+Fritz's TODO:
+- Validate test parameters when creating a new test. The test params should be complete after running "create_test_parameters()".
+- Add random questions to elementary_arithmetic tests.
+- Randomize the display of questions while taking tests.
+- Add a "submit" step at the end of taking a test.
+- Write tests for elementary_arithmetic:
+    - Create new tests for each type (addition, subtraction, multiplication, division) and check that the correct operator is included.
+    - Check that max questions work properly.
