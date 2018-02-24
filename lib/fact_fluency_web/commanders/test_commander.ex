@@ -16,6 +16,7 @@ defmodule FactFluencyWeb.TestCommander do
 
   def answer_question(socket, _sender) do
     {:ok, %{"value" => answer}} = query_one(socket, "#answer-input", "value")
+
     index = peek(socket, :index)
 
     test = get_store(socket, :test, nil)
@@ -30,8 +31,7 @@ defmodule FactFluencyWeb.TestCommander do
         poke(socket, question: question, index: index + 1)
 
       :error ->
-        FactFluency.Testing.update_test(test, %{questions: test.questions})
-        FactFluency.Testing.grade_test(test.id)
+        FactFluency.Testing.submit_test(test, %{questions: test.questions})
         Drab.Browser.redirect_to(socket, "/tests/#{test.id}")
     end
 
