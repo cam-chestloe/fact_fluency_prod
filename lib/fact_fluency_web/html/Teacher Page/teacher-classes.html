@@ -55,17 +55,34 @@
             <div class="wrapper-card-body">
 
                 <!-- Active Header Class -->
-                <div class="active-class-text">
-                    <h3>Active Classes</h3>
+                <div class="active-class-div">
+                    <h3 class="active-class-text">Active Classes</h3>
                 </div>
 
                 <!-- Archive Class Button -->
                 <div class="archive-class">
                     <button type="button" class="archive-class"><strong>Archive Class</strong></button>
                 </div>
-                
-                <!-- Add New Class -->
-                <button class="new-class-card" id="create-new-class" type="button" onclick="document.getElementById('create-class-modal').style.display='block'"><span><i class="material-icons md-48">add_circle</i></span></button>
+
+                <!-- Card Wrapper that allows scaling -->
+                <div class="card-wrapper">
+                    <!-- Current Class Cards -->
+                    <div class="current-class">
+                            <!-- Settings -->
+                            <button class="current-class-settings" id="class-settings" type="button" onclick="document.getElementById('class-settings-modal').style.display='block'"><span><i class="material-icons md-48">settings</i></span></button>
+        
+                            <!-- Class Identifiers -->
+                            <h2 class="assigned-class-name"><strong>Class Name</strong></h2>
+                            <h3 class="number-of-students"><strong>26 Students</strong></h3>
+        
+                            <!-- Class Code -->
+                            <h3 class="class-code"><span>Class Code:</span> 123ABC</h3>
+                            <a href="#" class="teacher-dashboard"><button type="button" class="link-teacher-dashboard">View Class</button></a>
+                        </div>
+                    
+                    <!-- Add New Class -->
+                    <button class="new-class-card" id="create-new-class" type="button" onclick="document.getElementById('create-class-modal').style.display='block'"><span><i class="material-icons md-48">add_circle</i></span></button>
+                </div>
 
                 <!-- The Modal -->
                 <div id="create-class-modal" class="modal-overlay">
@@ -113,22 +130,8 @@
                         <button type="button" class="google-classroom-import" id="import-class"><strong>Import From Google Classroom</strong></button>
                     </form>
                 </div>
-                
-                <!-- Current Class Cards -->
-                <div class="current-class">
-                    <!-- Settings -->
-                    <button class="current-class-settings" id="class-settings" type="button" onclick="document.getElementById('class-settings-modal').style.display='block'"><span><i class="material-icons md-48">settings</i></span></button>
 
-                    <!-- Class Identifiers -->
-                    <h2 class="assigned-class-name"><strong>Class Name</strong></h2>
-                    <h3 class="number-of-students"><strong>26 Students</strong></h3>
-
-                    <!-- Class Code -->
-                    <h3 class="class-code"><span>Class Code:</span> 123ABC</h3>
-                    <a href="#" class="teacher-dashboard"><button type="button" class="link-teacher-dashboard">View Class</button></a>
-                </div>
-
-                <!-- The Modal -->
+                <!-- The Edit Modal -->
                 <div id="class-settings-modal" class="modal-overlay">
                     <!-- Modal Content -->
                     <form class="modal test-choice-modal animate" action="/action_page.php">

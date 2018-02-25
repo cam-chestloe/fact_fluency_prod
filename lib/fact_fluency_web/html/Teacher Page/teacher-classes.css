@@ -28,71 +28,97 @@ body {
     }
 
     /* Nav grid styles */
-    nav {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 1fr;
-        padding: 1rem;
-        background-color: #FFFFFF;
-        box-shadow: 0 3px 12px rgba(0,0,0,0.20);
-    }
-
-        /* Navigation Items */
-        .nav-item {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
+        nav {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1fr;
+            padding: 1rem;
+            background-color: #FFFFFF;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.20);
         }
 
-        /* Medium and Up Screen Logout Styles */
-        .logout {
-            text-decoration: none; 
-            color: #000000;
-            opacity: 0.5;
-        }
+            /* Navigation Items */
+            .nav-item {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
 
-        .logout:hover {
-            color: cornflowerblue;
-            opacity: 1.0;
-        }
+            /* Medium and Up Screen Logout Styles */
+            .logout {
+                text-decoration: none; 
+                color: #000000;
+                opacity: 0.5;
+            }
 
-        /* Medium and Up Screen Username Styles */
-        .user {
-            text-decoration: none;
-        }
+            .logout:hover {
+                color: cornflowerblue;
+                opacity: 1.0;
+            }
 
-        .username {
-            color: #000000;
-            opacity: 0.25;
-        }
+            /* Medium and Up Screen Username Styles */
+            .user {
+                text-decoration: none;
+            }
 
-        .username:hover {
-            color: cornflowerblue;
-            opacity: 1.0;
-        }
+            .username {
+                color: #000000;
+                opacity: 0.25;
+            }
 
-        .material-icons.md-36 { 
-            padding-right: 8px;
-            font-size: 36px;
-            vertical-align: middle;
-        }
+            .username:hover {
+                color: cornflowerblue;
+                opacity: 1.0;
+            }
 
-        /* Tells the collapsing content to not be displayed on medium and up screens */
-        #collapsingNavbar {
-            display: none;
-        }
+            .material-icons.md-36 { 
+                padding-right: 8px;
+                font-size: 36px;
+                vertical-align: middle;
+            }
+
+            /* Tells the collapsing content to not be displayed on medium and up screens */
+            #collapsingNavbar {
+                display: none;
+            }
 
  
 /* Body */  
 
     /* Card Body */
-    .wrapper-card-body {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        display: grid;
-        grid-template-columns: 10% 80% 10%;
-    }
+        .wrapper-card-body {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            display: grid;
+            grid-template-columns: 5% 90% 5%;
+        }
+    
+    /* Card Style */
+        .card-wrapper {
+            grid-column-start: 2;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-auto-rows: minmax(auto, auto);
+            grid-column-gap: 16px;
+            grid-row-gap: 16px;
+            padding: 16px;
+        }
 
+        /* Current Class */
+            .current-class {
+                display: grid;
+                grid-template-columns: auto;
+                grid-row: auto;
+
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+                transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+                border-radius: .5em;
+            }
+
+            .current-class:hover {
+                box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);  
+
+            }
 
 
 
@@ -102,80 +128,124 @@ body {
 @media only screen and (max-width: 399px) {
 
     /* Navbar */
-    .user, .logout {
-        display: none;
-    }
-        /* Navbar Toggler Icon */
-        .navbar-toggler {
-            grid-column-start: 3;
-            justify-self: flex-end;
-            align-self: center;
-            color: #000000;
-            opacity: 0.25;
+        .user, .logout {
+            display: none;
         }
+            /* Navbar Toggler Icon */
+            .navbar-toggler {
+                grid-column-start: 3;
+                justify-self: flex-end;
+                align-self: center;
+                color: #000000;
+                opacity: 0.25;
+            }
 
-        .navbar-toggler:hover {
-            color: cornflowerblue;
-            opacity: 1.0;
-        }
+            .navbar-toggler:hover {
+                color: cornflowerblue;
+                opacity: 1.0;
+            }
 
-        /* Navbar Collapsed State Style */
-        
-        #collapsingNavbar.navbar-collapse.responsive {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: auto;
-            margin-top: 1em;
-        }
-
-        .navbar-collapse {
-            border-top: 2px solid rgba(0,0,0,0.05);
+            /* Navbar Collapsed State Style */
             
-        }
+            #collapsingNavbar.navbar-collapse.responsive {
+                grid-column: 1 / -1;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                margin-top: 1em;
+            }
 
-        .sm-nav-item {
-            text-decoration: none;
-            color: #000000;
-            padding-top: 1em;
-        }
+            .navbar-collapse {
+                border-top: 2px solid rgba(0,0,0,0.05);
+                
+            }
 
-        .sm-username {
-            opacity: 0.25;
-        }
+            .sm-nav-item {
+                text-decoration: none;
+                color: #000000;
+                padding-top: 1em;
+            }
 
-        .material-icons.md-36 { 
-            padding-right: 8px;
-            font-size: 36px;
-            vertical-align: middle;
-        }
+            .sm-username {
+                opacity: 0.25;
+            }
 
-        .sm-logout {
-            opacity: 0.25;
-        }
+            .material-icons.md-36 { 
+                padding-right: 8px;
+                font-size: 36px;
+                vertical-align: middle;
+            }
 
-        .sm-username:hover {
-            color: cornflowerblue;
-            opacity: 1.0;
-        }
+            .sm-logout {
+                opacity: 0.25;
+            }
 
-        .sm-logout:hover {
-            color: cornflowerblue;
-            opacity: 1.0;
-        }
+            .sm-username:hover {
+                color: cornflowerblue;
+                opacity: 1.0;
+            }
+
+            .sm-logout:hover {
+                color: cornflowerblue;
+                opacity: 1.0;
+            }
 
     /* Body */
-    .wrapper-card-body {
-        display: grid;
-        grid-template-columns: 5% 90% 5%;
-    }
-        /* Card Style */
-        .card-wrapper {
-            grid-column-start: 2;
+        .wrapper-card-body {
             display: grid;
-            grid-row-gap: .5em;
-            padding: 0 0 1em 0;
+            grid-template-columns: 5% 90% 5%;
         }
+
+        /* Active Classes Header */
+            .active-class-div {
+                grid-column: 1 / -1;
+                grid-row: 1 / 1;
+            }
+
+            .active-class-text {
+                text-align: center;
+                margin: 0 0 .5em 0;
+
+                font-size: 2em;
+                font-weight: 900;
+
+                opacity: 0.5;
+            }
+
+        /* Card Style */
+            .card-wrapper {
+                grid-column-start: 2;
+                display: grid;
+                grid-row-gap: .5em;
+                padding: 0 0 1em 0;
+            }
+
+            /* Current Class Card */
+                .current-class {
+                    grid-template-columns: auto;
+                    grid-template-rows: auto;
+                }
+
+                .current-class-settings {
+                    grid-template-columns: 1 / -1;
+                    justify-self: flex-end;
+
+                    background-color: transparent;
+                    color: #000000;
+
+                    padding: 0.5em 0.5em 0 0;
+
+                    opacity: 0.25;
+                    
+                    border: none;
+                }
+
+                .current-class-settings:hover {
+                    color: #3a93e1;
+                    opacity: 1.0;
+                }
+
+        
 
 }
 
@@ -223,6 +293,8 @@ body {
         width: 75%;
         max-width: 600px; 
     }
+
+
 }
 
 /*  Desktop  */
