@@ -72,12 +72,12 @@ defmodule FactFluency.Testing.ElementaryArithmetic do
       # Add one of each `valid_numbers`
       if length_of_valid_numbers > length_of_questions do
         questions
-          |> List.insert_at(0, "#{number} #{operator} #{Enum.at(valid_numbers, length_of_questions)}")
+          |> List.insert_at(0, "#{Enum.at(valid_numbers, length_of_questions)} #{operator} #{number}")
           |> add_questions(valid_numbers, number, total, operator)
       # If `questions` already contains one of each `valid_number`, add a random number from `valid_numbers`
       else
         questions
-          |> List.insert_at(0, "#{number} #{operator} #{Enum.random(valid_numbers)}")
+          |> List.insert_at(0, "#{Enum.random(valid_numbers)} #{operator} #{number}")
           |> add_questions(valid_numbers, number, total, operator)
       end
 
@@ -89,10 +89,23 @@ defmodule FactFluency.Testing.ElementaryArithmetic do
   @spec add_random_questions([String.t()], [integer], integer, String.t()) :: [String.t()]
   defp add_random_questions(questions, valid_numbers, total, operator) do
     if length(questions) < total do
-      num1 = Enum.random(valid_numbers)
-      num2 = Enum.random(valid_numbers)
+      # Warning: Hacky code.
+      num1 = 
+        if operator == "/" do
+          Enum.random(Enum.to_list(0..12))
+        else
+          Enum.random(valid_numbers)
+        end
+      
+      # Warning: Hacky code.
+      num2 = 
+        if operator == "/" do
+          num1 * Enum.random(Enum.to_list(0..12))
+        else
+          Enum.random(valid_numbers)
+        end
 
-      List.insert_at(questions, 0, "#{num1} #{operator} #{num2}")
+      List.insert_at(questions, 0, "#{num2} #{operator} #{num1}")
       |> add_random_questions(valid_numbers, total, operator)
       
     else 
