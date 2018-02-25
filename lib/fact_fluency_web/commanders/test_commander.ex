@@ -8,21 +8,19 @@ defmodule FactFluencyWeb.TestCommander do
   def start_test(socket, _sender) do
     test = get_session(socket, :test_id) |> Testing.get_test!()
       |> Testing.start_question(0)
-      #|> IO.inspect
 
     put_store(socket, :test, test)
 
-    set_style(socket, "#answer_div", %{"display" => "block"})
-    set_style(socket, "#start_button", %{"display" => "none"})
+    set_style(socket, "#start-test-confirmation", %{"display" => "none"})
   end
 
   def answer_question(socket, _sender) do
-    {:ok, %{"value" => answer}} = query_one(socket, "#answer_input", "value")
+    {:ok, %{"value" => answer}} = query_one(socket, "#answer-input", "value")
+
     index = peek(socket, :index)
 
     test = get_store(socket, :test, nil)
       |> Testing.answer_question(index, answer)
-      |> IO.inspect
 
     case Enum.fetch(test.questions, index + 1) do
       {:ok, question} ->
@@ -33,11 +31,10 @@ defmodule FactFluencyWeb.TestCommander do
         poke(socket, question: question, index: index + 1)
 
       :error ->
-        #IO.inspect(test.questions)
-        FactFluency.Testing.update_test(test, %{questions: test.questions})
+        FactFluency.Testing.submit_test(test, %{questions: test.questions})
         Drab.Browser.redirect_to(socket, "/tests/#{test.id}")
     end
 
-    set_prop(socket, "#answer_input", %{"value" => ""})
+    set_prop(socket, "#answer-input", %{"value" => ""})
   end
 end

@@ -1,7 +1,6 @@
 <h2>Show Student</h2>
 
 <ul>
-
   <li>
     <strong>Last initial:</strong>
     <%= @student.last_initial %>

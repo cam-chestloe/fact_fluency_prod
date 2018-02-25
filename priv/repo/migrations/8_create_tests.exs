@@ -6,8 +6,9 @@ defmodule FactFluency.Repo.Migrations.CreateTests do
       add :start_time, :naive_datetime
       add :end_time, :naive_datetime
       add :review_start_time, :naive_datetime
+      add :test_type, :string
       add :timestamps, :string
-      add :questions, {:array, :map}, on_replace: :delete
+      add :questions, {:array, :map}, default: []
       add :student_id, references(:students, on_delete: :delete_all), null: false
 
       timestamps()

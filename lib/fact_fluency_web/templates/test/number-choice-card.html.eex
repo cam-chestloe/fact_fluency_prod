@@ -1,0 +1,22 @@
+<div class="number-choice-wrapper card-hover" onclick="openModal(<%= @number %>)">
+    <div class="card-number-header">
+        <h1><%= @number %></h1>    
+    </div>
+    
+
+    <!-- Symbols Light Up If Student Passes That Operation -->
+    <div class="passing-symbols">
+        <h1 id="plus-sign">&plus;</h1>
+        <h1 id="minus-sign">&minus;</h1>
+        <h1 id="multiplication-sign">&times;</h1>
+        <h1 id="division-sign">&divide;</h1>
+    </div>
+
+    <script>
+    var openModal = function(num) {
+        document.getElementById('test-choice-modal').style.display='block';
+        document.getElementById('selected-number').innerHTML = num;
+        document.getElementById('test_number').value = num;
+    }
+    </script>
+</div>

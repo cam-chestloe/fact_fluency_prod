@@ -17,3 +17,14 @@ config :fact_fluency, FactFluency.Repo,
   database: "fact_fluency_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Configure Guardian
+config :fact_fluency, FactFluency.Guardian,
+        issuer: "fact_fluency",
+        secret_key: "ARe6FkwpF7BaaObwfOScXpEKitIJ+vWvC0/90hq97TzsetESzcquRsABsUPVT4JY"    # Temp
+
+# Configure Guardian_DB
+config :guardian, Guardian.DB,
+        repo: FactFluency.Repo,
+        schema_name: "guardian_tokens",
+        sweep_interval: 60

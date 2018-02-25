@@ -1,7 +1,6 @@
 <h2>Show Teacher</h2>
 
 <ul>
-
   <li>
     <strong>Last name:</strong>
     <%= @teacher.last_name %>

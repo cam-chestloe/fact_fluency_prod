@@ -1,0 +1,5 @@
+<%= form_for @conn, page_path(@conn, :logout), [method: :delete, as: :user], fn _ -> %>
+    <div class="form-group">
+        <%= submit "Logout" %>
+    </div>
+<% end %>

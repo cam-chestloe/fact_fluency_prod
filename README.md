@@ -38,3 +38,10 @@ Teacher Class Page in Teacher Page Folder
 - Add class button always sits at the end of list
 
 
+Fritz's TODO:
+- Create tests for test_parameters:
+    - Validate distill_parameters
+    - Validate student_params
+- Validate test parameters when creating a new test. The test params should be complete after running "create_test_parameters()".
+- Randomize the display of questions while taking tests.
+- Add a "submit" step at the end of taking a test.
