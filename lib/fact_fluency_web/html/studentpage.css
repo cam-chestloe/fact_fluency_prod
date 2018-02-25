@@ -84,8 +84,6 @@ body {
 
  
 /* Body */  
-
-
     /* Card Body */
     .wrapper-card-body {
         grid-column: 1 / -1;
@@ -178,7 +176,7 @@ body {
         color: #A8C75A;
     }
 
-    /*  Modal Background    */
+    /*  Modal Background  */
     .modal-overlay {
         display: none; /* Hidden By Default */
         position: fixed; /* Stay In Place */
