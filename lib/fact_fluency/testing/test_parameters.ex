@@ -59,6 +59,7 @@ defmodule FactFluency.Testing.TestParameters do
         {:ok, distilled_parameters}
       else
         {:error, "Incomplete test parameters for student with the id of: #{student_id}"}
+      end
   end
 
   @spec student_params(integer()) :: list(%TestParameters{})
@@ -79,7 +80,7 @@ defmodule FactFluency.Testing.TestParameters do
     Repo.all(query)
   end
 
-  @spec params_completed?(%TestParameters{}) :: boolen
+  @spec params_completed?(%TestParameters{}) :: :atom
   defp params_completed?(test_parameters) do
     #if Enum.any?(Map.values(distilled_parameters), fn(value) -> IO.inspect(value) == nil end) do
     #  false
