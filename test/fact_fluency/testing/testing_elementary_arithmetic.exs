@@ -82,5 +82,33 @@ defmodule FactFluency.TestingElementaryArithmetic do
                 assert op == operator
             end)
         end
+
+        test "with a larger numerator for division tests" do
+            test_parameters =
+                @valid_test_params
+                |> Map.put(:arguments, %{number: 5, operator: "/"})
+
+            %Test{questions: questions} = ElementaryArithmetic.create_test(test_parameters, 1)
+
+            Enum.each(questions, fn(question) ->
+               [num1, _operator, num2] = String.split(question.question)
+               
+               assert String.to_integer(num1) >= String.to_integer(num2)
+            end)
+        end
+
+        test "with a larger number on top for subtraction tests" do
+            test_parameters =
+                @valid_test_params
+                |> Map.put(:arguments, %{number: 5, operator: "-"})
+
+            %Test{questions: questions} = ElementaryArithmetic.create_test(test_parameters, 1)
+
+            Enum.each(questions, fn(question) ->
+               [num1, _operator, num2] = String.split(question.question)
+               
+               assert String.to_integer(num1) >= String.to_integer(num2)
+            end)
+        end
     end
 end
