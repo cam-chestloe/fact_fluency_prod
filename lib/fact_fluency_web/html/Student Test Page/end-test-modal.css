@@ -184,6 +184,21 @@
             opacity: 0.5;   
         }
 
+    /* Top Border */
+    .top-border {
+        grid-column: 1 / -1;
+        grid-row: 3 / 3;
+
+        width:90%;
+
+        margin: .5em 0 1em 0; 
+
+        justify-self: center;
+
+        border-bottom: 2px solid black;
+        opacity: 0.05;
+    }
+
     /* Data Points */
         .data-points {
             grid-column: 1 / -1;
