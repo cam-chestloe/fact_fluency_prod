@@ -1,0 +1,499 @@
+@charset "UTF-8";
+
+/*  Universal Styles    */
+    * {box-sizing: border-box;}
+
+    /*  Modal Background  */
+        .modal-overlay {
+            overflow: scroll;
+        }
+
+    /*  Modal Card Signup  */
+        .modal-content {
+            margin: 2.5% auto;
+            padding: 0;
+            max-width: 1000px; 
+            width: 75%;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+        }
+
+     /* Pass or Fail */
+        .amount-correct {
+            grid-column: 1 / -1;
+            grid-row: 1 / 1;
+
+            justify-self: center;
+
+            font-size: 2.5em;
+            font-weight: 900;
+
+            margin: 1em 0 0.25em 0;
+
+            opacity: 0.5;
+        }
+
+    /* Needs to change based on pass or fail */
+        .number-correct {
+            background-color: rgb(255, 196, 0);
+            border-radius: .25em;
+
+            padding: .25em;
+
+            color: #FFFFFF;
+        }
+
+        .number-assigned {
+            background-color: green;
+            border-radius: .25em;
+
+            padding: .25em;
+
+            color: #FFFFFF;
+        }
+
+        .pass-message {
+            display: none;
+
+            grid-column: 1 / -1;
+            grid-row: 2 / 2;
+
+            justify-self: center;
+
+            font-size: 1em;
+            font-weight: 900;
+
+            opacity: 0.5;
+        }
+
+        .reminder-message {
+
+            grid-column: 1 / -1;
+            grid-row: 2 / 2;
+
+            justify-self: center;
+
+            font-size: 1em;
+            font-weight: 900;
+
+            opacity: 0.25;   
+        }
+
+    /* Top Border */
+        .top-border {
+            grid-column: 1 / -1;
+            grid-row: 3 / 3;
+
+            width:90%;
+
+            margin: .5em 0 1em 0; 
+
+            justify-self: center;
+
+            border-bottom: 2px solid black;
+            opacity: 0.05;
+        }
+
+    /* Data Points */
+        .data-points {
+            grid-column: 1 / -1;
+            grid-row: 8 / 8;
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-rows: auto;
+            grid-gap: 2em;
+
+            padding: 1em 2em 0 2em;
+        }
+
+        .positive-time {
+
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+
+            border-radius: .5em;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.20);
+        }
+
+        .green-background {
+            grid-column: 1 / -1;
+            grid-row: 1 / 1;
+
+            background-color: green;
+
+            border-top-left-radius: .5em;
+            border-top-right-radius: .5em;
+
+            opacity: 0.5;
+        }
+
+        .checkmark {
+            vertical-align: middle;
+        }
+
+        .positive.header {
+            text-align: center;
+
+            font-size: 1.5em;
+            font-weight: 900;
+
+            color: #FFFFFF;
+        }
+
+        .positive.problem {
+            grid-column: 1 / -1;
+            grid-row: 2 / 2;
+
+            text-align: center;
+
+            font-size: 2em;
+            font-weight: 900;
+
+            margin: .5em 0 .5em 0;
+
+            opacity: 0.5;
+        }
+
+        .positive.final {
+            grid-column: 1 / -1;
+            grid-row: 3 / 3;
+
+            text-align: center;
+
+            margin: 0 0 1em 0;
+
+            font-size: 1em;
+            font-weight: 900;
+
+            opacity: 0.25;
+
+        }
+
+        /* Improvement Time */
+
+            .improvement-time {
+
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+
+                border-radius: .5em;
+                box-shadow: 0 3px 12px rgba(0,0,0,0.20);
+            }
+
+            .red-background {
+                grid-column: 1 / -1;
+                grid-row: 1 / 1;
+
+                background-color: red;
+
+                border-top-left-radius: .5em;
+                border-top-right-radius: .5em;
+
+                opacity: 0.5;
+            }
+
+            .checkmark {
+                vertical-align: middle;
+            }
+
+            .improvement.header {
+                text-align: center;
+
+                font-size: 1.5em;
+                font-weight: 900;
+
+                color: #FFFFFF;
+            }
+
+            .improvement.problem {
+                grid-column: 1 / -1;
+                grid-row: 2 / 2;
+
+                text-align: center;
+
+                margin: .5em 0 .5em 0;
+
+                font-size: 2em;
+                font-weight: 900;
+
+                opacity: 0.5;
+            }
+
+            .improvement.final {
+                grid-column: 1 / -1;
+                grid-row: 3 / 3;
+
+                text-align: center;
+
+                margin: 0 0 1em 0;
+
+                font-size: 1em;
+                font-weight: 900;
+
+                opacity: 0.25;
+
+            }
+
+
+    /* Bottom Border */
+        .bottom-border {
+            grid-column: 1 / -1;
+            grid-row: 9 / 9;
+
+            width:90%;
+
+            margin: 2em 0 0 0; 
+
+            justify-self: center;
+
+            border-bottom: 2px solid black;
+            opacity: 0.05;
+        }
+
+
+    /* Modal Buttons */
+        .button-row {
+            grid-column: 1 / -1;
+            grid-row: 10 / 10;
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-rows: auto;        
+        } 
+
+        .try-again, .print-me, .finished-testing {
+            margin: 1em;
+
+            /* Button Styles */
+            color: #3a93e1;
+            background-color: transparent;
+            -moz-border-radius: 32px;
+            -webkit-border-radius: 32px;
+            border-radius: 32px;
+            border: 3px solid #3a93e1;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            font-weight: 900;
+            padding: 12px 48px;
+            text-decoration: none;
+            opacity: 0.5;
+
+            max-width: 75%;
+            justify-self: center;
+        }
+
+        .try-again:hover {
+            color: white;
+            background-color: #3a93e1;
+            border-color: #3a93e1;
+            opacity: 1.0;
+        }
+        .print-me:hover {
+            color: white;
+            background-color: #3a93e1;
+            border-color: #3a93e1;
+            opacity: 1.0;
+        }
+        .finished-testing:hover {
+            color: white;
+            background-color: #3a93e1;
+            border-color: #3a93e1;
+            opacity: 1.0;
+        }
+
+/*  Mobile  */
+@media only screen and (max-width: 399px) {
+       /* Body */
+        .wrapper-card-body {
+            display: grid;
+            grid-template-columns: 5% 90% 5%;
+        }
+
+            /* Modal */
+                /* Modal Content */
+                    .modal-content {
+                        margin: 10% auto;
+                    }
+                /*  Modal Card Signup  */
+                    .modal-content {
+                        display: grid;
+                        padding: 0;
+                        width: 90%;
+                        max-width: 90%; 
+                    }
+                
+                /* Pass or Fail */ 
+                    .amount-correct {
+                        font-size: 1.25em;
+
+                        text-align: center;
+                        line-height: 150%;
+
+                        padding: 0 .5em 0 .5em;
+                    }
+
+                /* Data Points */ 
+                    .data-points {
+                        grid-gap: 1em;
+
+                        padding: 0 1em 0 1em;
+                    }
+                    /* Positive Card */
+                        .positive.header {
+                            font-size: 1.1em;
+                        }
+
+                        .positive.problem {
+                            font-size: 1.1em;
+                        }
+
+                        .positive.final {
+                            font-size: .75em;
+
+                            padding: 0 1em 0 1em;
+                        }
+
+                    /* Improvement Time */
+
+                        .improvement.header {
+                            font-size: 1.1em;
+                        }
+
+                        .improvement.problem {
+                            font-size: 1.1em;
+                        }
+
+                        .improvement.final {
+                            font-size: .75em;
+
+                            padding: 0 1em 0 1em;
+                        }    
+
+                /* Modal Buttons */
+                        .button-row {
+                            grid-column: 1 / -1;
+                            grid-row: 10 / 10;
+
+                            display: grid;
+                            grid-template-columns: 50% 50%;
+                            grid-template-rows: auto; 
+
+                            padding: 1em;
+                        }
+
+                        .print-me {
+                            display: none;
+                        }
+
+                        .try-again {
+                            grid-column: 1 / 2;
+                            
+                            font-size: 1em;
+                            justify-self: center;
+                            
+                            min-width: 100%;
+                            margin: 0 1em 0 0;
+                        }
+
+                        .finished-testing {
+                            grid-column: 2 / 3;
+                            
+                            justify-self: center;
+                            font-size: 1em;
+                            
+                            min-width: 100%;
+                            margin: 0 0 0 1em;
+                        }
+}
+
+/*  Tablet  */
+@media only screen and (min-width: 400px) {
+
+    /* Card Body */
+        .wrapper-card-body {
+            grid-template-columns: 5% 90% 5%;
+        }
+
+    /* Modal */
+        .modal-content {
+            margin: 10% auto;
+            width: 80%;
+        }
+        /* Pass or Fail */
+            .amount-correct {
+                text-align: center;
+
+                font-size: 2em;
+                
+                line-height: 150%;
+
+                padding: 0 1em 0 1em;
+            }
+
+        /* Data Points */
+            .data-points {
+                grid-column: 1 / -1;
+                grid-row: 8 / 8;
+
+
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-template-rows: auto;
+                grid-gap: 2em;
+
+                padding: 1em 2em 0 2em;
+            }
+
+        /* Positive Card */
+            .positive.header {
+                font-size: 1.25em;
+            }
+
+            .positive.problem {
+                font-size: 1.5em;
+            }
+
+            .positive.final {
+                font-size: 1em;
+            }
+
+        /* Improvement Time */
+
+            .improvement.header {
+                font-size: 1.25em;
+            }
+
+            .improvement.problem {
+                font-size: 1.5em;
+            }
+
+            .improvement.final {
+                font-size: 1em;
+            }
+    
+}
+
+/*  Desktop  */
+@media only screen and (min-width: 1200px) {
+    
+    /* Modal */ 
+        /* Pass or Fail */
+            .amount-correct {
+                font-size: 3em;
+            }
+
+            .pass-message {
+                display: none;
+                font-size: 1.25em;
+            }
+
+            .reminder-message {
+                font-size: 1.25em;  
+            }
+}
