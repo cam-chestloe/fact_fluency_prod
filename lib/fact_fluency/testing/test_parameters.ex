@@ -35,23 +35,30 @@ defmodule FactFluency.Testing.TestParameters do
   @doc """
   Returns a distilled TestParameters struct.
   """
-  @spec create_test_parameters(%TestParameters{}, integer()) :: %TestParameters{}
-  def create_test_parameters(test_parameters, student_id) do
-    student_params(student_id) ++ [test_parameters]
-    |> distill_parameters()
-  end
+  @spec distill_test_parameters(%TestParameters{}, integer()) :: %TestParameters{}
+  def distill_test_parameters(test_parameters, student_id) do
+    parameters_list = student_params(student_id) ++ [test_parameters]
 
-  defp distill_parameters(parameter_list) do
-    Enum.reduce(parameter_list, List.first(parameter_list), fn(new, complete) ->
-      complete
-      |> Map.put(:include_random_questions_in_score, new.include_random_questions_in_score || complete.include_random_questions_in_score)
-      |> Map.put(:number_of_random_questions, new.number_of_random_questions || complete.number_of_random_questions)
-      |> Map.put(:test_type, new.test_type || complete.test_type)
-      |> Map.put(:time_limit, new.time_limit || complete.time_limit)
-      |> Map.put(:total_questions, new.total_questions || complete.total_questions)
-      |> Map.put(:warm_up, new.warm_up || complete.warm_up)
-      |> Map.put(:arguments, new.arguments || complete.arguments)
-      end)
+    distilled_parameters =
+      if length(parameters_list) > 1 do
+        Enum.reduce(parameters_list, List.first(parameters_list), fn(new, complete) ->
+          complete
+          |> Map.put(:include_random_questions_in_score, new.include_random_questions_in_score || complete.include_random_questions_in_score)
+          |> Map.put(:number_of_random_questions, new.number_of_random_questions || complete.number_of_random_questions)
+          |> Map.put(:test_type, new.test_type || complete.test_type)
+          |> Map.put(:time_limit, new.time_limit || complete.time_limit)
+          |> Map.put(:total_questions, new.total_questions || complete.total_questions)
+          |> Map.put(:warm_up, new.warm_up || complete.warm_up)
+          |> Map.put(:arguments, new.arguments || complete.arguments)
+        end)
+      else
+        List.first(parameters_list)
+      end
+    
+      if params_completed?(distilled_parameters) do
+        {:ok, distilled_parameters}
+      else
+        {:error, "Incomplete test parameters for student with the id of: #{student_id}"}
   end
 
   @spec student_params(integer()) :: list(%TestParameters{})
@@ -70,5 +77,16 @@ defmodule FactFluency.Testing.TestParameters do
       select: p
 
     Repo.all(query)
+  end
+
+  @spec params_completed?(%TestParameters{}) :: boolen
+  defp params_completed?(test_parameters) do
+    #if Enum.any?(Map.values(distilled_parameters), fn(value) -> IO.inspect(value) == nil end) do
+    #  false
+    #else
+    #  true
+    #end
+
+    true
   end
 end

@@ -38,9 +38,9 @@ defmodule FactFluency.Testing.Test do
   @spec new_test(String.t(), map(), integer()) :: %Test{}
   def new_test(test_type, arguments, student_id) do
 
-    test_parameters = 
+    {:ok, test_parameters} = 
       %TestParameters{test_type: test_type, arguments: arguments}
-      |> TestParameters.create_test_parameters(student_id)
+      |> TestParameters.distill_test_parameters(student_id)
 
     case test_type do
 
