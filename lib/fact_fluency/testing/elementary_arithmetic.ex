@@ -30,13 +30,23 @@ defmodule FactFluency.Testing.ElementaryArithmetic do
   @spec create_questions(%TestParameters{}) :: list(%Question{})
   def create_questions(test_parameters) do
 
+    %{operator: operator, number: number} = test_parameters.arguments
+    %{number_of_random_questions: rand, total_questions: total} = test_parameters
+    
     # Addition, subtraction and multiplication will feature numbers 0 - 12 (max_number?)
     # Division will feature any numbers divisible by the number up to number * 12 (max_number?)
-    %{operator: operator, number: number} = test_parameters.arguments
-    %{total_questions: total} = test_parameters
+    featured_numbers = 
+      if operator == "/" do
+        Enum.to_list(0..12)
+        |> Enum.map(fn(num) -> num * number end)
+      else
+        Enum.to_list(0..12)
+      end
 
-    # Forget adding random questions for now
-    questions = add_questions([], Enum.to_list(0..12), number, total, operator)
+    questions = 
+      []
+      |> add_questions(featured_numbers, number, total - rand, operator)
+      |> add_random_questions(featured_numbers, total, operator)
 
     questions |> Enum.map(&(%Question{question: &1}))
   end
@@ -59,10 +69,12 @@ defmodule FactFluency.Testing.ElementaryArithmetic do
 
     if length_of_questions < total do
 
+      # Add one of each `valid_numbers`
       if length_of_valid_numbers > length_of_questions do
         questions
           |> List.insert_at(0, "#{number} #{operator} #{Enum.at(valid_numbers, length_of_questions)}")
           |> add_questions(valid_numbers, number, total, operator)
+      # If `questions` already contains one of each `valid_number`, add a random number from `valid_numbers`
       else
         questions
           |> List.insert_at(0, "#{number} #{operator} #{Enum.random(valid_numbers)}")
@@ -74,14 +86,18 @@ defmodule FactFluency.Testing.ElementaryArithmetic do
     end
   end
 
-  @spec add_random_questions([String.t()], String.t(), integer(), integer()) :: [String.t()]
-  defp add_random_questions(questions, operator, total, number) do
-
+  @spec add_random_questions([String.t()], [integer], integer, String.t()) :: [String.t()]
+  defp add_random_questions(questions, valid_numbers, total, operator) do
     if length(questions) < total do
-      List.insert_at(questions, 0, "#{:rand.uniform(12)} #{operator} #{number}")
-      |> add_random_questions(operator, total, number)
+      num1 = Enum.random(valid_numbers)
+      num2 = Enum.random(valid_numbers)
+
+      List.insert_at(questions, 0, "#{num1} #{operator} #{num2}")
+      |> add_random_questions(valid_numbers, total, operator)
       
-    else questions end
+    else 
+      questions 
+    end
   end
 
   @spec validate_arguments(map()) :: :ok

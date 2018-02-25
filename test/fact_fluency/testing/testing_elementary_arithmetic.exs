@@ -1,7 +1,7 @@
 defmodule FactFluency.TestingElementaryArithmetic do
     use FactFluency.DataCase, async: true
 
-    describe "when creating an elementary arithmetic test" do
+    describe "create_test/2" do
         alias FactFluency.Testing.TestParameters
         alias FactFluency.Testing.{ElementaryArithmetic, Test}
 
