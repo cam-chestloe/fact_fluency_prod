@@ -29,7 +29,7 @@ Student Test Page In Test Page Folder
 - Toggle start button to remove card-ready-set-go
     - Wait 3 seconds before starting the test
 - Link all the buttons and cancels to proper places
--Problem solve navbar sitting on top but remaining transparent
+- Problem solve navbar sitting on top but remaining transparent
 
 
 
@@ -45,3 +45,10 @@ Fritz's TODO:
 - Validate test parameters when creating a new test. The test params should be complete after running "create_test_parameters()".
 - Randomize the display of questions while taking tests.
 - Add a "submit" step at the end of taking a test.
+- Re-cycle through the questions until time in up.
+- Larger number on top for subtraction.
+
+
+
+FUTURE:
+- Negative symbol on left hand side
