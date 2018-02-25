@@ -1,55 +1,86 @@
 defmodule FactFluency.TestingElementaryArithmetic do
     use FactFluency.DataCase, async: true
-    
-    describe "when creating an elementary arithmetic test for a student" do
-      alias FactFluency.Testing.TestParameters
-      alias FactFluency.Testing.ElementaryArithmetic
-  
-      @valid_test_params %TestParameters{arguments: %{}, include_random_questions_in_score: true, number_of_random_questions: 5, test_type: "elementary_arithmetic", time_limit: 60, timestamps: "some timestamps", total_questions: 12, warm_up: false}
-  
-      test "create_test/0 with valid arguments creates a test" do
-        test_parameters = 
-            @valid_test_params
-            |> Map.put(:arguments, %{number: 5, operator: '+'})
 
-        assert ElementaryArithmetic.create_test(test_parameters, 1)
-      end
+    describe "when creating an elementary arithmetic test" do
+        alias FactFluency.Testing.TestParameters
+        alias FactFluency.Testing.{ElementaryArithmetic, Test}
 
-      test "create_test/1 with invalid argument keys raises an error" do
-        test_parameters = 
-            @valid_test_params
-            |> Map.put(:arguments, %{invalid: 't', keys: 3})
+        @valid_test_params %TestParameters{arguments: %{number: 5, operator: "+"}, include_random_questions_in_score: true, number_of_random_questions: 5, test_type: "elementary_arithmetic", time_limit: 60, timestamps: "some timestamps", total_questions: 12, warm_up: false}
 
-        assert_raise FunctionClauseError,  fn ->
-            ElementaryArithmetic.create_test(test_parameters, 1)
+        test "with valid arguments" do
+            test_parameters = 
+                @valid_test_params
+                |> Map.put(:arguments, %{number: 6, operator: "-"})
+
+            assert ElementaryArithmetic.create_test(test_parameters, 1)
         end
-      end
 
-      test "create_test/2 with invalid argument values raises an error" do
-        test_parameters = 
-            @valid_test_params
-            |> Map.put(:arguments, %{number: 't', operator: 3})
+        test "with invalid argument keys raises an error" do
+            test_parameters = 
+                @valid_test_params
+                |> Map.put(:arguments, %{invalid: 3, keys: "+"})
 
-        assert_raise FunctionClauseError, fn ->
-            ElementaryArithmetic.create_test(test_parameters, 1)
+            assert_raise FunctionClauseError,  fn ->
+                ElementaryArithmetic.create_test(test_parameters, 1)
+            end
         end
-      end
 
-      test "create_test/3 creates a test with the correct number of standard questions" do
-          
-      end
+        test "with invalid number argument value raises an error" do
+            test_parameters = 
+                @valid_test_params
+                |> Map.put(:arguments, %{number: 't', operator: "+"})
 
-      test "create_test/4 creates a test with the correct number of random questions" do
-          
-      end
+            assert_raise RuntimeError, "Argument number must be an integer.", fn ->
+                ElementaryArithmetic.create_test(test_parameters, 1)
+            end
+        end
 
-      test "create_test/5 creates a test with the correct number of standard and random questions" do
-          
-      end
+        test "with invalid operator argument value raises an error" do
+            test_parameters = 
+                @valid_test_params
+                |> Map.put(:arguments, %{number: 5, operator: "t"})
 
-      test "create_test/6 creates a test with the correct operators" do
-          
-      end
+            assert_raise RuntimeError, "Argument operator must be one of: +, -, * or /", fn ->
+                ElementaryArithmetic.create_test(test_parameters, 1)
+            end
+        end
+
+        test "with the correct number of questions" do
+            test_parameters =
+                @valid_test_params
+                |> Map.put(:total_questions, 5)
+                |> Map.put(:number_of_random_questions, 0)
+
+            %Test{questions: questions} = ElementaryArithmetic.create_test(test_parameters, 1)
+        
+            assert length(questions) == 5
+        end
+
+        test "with the correct number of questions including random questions" do
+            test_parameters =
+                @valid_test_params
+                |> Map.put(:total_questions, 10)
+                |> Map.put(:number_of_random_questions, 5)
+
+            %Test{questions: questions} = ElementaryArithmetic.create_test(test_parameters, 1)
+
+            assert length(questions) == 10
+        end
+
+        test "with the correct operators" do
+            Enum.each(["+", "-", "*", "/"], fn(operator) ->
+                test_parameters =
+                    @valid_test_params
+                    |> Map.put(:arguments, %{number: 0, operator: operator})
+                
+                %Test{questions: questions} = ElementaryArithmetic.create_test(test_parameters, 1)
+                
+                [_num1, op, _num2] =
+                    List.first(questions).question
+                    |> String.split()
+
+                assert op == operator
+            end)
+        end
     end
-  end
-  
+end

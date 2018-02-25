@@ -86,8 +86,8 @@ defmodule FactFluency.Testing.ElementaryArithmetic do
 
   @spec validate_arguments(map()) :: :ok
   defp validate_arguments(%{number: number, operator: operator}) do
-    if not(is_integer(number)), do: raise(FunctionClauseError, [])
-    if not(Enum.member?(['+', '-', '/', '*'], operator)), do: raise(FunctionClauseError, [])
+    if not(is_integer(number)), do: raise("Argument number must be an integer.")
+    if not(Enum.member?(["+", "-", "/", "*"], operator)), do: raise("Argument operator must be one of: +, -, * or /")
 
     :ok
   end

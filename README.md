@@ -43,7 +43,3 @@ Fritz's TODO:
 - Add random questions to elementary_arithmetic tests.
 - Randomize the display of questions while taking tests.
 - Add a "submit" step at the end of taking a test.
-- Write tests for elementary_arithmetic:
-    - Create new tests for each type (addition, subtraction, multiplication, division) and check that the correct operator is included.
-    - Check that max questions work properly.
-    - Create test with incorrect arguments returns an error.
