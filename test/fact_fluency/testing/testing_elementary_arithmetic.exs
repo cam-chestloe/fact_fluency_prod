@@ -1,12 +1,11 @@
 defmodule FactFluency.TestingElementaryArithmetic do
     use FactFluency.DataCase, async: true
+    alias FactFluency.Testing.TestParameters
+    alias FactFluency.Testing.{ElementaryArithmetic, Test}
+
+    @valid_test_params %TestParameters{arguments: %{number: 5, operator: "+"}, include_random_questions_in_score: true, number_of_random_questions: 5, test_type: "elementary_arithmetic", time_limit: 60, timestamps: "some timestamps", total_questions: 12, warm_up: false}
 
     describe "create_test/2" do
-        alias FactFluency.Testing.TestParameters
-        alias FactFluency.Testing.{ElementaryArithmetic, Test}
-
-        @valid_test_params %TestParameters{arguments: %{number: 5, operator: "+"}, include_random_questions_in_score: true, number_of_random_questions: 5, test_type: "elementary_arithmetic", time_limit: 60, timestamps: "some timestamps", total_questions: 12, warm_up: false}
-
         test "with valid arguments" do
             test_parameters = 
                 @valid_test_params
@@ -109,6 +108,32 @@ defmodule FactFluency.TestingElementaryArithmetic do
                
                assert String.to_integer(num1) >= String.to_integer(num2)
             end)
+        end
+
+        test "with the number zero contains all other numbers" do
+            test_parameters =
+                @valid_test_params
+                |> Map.put(:arguments, %{number: 0, operator: "/"})
+                |> Map.put(:number_of_random_questions: 0)
+                |> Map.put(:total_questions, 12)
+
+            %Test{questions: questions} = ElementaryArithmetic.create_test(test_parameters, 1)
+
+            Enum.all?(questions, fn(question) ->
+                
+            end)
+        end
+    end
+
+    describe "grade_questions/1" do
+        test "with a division by zero problem" do
+            test_parameters =
+                @valid_test_params
+                |> Map.put(:arguments, %{number: 0, operator: "/"})
+
+            %Test{questions: questions} = ElementaryArithmetic.create_test(test_parameters, 1)
+
+            assert ElementaryArithmetic.grade_questions(questions)
         end
     end
 end
